@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:id])
+    @item.create(ite_params)
+    redirect_to action: :index
   end
 
   def destroy
