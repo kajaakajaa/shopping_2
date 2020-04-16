@@ -1,0 +1,23 @@
+<div class="form">
+  <%= form_with model: @item, local: true do |f| %>
+    <%= f.label :name, :name %>
+    <%= f.text_field :name %>
+    <% if @item.errors.messages[:name].any? %>
+      <span class="error"><%= @item.errors.messages[:name][0] %></span>
+    <% end %>
+
+    <%= f.label :value, :value %>
+    <%= f.text_field :value %>
+    <% if @item.errors.messages[:value].any? %>
+      <span class="error"><%= @item.errors.messages[:value][0] %></span>
+    <% end %>
+
+    <%= f.label :number, :number %>
+    <%= f.text_field :number %>
+    <% if @item.errors.messages[:number].any? %>
+      <span class="error"><%= @item.errors.messages[:number][0] %></span>
+    <% end %>
+
+    <%= f.submit :send %>
+  <% end  %>
+</div>
