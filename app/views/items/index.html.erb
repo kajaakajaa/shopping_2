@@ -26,9 +26,10 @@
   <ul>
     <% @items.each do |item| %>
       <li>
-        <%= item.name %>
-        <%= item.value %>
-        <%= item.number %>
+        品名  :<%= item.name %>,  
+        価格  :<%= item.value %>, 
+        個数  :<%= item.number %>
       </li>
     <% end %>
   </ul>
+<% end %>
