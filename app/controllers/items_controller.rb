@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @item = Item.all
     @item = Item.new
   end
 
@@ -8,10 +9,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: :index
     end
-  end
-
-  def out
-    @item = Item.all
   end
 
   def destroy
