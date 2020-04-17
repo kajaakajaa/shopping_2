@@ -1,5 +1,5 @@
 <div class="form">
-  <%= form_with model: @item, url: create_path, local: true do |f| %>
+  <%= form_with(model: @item, local: true) do |f| %>
     <%= f.label :name, :name %>
     <%= f.text_field :name %>
     <% if @item.errors.messages[:name].any? %>
@@ -21,3 +21,17 @@
     <%= f.submit :send %>
   <% end  %>
 </div>
+
+<%
+=begin %>
+<ul>
+  <% @item.each do |item| %>
+    <li>
+      <%= item.name %>
+      <%= item.value %>
+      <%= item.number %>
+    </li>
+  <% end %>
+</ul>
+<%
+=end %>

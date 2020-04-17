@@ -4,9 +4,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:id])
-    @item.create(ite_params)
-    redirect_to action: :index
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to action: :index
+    end
+  end
+
+  def out
+    @item = Item.all
   end
 
   def destroy
