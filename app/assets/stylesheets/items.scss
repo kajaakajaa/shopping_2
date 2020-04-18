@@ -16,3 +16,18 @@ ul {
   top: 100px;
   color: rgb(26, 1, 255)
 }
+
+th {
+  padding: 0 5px;
+}
+
+td {
+  padding: 0 30px;
+  color: hsl(0, 100%, 50%);
+}
+
+#item_index {
+  position: relative;
+  top: 100px;
+  left: 50px;
+}

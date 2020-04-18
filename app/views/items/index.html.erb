@@ -1,18 +1,18 @@
 <div class="form">
   <%= form_with(model: @item, local: true) do |f| %>
-    <%= f.label :name, :name %>
+    <%= f.label :name, :品名 %>
     <%= f.text_field :name %>
     <% if @item.errors.messages[:name].any? %>
       <span class="error"><%= @item.errors.messages[:name][0] %></span>
     <% end %>
 
-    <%= f.label :value, :value %>
+    <%= f.label :value, :価格 %>
     <%= f.text_field :value %>
     <% if @item.errors.messages[:value].any? %>
       <span class="error"><%= @item.errors.messages[:value][0] %></span>
     <% end %>
 
-    <%= f.label :number, :number %>
+    <%= f.label :number, :個数 %>
     <%= f.text_field :number %>
     <% if @item.errors.messages[:number].any? %>
       <span class="error"><%= @item.errors.messages[:number][0] %></span>
@@ -22,14 +22,23 @@
   <% end  %>
 </div>
 
-<% if @items.any? %>
-  <ul>
-    <% @items.each do |item| %>
-      <li>
-        品名  :<%= item.name %>,  
-        価格  :<%= item.value %>, 
-        個数  :<%= item.number %>
-      </li>
+<div id="total">
+  <%#= link_to "Total", :action => "total" %>
+  <%= @total %>
+</div>
+
+<div id="item_index">
+  <% if @items.any? %>
+    <% @items.each do |items| %>
+      <table> <!-- <table border="1"> で枠有り -->
+        <tr>
+          <th>・   品名  :</th>
+            <td><%= items.name %></td>
+          <th>価格  :</th>
+            <td><%= items.value %>　円</td>
+          <th>個数  :</th>
+            <td><%= items.number %>　点</td>
+        </tr>
     <% end %>
-  </ul>
-<% end %>
+  <% end %>
+ </div>
