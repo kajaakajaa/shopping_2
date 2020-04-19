@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.form {
+
+.form_div {
   font-size: 20px;
   position: relative;
   top: 20px;
@@ -17,17 +18,28 @@ ul {
   color: rgb(26, 1, 255)
 }
 
-th {
-  padding: 0 5px;
-}
-
-td {
-  padding: 0 30px;
-  color: hsl(0, 100%, 50%);
-}
-
-#item_index {
+// total
+#total_div {
   position: relative;
   top: 100px;
-  left: 50px;
+  left: 10%;
+}
+.total_th {
+  width: 20%;
+}
+.total_td {
+  width: 80%;
+  text-align: center;
+  color: hsl(0, 100%, 50%);
+}
+#total_tbl {
+  width: 50%;
+}
+// total
+
+// index
+#index_div {
+  position: relative;
+  top: 30px;
+  left: 10%;
 }

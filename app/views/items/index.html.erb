@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form_div">
   <%= form_with(model: @item, local: true) do |f| %>
     <%= f.label :name, :品名 %>
     <%= f.text_field :name %>
@@ -22,23 +22,28 @@
   <% end  %>
 </div>
 
-<div id="total">
-  <%#= link_to "Total", :action => "total" %>
-  <%= @total %>
+<div id="total_div">
+  <table border="1", id="total_tbl">
+    <tr>
+      <th class="total_th">合計金額</th>
+      <td class="total_td"><%= @total %></td>
+    </tr>
+  </table>
 </div>
 
-<div id="item_index">
-  <% if @items.any? %>
-    <% @items.each do |items| %>
-      <table> <!-- <table border="1"> で枠有り -->
+<% if @items.any? %>
+  <% @items.each do |items| %>
+    <div>
+      <table border="1", id="index_tbl">
         <tr>
-          <th>・   品名  :</th>
-            <td><%= items.name %></td>
-          <th>価格  :</th>
-            <td><%= items.value %>　円</td>
-          <th>個数  :</th>
-            <td><%= items.number %>　点</td>
+          <th class="index_th">品名</th>
+            <td class="index_td"><%= items.name %></td>
+          <th class="index_th">価格</th>
+            <td class="index_td"><%= items.value %> 円</td>
+          <th class="index_th">個数</th>
+            <td class="index_td"><%= items.number %> 点</td>
         </tr>
-    <% end %>
+      </table>
+    </div>
   <% end %>
- </div>
+<% end %>

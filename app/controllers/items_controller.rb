@@ -2,6 +2,11 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.all
+    # @total = Item.all.sum(:value)
+    @total = 0 #(← 初期の数値)
+    @items.each do |item|
+      @total += item.value * item.number
+    end
   end
 
   def create
@@ -11,9 +16,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def total
-    @total = Item.all.sum(:value)
-  end
+  # def total
+  #   @total = Item.all.sum(:value)
+  # end
   # def show
   #   @upload_file = UploadFile.find(params[:id])
   # end
