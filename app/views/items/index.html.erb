@@ -26,15 +26,16 @@
   <table border="1", id="total_tbl">
     <tr>
       <th class="total_th">合計金額</th>
-      <td class="total_td"><%= @total %></td>
+      <td class="total_td"><%= @total %> 円</td>
     </tr>
   </table>
 </div>
 
-<% if @items.any? %>
-  <% @items.each do |items| %>
-    <div>
-      <table border="1", id="index_tbl">
+
+<div id="index_div">
+  <table border="1", id="index_tbl">
+    <% if @items.any? %>
+      <% @items.each do |items| %>
         <tr>
           <th class="index_th">品名</th>
             <td class="index_td"><%= items.name %></td>
@@ -43,7 +44,7 @@
           <th class="index_th">個数</th>
             <td class="index_td"><%= items.number %> 点</td>
         </tr>
-      </table>
-    </div>
-  <% end %>
-<% end %>
+      <% end %>
+    <% end %>               
+  </table>
+</div>

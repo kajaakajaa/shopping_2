@@ -3,9 +3,9 @@ class ItemsController < ApplicationController
     @item = Item.new
     @items = Item.all
     # @total = Item.all.sum(:value)
-    @total = 0 #(← 初期の数値)
+    @total = 0 #(← 初期の数値設定が要る)
     @items.each do |item|
-      @total += item.value * item.number
+      @total += item.value * item.number 
     end
   end
 
