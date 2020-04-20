@@ -31,15 +31,28 @@ ul {
   width: 80%;
   text-align: center;
   color: hsl(0, 100%, 50%);
+  font-size: 20px;
 }
 #total_tbl {
-  width: 50%;
+  width: 40%;
 }
 // total
 
 // index
 #index_div {
   position: relative;
-  top: 30px;
-  left: 10%;
+  top: 180px;
+  left: 15%;
 }
+#index_tbl {
+  width: 50%;
+}
+.index_th {
+  width: 10%;
+}
+.index_td {
+  text-align: center;
+  color: rgb(0, 21, 209);
+}
+
+// index
