@@ -16,13 +16,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def total
-  #   @total = Item.all.sum(:value)
-  # end
-  # def show
-  #   @upload_file = UploadFile.find(params[:id])
-  # end
-
   def destroy
   end
 
