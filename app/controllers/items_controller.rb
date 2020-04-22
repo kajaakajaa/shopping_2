@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @item = Item.new
-    @items = Item.all.reverse_order.group(:name)
+    @items = Item.all.group(:name).reverse_order
     # @total = Item.all.sum(:value)
     @total = 0 #(← 初期の数値設定が要る)
     @items.each do |item|
