@@ -34,14 +34,12 @@
 <div id="index_div">
   <table border="", id="index_tbl">
     <% if @items.any? %>
-      <% @items.each do |items| %>
+      <% @items.each do |item| %>
         <tr>
           <th class="index_th">品名</th>
-            <td class="index_td"><%= items.name %></td>
-          <th class="index_th">価格</th>
-            <td class="index_td"><%= items.value %> 円</td>
+            <td class="index_td"><%= item.name %></td>
           <th class="index_th">個数</th>
-            <td class="index_td"><%= items.number %> 点</td>
+            <td class="index_td"><%= item.number %> 点</td>
         </tr>
       <% end %>
     <% end %>               
