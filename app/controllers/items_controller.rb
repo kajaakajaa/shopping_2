@@ -2,6 +2,11 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.all
+    @valnum = Item.all.group(:name).sum(:number)
+    # @items.each do |item|
+    #   @valnums = item.value * item.number
+    #   @total = item.group(:name).sum(@valnums)
+    # end
     # @total = Item.all.sum(:value)
     @total = 0 #(← 初期の数値設定が要る)
     @items.each do |item|
