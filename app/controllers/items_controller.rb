@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
     @item = Item.new
-    @items = Item.all
+    @items = Item.find_by_sql(["SELECT * FROM items WHERE id 
+      IN(SELECT MAX(id) FROM items GROUP BY name);"])
     # @items.each do |item|
     #   @valnums = item.value * item.number
     #   @total = item.group(:name).sum(@valnums)
@@ -29,7 +30,3 @@ class ItemsController < ApplicationController
   end
 end
 
-
-# SELECT * FROM items WHERE id IN( 
-#   SELECT MAX(id) FROM items GROUP BY name 
-# );
