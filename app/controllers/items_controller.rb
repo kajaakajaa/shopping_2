@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.all
-    @valnum = Item.all.group(:name).sum(:number)
     # @items.each do |item|
     #   @valnums = item.value * item.number
     #   @total = item.group(:name).sum(@valnums)
@@ -29,3 +28,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :value, :number)
   end
 end
+
+
+# SELECT * FROM items WHERE id IN( 
+#   SELECT MAX(id) FROM items GROUP BY name 
+# );
