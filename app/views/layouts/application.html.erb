@@ -5,18 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>  <%# ←マニュフェストファイルの指定 →application.css(マニュフェストファイル) %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  <%# ←マニュフェストファイルの指定 application.js(マニュフェストファイル) %>
   </head>
 
   <body>
     <%= yield %>
-<%
-=begin %>
-    <script type="text/javascript" src="shopping_2/jquery-3.5.0.min.js"></script> <!-- ←導入したJQueryライブラリ　※ディレクトリはこのアプリ直下にある -->
-    <script src="index.js"></script>
-<%
-=end %>
   </body>
 </html>
 
