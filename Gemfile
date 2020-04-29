@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
+gem "jquery-rails"
 group :development, :test do
   gem 'hirb'         # モデルの出力結果を表形式で表示するGem
   gem 'hirb-unicode' # 日本語などマルチバイト文字の出力時の出力結果のずれに対応

@@ -48,4 +48,11 @@
   </table>
 </div>
 
-<%= javascript_pack_tag "shopping/index" %>
+<%#= javascript_pack_tag "shoppingindex.js" %> <%# <- js ファイルの記述を受け取るスタンダードなコード　%>
+
+<%= javascript_include_tag 'shoppingindex.js' %> <%# <- jquery形式でファイルの記述を受け取るコード　%>
+<div class="spinner_area">
+  <input type="number" value="0" class="counter1" data-max="500" data-min="0">
+  <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter1">
+  <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter1">
+</div>
