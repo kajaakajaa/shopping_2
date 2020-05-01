@@ -65,14 +65,16 @@ ul {
   user-select: none;
 }
 
-.spinner_area input{
-  padding: 11px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 18px;
-  width: auto;
-  vertical-align: middle;
- }
+// .spinner_area input{
+//   padding: 11px;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   font-size: 18px;
+//   width: auto;
+//   vertical-align: middle;
+//  }
+
+
 // スピナーボタンを消す。
  input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
