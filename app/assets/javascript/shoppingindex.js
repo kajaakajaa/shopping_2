@@ -48,5 +48,4 @@ $(function(){
             target.val(num);
         }
     }
-    
 });
