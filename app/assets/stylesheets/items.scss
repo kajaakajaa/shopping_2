@@ -50,9 +50,13 @@ ul {
 .index_th {
   width: 10%;
 }
-.index_td {
+.index_td, .index_number_td {
   text-align: center;
   color: rgb(0, 21, 209);
+}
+.index_number_td, #spinner_button {
+  width: 80px;
+  flex-wrap: nowrap;
 }
 // index
 
@@ -64,15 +68,7 @@ ul {
   -webkit-user-select: none;
   user-select: none;
 }
-
-// .spinner_area input{
-//   padding: 11px;
-//   border: 1px solid #ccc;
-//   border-radius: 4px;
-//   font-size: 18px;
-//   width: auto;
-//   vertical-align: middle;
-//  }
+// spinnerBUTTUN(+ -)
 
 
 // スピナーボタンを消す。
@@ -81,8 +77,14 @@ ul {
     -webkit-appearance: none;
     margin: 0;
 }
-.spinner_area input[type="button"]{
+#spinner_button input[type="button"]{
   cursor: pointer;
 }
+.counter {
+  width: 50px;
+  text-align: center;
+}
+// スピナーボタンを消す。
+
 // spinnerBUTTUN(+ -)
 

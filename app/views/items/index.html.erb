@@ -31,6 +31,7 @@
   </table>
 </div>
 
+<%= javascript_include_tag 'shoppingindex.js' %> <%# <- jquery形式でファイルの記述を受け取るコード　%>
 <div id="index_div">
   <table border="", id="index_tbl">
     <% if @items.any? %>
@@ -41,7 +42,15 @@
           <th class="index_th">価格</th>
             <td class="index_td"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
-            <td class="index_td"><%= item.number %> 点</td>
+            <td class="index_number_td">
+              <form action="/items" accept-charest="UTF-8" method="post" >
+                <input type="number" value="<%= item.number %>" name="item[number]" id="item_number" class="counter" data-max="500" data-min="0"> 点
+              </form>
+            </td>
+          <th border="0" id="spinner_button">
+            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter">
+            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter">
+          </th>
         </tr>
       <% end %>
     <% end %>               
@@ -49,10 +58,7 @@
 </div>
 
 <%#= javascript_pack_tag "shoppingindex.js" %> <%# <- js ファイルの記述を受け取るスタンダードなコード　%>
-
-<%= javascript_include_tag 'shoppingindex.js' %> <%# <- jquery形式でファイルの記述を受け取るコード　%>
-<div class="spinner_area">
-  <%#<input type="number" value="0" class="counter1" data-max="500" data-min="0"> %>
-  <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter1">
-  <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter1">
-</div>
+<%#<div class="spinner_area">
+  <input type="number" value="0" class="counter1" data-max="500" data-min="0">
+  
+</div>#%>
