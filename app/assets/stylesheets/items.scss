@@ -68,8 +68,6 @@ ul {
   -webkit-user-select: none;
   user-select: none;
 }
-// spinnerBUTTUN(+ -)
-
 
 // スピナーボタンを消す。
  input[type="number"]::-webkit-outer-spin-button,
@@ -77,6 +75,9 @@ ul {
     -webkit-appearance: none;
     margin: 0;
 }
+// スピナーボタンを消す。
+
+
 #spinner_button input[type="button"]{
   cursor: pointer;
 }
@@ -84,7 +85,7 @@ ul {
   width: 50px;
   text-align: center;
 }
-// スピナーボタンを消す。
+
 
 // spinnerBUTTUN(+ -)
 

@@ -42,16 +42,16 @@
           <th class="index_th">価格</th>
             <td class="index_td"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
+          <form action="/items" accept-charest="UTF-8" method="post" >
             <td class="index_number_td">
-              <form action="/items" accept-charest="UTF-8" method="post" >
-                <input type="number" value="<%= item.number %>" name="item[number]"
-                id="item_number" class="counter" data-max="500" data-min="0"> 点
-              </form>
+              <input type="number" value="<%= item.number %>" name="item[number]"
+              id="item_number" class="counter" data-max="500" data-min="0"> 点
             </td>
-          <th id="spinner_button">
-            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter">
-            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter">
-          </th> <%# -> spinner_buttonにカラムを追加する %>
+            <th id="spinner_button">
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter">
+            </th> <%# -> spinner_buttonにカラムを追加する %>
+          </form>
         </tr>
       <% end %>
     <% end %>               
