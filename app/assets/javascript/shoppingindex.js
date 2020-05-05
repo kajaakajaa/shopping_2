@@ -1,5 +1,23 @@
 "use strict";
 
+$("th#spinner_button").click(function(){
+  $.ajax({
+    url: "/items",
+    type: "POST",
+    data: {content : $("counter<%= item.id %>").text()},
+    datatype: "html",
+    // success: function(data){
+    //   //成功時の処理
+    // },
+    // error: function(data){
+    //   //失敗時の処理
+    // }
+  });
+  $.then(
+    data => $('#results').append(data),
+    error => alert('読み込み失敗')
+  );
+});
 $(function(){
     
     var arySpinnerCtrl = [];

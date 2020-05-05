@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: :index
     end
+    @tmp = params[:content]
+    render "index"
   end
 
   def destroy
