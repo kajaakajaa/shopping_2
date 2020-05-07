@@ -2,11 +2,10 @@
 
 $(function(){
   
-  $(".counter").change(function(){
+  $("input.counter").change(function(){
     $.ajax({
-      url: "items/:id",
+      url: "items/:id", // <- update のurl
       type: "PATCH",
-      data: {content : $("counter<%= item.id %>").text()},
       datatype: "html",
       // success: function(data){
       //   //成功時の処理
