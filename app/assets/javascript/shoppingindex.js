@@ -1,18 +1,18 @@
 "use strict";
 
 $(function(){
-  
-  $("input.counter").change(function(){
+
+  var params = {
+    id: "[]",
+    val: "[]"
+  }
+  $("input.counter").change(function(){  // change -> "inputタグのcounterクラスのフォームに変化があれば発動する"
     $.ajax({
-      url: "items/:id", // <- update のurl
+      url: "items/:id", // <- "update" のurl
       type: "PATCH",
+      cache: false,
       datatype: "html",
-      // success: function(data){
-      //   //成功時の処理
-      // },
-      // error: function(data){
-      //   //失敗時の処理
-      // }
+      data: params
     });
   });  
 
