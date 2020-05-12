@@ -1,20 +1,20 @@
 "use strict";
 
 $(function(){
-
-  var params = {
-    id: "[]",
-    val: "[]"
-  }
-  $("input.counter").change(function(){  // change -> "inputタグのcounterクラスのフォームに変化があれば発動する"
-    $.ajax({
-      url: "items/:id", // <- "update" のurl
-      type: "PATCH",
-      cache: false,
-      datatype: "html",
-      data: params
-    });
-  });  
+// 以下 jquery でAjax通信扱う際に必要。
+  // var params = {
+  //   id: "[]",
+  //   val: "[]"
+  // }
+  // $("input.counter").change(function(){  // change -> "inputタグのcounterクラスのフォームに変化があれば発動する"
+  //   $.ajax({
+  //     url: "items/:id", // <- "update" のurl
+  //     type: "PATCH",
+  //     cache: false,
+  //     datatype: "html",
+  //     data: params
+  //   });
+  // });  
 
     var arySpinnerCtrl = [];
     var spin_speed = 20; //変動スピード
