@@ -58,16 +58,4 @@
   </table>
 </div>
 
-<%
-=begin テストだよ↓ 
-<div class="container">
-  <%#<p>量</p>
-  <input id="quantity" type="number" size="40"><br>%>
-  <p>単価</p>
-  <input id="price" type="number" size="40"><br>  <p>合計金額</p>
-  <span id="total"></span>円です。
-</div>
-<%
-=end %>
-
-<%#= javascript_pack_tag "shoppingindex.js" %> <%# <- js ファイルの記述を受け取るスタンダードなコード　%>
+<%= javascript_pack_tag "index.js" %> <%# js ファイルの記述を受け取るスタンダードなコード(app/javascript/packs/〇〇.js packsのすぐ下に配置が必要) %>
