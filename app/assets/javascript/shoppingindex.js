@@ -1,7 +1,7 @@
-"use strict";
-
 $(function(){
 // 以下 jquery でAjax通信扱う際に必要。
+"use strict";
+
   // var params = {
   //   id: "[]",
   //   val: "[]"

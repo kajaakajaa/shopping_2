@@ -1,10 +1,20 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//   console.log(document.getElementById('hello'));
-// });
+"use strict"
 
-function myfunc() { 
-  console.log("Hello world!");
- }
+
+var kaja = document.getElementById("mytextbox")
+kaja.addEventListener("change", function(){
+  kaja.nextSibling.innerHTML
+}, false);
+
+// function alertValue($this) {
+//   $this.nextSibling.innerHTML = $this.value;
+// }
+
+// $(function() {
+//   $('input[type="number"]').on('keyup change', function() {
+//     update_field();
+//   });
+// });
 
 //以下 テスト。
 // "use strict;"
