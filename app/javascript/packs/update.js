@@ -1,19 +1,18 @@
-"use strict"
+// document.addEventListener('DOMContentLoaded', () => {
+//   console.log(document.getElementById('hello'));
+// });
 
+document.getElementById("kajaa").addEventListener("click", function(){ 
+var mydiv = document.getElementById("mydiv");
+mydiv.innerHTML = "<h3>h1をh3へ変更しました！<h3>";
+});
+document.getElementById("kajaa").removeEventListener("click", function(){ 
+  document.getElementById("mydiv");
+});
 
-var kaja = document.getElementById("mytextbox")
-kaja.addEventListener("change", function(){
-  kaja.nextSibling.innerHTML
-}, false);
-
-// function alertValue($this) {
-//   $this.nextSibling.innerHTML = $this.value;
-// }
-
-// $(function() {
-//   $('input[type="number"]').on('keyup change', function() {
-//     update_field();
-//   });
+// document.getElementById("kajaa").addEventListener("click", function(){ 
+// var mydiv = document.getElementById("mydiv");
+// mydiv.innerHTML = "<h1>変更前<h1>";
 // });
 
 //以下 テスト。
