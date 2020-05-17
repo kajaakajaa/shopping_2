@@ -21,7 +21,13 @@
 
 // ---------------------------------------------------------------------------------------------------------
 
+// var ka = document.getElementById("ka");
+// console.log("ka");
+
+// ---------------------------------------------------------------------------------------------------------
+
 document.getElementById("str").addEventListener("keyup", function(e){ // ← "str" IDの要素(タグ)を取得してそれの "イベント発動条件" を "change" とする。
   var str = document.getElementById("str"); // "str" を変数化する。
   str.nextSibling.textContent = str.value;  // ID "str" の要素内の文字列を "str.value (※〇〇.valueプラウザ上のフォームの値に指定するという意味)" に当てはめる。
 });
+
