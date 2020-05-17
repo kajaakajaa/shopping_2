@@ -31,7 +31,6 @@
   </table>
 </div>
 
-<%= javascript_include_tag 'shoppingindex.js' %> <%# <- jquery形式でファイルの記述を受け取るコード　%>
 <div id="index_div">
   <table border="", id="index_tbl">
     <% if @items.any? %>
@@ -40,12 +39,12 @@
           <th class="index_th">品名</th>
             <td class="index_td"><%= item.name %></td>
           <th class="index_th">単価</th>
-            <td class="index_td"><%= item.value %> 円</td>
+            <td class="index_td" id="unit_price"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
           <form action="/items" accept-charest="UTF-8" method="post" >
             <td class="index_number_td">
               <input type="number" value="<%= item.number %>" name="item[number]"
-              id="item_number" class="counter<%= item.id %>" data-max="500" data-min="0"> 点
+              id="item_number_2" class="counter<%= item.id %>" data-max="500" data-min="0"> 点
             </td>
             <th id="spinner_button">
               <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">
@@ -57,9 +56,5 @@
     <% end %>               
   </table>
 </div>
-
-<div id="mydiv">
-  <h1 id="myh1">変更前</h1>
-</div>
-<input type="button" value="押してね♡" id="kajaa">
-<%= javascript_pack_tag "update.js" %> <%# js ファイルの記述を受け取るスタンダードなコード(app/javascript/packs/〇〇.js packsのすぐ下に配置が必要) %>
+<%= javascript_include_tag 'shoppingindex.js' %> <%# <- jquery形式でファイルの記述を受け取るコード　%>
+<%= javascript_pack_tag "update.js" %>
