@@ -26,7 +26,7 @@
   <table border="1", id="total_tbl">
     <tr>
       <th class="total_th">合計金額</th>
-      <td class="total_td"><%= @total %> 円</td>
+      <td class="total_td" id="total_td" data-total="<%= @total %>"><%= @total %> 円</td>
     </tr>
   </table>
 </div>
@@ -39,12 +39,12 @@
           <th class="index_th">品名</th>
             <td class="index_td"><%= item.name %></td>
           <th class="index_th">単価</th>
-            <td class="index_td" id="unit_price"><%= item.value %> 円</td>
+            <td class="index_td" id="unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
           <form action="/items" accept-charest="UTF-8" method="post" >
             <td class="index_number_td">
               <input type="number" value="<%= item.number %>" name="item[number]"
-              id="item_number_2" class="counter<%= item.id %>" data-max="500" data-min="0"> 点
+              id="item_number_2" class="counter<%= item.id %>" data-number="<%= item.number %>" data-max="500" data-min="0"> 点
             </td>
             <th id="spinner_button">
               <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">
