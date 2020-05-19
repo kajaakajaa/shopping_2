@@ -1,24 +1,24 @@
-// --------------------------------------- 実践 ------------------------------------------------------------------
+// // --------------------------------------- 実践 ------------------------------------------------------------------
+$(function(){
 
-// const btnspinners = document.getElementsByClassName("btnspinner");
 
-for(let i = 0; i < btnspinners.length; i++){
-  btnspinners[i].addEventListener("click", function(e){
+const btnspinners = document.getElementsByClassName("btnspinner");
+
+  $('.btnspinner').on('touchstart mousedown click', function(e) {
+    console.log("aaaaaaaaaaaaaaa");
     var total_td = document.getElementById("total_td");  // 全itemの合計値。
     var total = total_td.dataset.total;
-  
     var item_number_2 = document.getElementById("item_number_2"); // １itemの個数。
     var number = item_number_2.dataset.number;
-  
-    // var unit_price = document.getElementById("unit_price"); // 単価。
-    // var price = unit_price.dataset.price;
-  
-    // var oneitem_price = perseInt(price) * perseInt(number); // １itemの合計価格。
-  
-    // total = perseInt(total) + perseInt(oneitem_price); // 全itemの合計値。
+    var unit_price = document.getElementById("unit_price"); // 単価。
+    var price = unit_price.dataset.price;
+    var oneitem_price = parseInt(price) * parseInt(number); // １itemの合計価格。
+    total = parseInt(total) + parseInt(oneitem_price); // 全itemの合計値。
     console.log(total);
-  }, false);
-}
+  });
+
+});
+
 
 // --------------------------------------- test (1)(ok) ------------------------------------------------------------------
 

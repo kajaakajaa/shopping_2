@@ -1,3 +1,4 @@
+
 <div class="form_div">
   <%= form_with(model: @item, local: true) do |f| %>
     <%= f.label :name, :品名 %>
@@ -56,5 +57,5 @@
     <% end %>               
   </table>
 </div>
-<%= javascript_include_tag 'shoppingindex.js' %> <%# <- jquery形式でファイルの記述を受け取るコード　%>
+<%= javascript_pack_tag 'shoppingindex.js' %>
 <%= javascript_pack_tag "update.js" %>
