@@ -62,18 +62,4 @@ $(function(){
             target.val(num);
         }
     }
-
-    // 個々にスピナーボタンを反映させる。
-    
-
-    // テストだよ↓
-  //   function update_field(){
-  //     var result = $('#price').val();
-  //     $('#total').text(result);
-  // }
-  //   $(function() {
-  //     $('input[type="number"]').on('keyup change', function() {
-  //       update_field();
-  //     });
-    // });
 });
