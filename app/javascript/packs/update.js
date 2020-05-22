@@ -1,26 +1,5 @@
 // // --------------------------------------- 実践 ------------------------------------------------------------------
-$(function(){
-
-
-const btnspinners = document.getElementsByClassName("btnspinner");
-
-  $(btnspinners).on('touchstart click', function(e) {
-    var total_td = document.getElementById("total_td");  // 全itemの合計値。
-    var total = total_td.dataset.total;
-
-    var item_number_2 = document.getElementById("item_number_2"); // １itemの個数。
-    var number = item_number_2.dataset.number;
-
-    var unit_price = document.getElementById("unit_price"); // 単価。
-    var price = unit_price.dataset.price;
-
-    var oneitem_price = parseInt(price) * parseInt(number); // １itemの合計価格。
-
-    total = parseInt(total) + parseInt(oneitem_price); // 全itemの合計値。
-    console.log(total);
-  });
-
-});
+// 
 
 
 // --------------------------------------- test (1)(ok) ------------------------------------------------------------------
@@ -52,7 +31,6 @@ const btnspinners = document.getElementsByClassName("btnspinner");
     
 // }, false);
 
-// --------------------------------------- test ()() ------------------------------------------------------------------
 // --------------------------------------- test ()() ------------------------------------------------------------------
 // --------------------------------------- test ()() ------------------------------------------------------------------
 // --------------------------------------- test ()() ------------------------------------------------------------------
