@@ -20,8 +20,8 @@
 
 $(function(){
 
-  var kajaa = document.getElementById("kajaa");
-  console.log(kajaa.innerText);
+  var td = document.getElementById("td");
+  console.log(td.innerText);
 
 });
 
