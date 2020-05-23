@@ -28,6 +28,7 @@ $(function(){
               // 合計金額の更新
               var total_price = document.getElementById("total_price")
               total_price.innerText = total;
+
               // スピナーの初期化
               arySpinnerCtrl = [];
               return false;
