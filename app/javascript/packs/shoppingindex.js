@@ -26,8 +26,8 @@ $(function(){
                   count++
               });
               // 合計金額の更新
-              var total_price = document.getElementById("total_price")
-              total_price.innerText = total;
+              var total_td = document.getElementById("total_td")
+              total_td.innerText = total + " 円";
 
               // スピナーの初期化
               arySpinnerCtrl = [];
