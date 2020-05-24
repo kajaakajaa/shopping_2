@@ -27,7 +27,12 @@
   <table border="1", id="total_tbl">
     <tr>
       <th class="total_th">合計金額</th>
+<%
+=begin %>
       <td class="total_td"><span id="total_price"><%= @total %></span> 円</td>
+<%
+=end %>
+      <td class="total_td" id="total_td"><%= @total %> 円</td>
     </tr>
   </table>
 </div>
