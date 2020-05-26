@@ -4,7 +4,7 @@ $(function(){
       var spin_speed = 20; //変動スピード
       //長押し押下時
       $('.btnspinner').on('touchstart mousedown click', function(e){
-          if(arySpinnerCtrl['interval']) return false;
+        if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target');
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
@@ -27,7 +27,7 @@ $(function(){
               });
               // 合計金額の更新
               var total_td = document.getElementById("total_td")
-              total_td.innerText = total + " 円"; // total_td を total が上書きするので "+ 円"　を加える。
+              total_td.innerText = total + " 円"; // total_td を total が上書きする(total_td内の文字列"円"が消える)ので 新たに"円"　を加える。
 
               // スピナーの初期化
               arySpinnerCtrl = [];
@@ -35,7 +35,7 @@ $(function(){
           }
                   //長押し時の処理
         setTimeout(function(){
-            //インターバル未実行中 + 長押しのイベントタイプスタンプ一致時に計算処理
+            //インターバル未実行中 + 長押しのイベントタイムスタンプ一致時に計算処理
             if(!arySpinnerCtrl['interval'] && arySpinnerCtrl['timestamp'] == e.timeStamp){
                 arySpinnerCtrl['interval'] = setInterval(spinnerCal, spin_speed);
             }
