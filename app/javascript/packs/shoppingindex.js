@@ -27,7 +27,7 @@ $(function(){
               });
               // 合計金額の更新
               var total_td = document.getElementById("total_td")
-              total_td.innerText = total + " 円";
+              total_td.innerText = total + " 円"; // total_td を total が上書きするので "+ 円"　を加える。
 
               // スピナーの初期化
               arySpinnerCtrl = [];
