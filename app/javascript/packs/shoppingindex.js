@@ -8,22 +8,22 @@ $(function(){
           var target = $(this).data('target');
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
-          arySpinnerCtrl['cal'] = Number($(this).data('cal'));
+          arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
           //クリックは単一の処理に留める
           if(e.type == 'click'){
               // スピナーの値を更新
               spinnerCal();
               // 必要な要素の取得
               var unit_prices = document.getElementsByClassName("unit_price"); // 単価。
-              var amounts = document.getElementsByClassName("amount"); // 単価。
-              unit_prices = Array.from( unit_prices ) ;
+              var amounts = document.getElementsByClassName("amount"); // 個数。
+              unit_prices = Array.from( unit_prices ) ; // 右辺: "unit_prices" の配列を取得し、左辺へ代入。
               // 必要な変数の初期化
               let total = 0;
               let count = 0;
               // 全ての商品の合計金額を求める
               unit_prices.forEach(function(unit_price) {
-                  total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value);
-                  count++
+                  total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
+                  count++  // 1 づつプラスしていく。
               });
               // 合計金額の更新
               var total_td = document.getElementById("total_td")
