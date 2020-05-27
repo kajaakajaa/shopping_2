@@ -1,7 +1,7 @@
 $(function(){
   "use strict";
       var arySpinnerCtrl = [];
-      var spin_speed = 20; //変動スピード
+      var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
       //長押し押下時
       $('.btnspinner').on('touchstart mousedown click', function(e){
         if(arySpinnerCtrl['interval']) return false;
@@ -22,8 +22,8 @@ $(function(){
               let count = 0;
               // 全ての商品の合計金額を求める
               unit_prices.forEach(function(unit_price) {
-                  total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
-                  count++  // 1 づつプラスしていく。
+                total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
+                count++  // 1 づつプラスしていく。
               });
               // 合計金額の更新
               var total_td = document.getElementById("total_td")
@@ -37,15 +37,15 @@ $(function(){
         setTimeout(function(){
             //インターバル未実行中 + 長押しのイベントタイムスタンプ一致時に計算処理
             if(!arySpinnerCtrl['interval'] && arySpinnerCtrl['timestamp'] == e.timeStamp){
-                arySpinnerCtrl['interval'] = setInterval(spinnerCal, spin_speed);
+                arySpinnerCtrl['interval'] = setInterval(spinnerCal, spin_speed);  // "interval" を定義する。
             }
         }, 500);
       });
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(e){
           if(arySpinnerCtrl['interval']){
-              clearInterval(arySpinnerCtrl['interval']);
-              arySpinnerCtrl = [];
+            clearInterval(arySpinnerCtrl['interval']);
+            arySpinnerCtrl = [];
           }
       });
       //変動計算関数
