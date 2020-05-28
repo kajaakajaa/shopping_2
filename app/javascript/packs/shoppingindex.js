@@ -42,7 +42,7 @@ $(function(){
           }, 500);
       });
       //長押し解除時 画面スクロールも解除に含む
-      $(document).on('touchend mouseup scroll', function(e){
+      $(document).on('touchend mouseup scroll', function(){
           if(arySpinnerCtrl['interval']){
             clearInterval(arySpinnerCtrl['interval']);
             arySpinnerCtrl = [];
@@ -50,9 +50,9 @@ $(function(){
       });
       //変動計算関数
       function spinnerCal(){
-          var target = $(arySpinnerCtrl['target']);
-          var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を取得する。
-          num = num + arySpinnerCtrl['cal'];
+          var target = $(arySpinnerCtrl['target']); // 各商品のidとそれらの個数のカウント処理。
+          var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を取得する。※ target の中に id も含まれる。
+          num += arySpinnerCtrl['cal'];
           if(num > Number(target.data('max'))){
               target.val(Number(target.data('max')));
           }else if(Number(target.data('min')) > num){
