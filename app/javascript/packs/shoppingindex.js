@@ -6,6 +6,8 @@ $(function(){
       $('.btnspinner').on('touchstart mousedown click', function(e){
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target');
+          // console.log($(this).data('target'));
+          // console.log($(this));
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
@@ -21,7 +23,7 @@ $(function(){
               let total = 0;
               let count = 0;
               // 全ての商品の合計金額を求める
-              unit_prices.forEach(function(unit_price) {
+              unit_prices.forEach(function(unit_price) { // rails の each do のループ処理みたいな物。
                 total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
                 count++  // 1 づつプラスしていく。
               });
@@ -51,6 +53,8 @@ $(function(){
       //変動計算関数
       function spinnerCal(){
           var target = $(arySpinnerCtrl['target']); // 各商品のidとそれらの個数のカウント処理。
+          // console.log($(arySpinnerCtrl['target']));
+          // console.log(arySpinnerCtrl['target']);
           var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。
           num += arySpinnerCtrl['cal'];
           if(num > Number(target.data('max'))){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
