@@ -51,10 +51,8 @@ $(function(){
           }
       });
       //変動計算関数
-      function spinnerCal(){
-          var target = $(arySpinnerCtrl['target']); // 各商品のidとそれらの個数のカウント処理。
-          // console.log($(arySpinnerCtrl['target']));
-          // console.log(arySpinnerCtrl['target']);
+      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
+          var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。
           var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。
           num += arySpinnerCtrl['cal'];
           if(num > Number(target.data('max'))){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
