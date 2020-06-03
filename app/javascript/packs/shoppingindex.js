@@ -5,7 +5,7 @@ $(function(){
       //長押し押下時
       $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
-          var target = $(this).data('target');
+          var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
@@ -50,9 +50,12 @@ $(function(){
             arySpinnerCtrl = [];
           }
       });
+
       //変動計算関数
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
-          var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。
+          var target = arySpinnerCtrl['target']; // target = 各商品のidとそれらの個数のカウント処理。
+          console.log($(arySpinnerCtrl['target']));
+          console.log($("#item_number_2"));
           var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。
           num += arySpinnerCtrl['cal'];
           if(num > Number(target.data('max'))){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
