@@ -20,12 +20,16 @@
 $(function(){
   var x = [];
 
-var sample = document.getElementsByClassName("sample");
-  kazu = sample.dataset.ka
-    x["kajaa"] = kazu;
-    console.log(x["kajaa"]);
-    // var k = $(x["kajaa"]);
-    // console.log(k);
+  var samples = document.getElementsByClassName("sample");
+
+  samples.forEach(function(sample){
+  console.log(sample.dataset.ka);
+  // // kazu = sample.dataset.ka
+  // //   x["kajaa"] = kazu;
+  // //   console.log(x["kajaa"]);
+  //   // var k = $(x["kajaa"]);
+  //   // console.log(k);
+  });
 });
 // ------------------------------------------------- console.logのみ --------------------------------------------------------
 
@@ -109,7 +113,7 @@ var sample = document.getElementsByClassName("sample");
 
 // }, false);
 
-// --------------------------------------- 2 ------------------------------------------------------------------
+// --------------------------------------- 2() ------------------------------------------------------------------
 
 // const targets = document.getElementsByClassName("target");
 
