@@ -21,14 +21,14 @@ $(function(){
   var x = [];
 
   var samples = document.getElementsByClassName("sample");
+  samples = Array.from(samples);
 
   samples.forEach(function(sample){
-  console.log(sample.dataset.ka);
-  // // kazu = sample.dataset.ka
-  // //   x["kajaa"] = kazu;
-  // //   console.log(x["kajaa"]);
-  //   // var k = $(x["kajaa"]);
-  //   // console.log(k);
+  var kazu = sample.dataset.ka
+    x["kajaa"] = kazu;
+    console.log(x["kajaa"]);  // data-ka の値 kajaa が出力される。
+    // var kazu = $(x["kajaa"]);
+    console.log($(x["kajaa"]));
   });
 });
 // ------------------------------------------------- console.logのみ --------------------------------------------------------
