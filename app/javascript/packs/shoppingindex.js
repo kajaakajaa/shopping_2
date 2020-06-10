@@ -54,8 +54,8 @@ $(function(){
       //変動計算関数
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
           var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。 <input> の counter値を取得してる。
-          var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値。
-          num += arySpinnerCtrl['cal'];
+          var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
+              num += arySpinnerCtrl['cal'];
           if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
               target.val(500); // ※ target val() → ()に個数の値が入る。 target val(500) となる。 500を超える数値は全て "500" となる。
           }else if(0 > num){
