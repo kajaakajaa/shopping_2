@@ -22,12 +22,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    @item.update!(item_params_2)
+  end
+
   def destroy
   end
 
   private
   def item_params
     params.require(:item).permit(:name, :value, :number)
+  end
+
+  def item_params_2
+    params.require(:item).permit(:number)
   end
 end
 
