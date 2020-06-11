@@ -47,7 +47,8 @@
           <th class="index_th">単価</th>
           <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
-          <form action="/items" accept-charest="UTF-8" method="post" >
+          <!-- <form action="/items" accept-charest="UTF-8" method="post" > -->
+          <%= form_with(model: @item, local: true) do %>
             <td class="index_number_td">
               <input type="number" value="<%= item.number %>" name="item[number]"
               id="item_number_2" class="counter<%= item.id %> amount"> 点
@@ -56,7 +57,8 @@
               <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
               <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
             </th>
-          </form>
+          <% end %>  
+          <!-- </form> -->
         </tr>
       <% end %>
     <% end %>               
