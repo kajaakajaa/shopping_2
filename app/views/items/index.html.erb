@@ -48,7 +48,7 @@
           <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
           <!-- <form action="/items" accept-charest="UTF-8" method="post" > -->
-          <%= form_with(model: @item, local: true) do %>
+          <%= form_with(url: items_path, method: :patch) do %>
             <td class="index_number_td">
               <input type="number" value="<%= item.number %>" name="item[number]"
               id="item_number_2" class="counter<%= item.id %> amount"> 点
