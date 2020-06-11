@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    binding.pry
     @item.update!(item_params_2)
   end
 
