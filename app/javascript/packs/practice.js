@@ -29,9 +29,9 @@ $(function(){
     // console.log(x["kajaa"]);  // data-ka の値 kajaa が出力される。
   });
 
-  console.log($(".sample").val())
-  var kazu = $(x["kajaa"]);
-    console.log(kazu.val());
+  console.log($(".sample").val())  // valueの値。
+  var kazu = $(x["kajaa"]);  // kazu → class。
+    console.log(kazu.val()); // valueの値。
 });
 // ------------------------------------------------- console.logのみ --------------------------------------------------------
 

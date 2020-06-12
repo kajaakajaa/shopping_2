@@ -48,7 +48,6 @@ $(function(){
           if(arySpinnerCtrl['interval']){
             clearInterval(arySpinnerCtrl['interval']);
             arySpinnerCtrl = [];
-            console.log("kajaa");
           }
       });
 
