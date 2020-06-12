@@ -27,13 +27,12 @@
   <table border="1", id="total_tbl">
     <tr>
       <th class="total_th">合計金額</th>
-<%
-=begin %>
-      <td class="total_td"><span id="total_price"><%= @total %></span> 円</td>
-<%
-=end %>
+      <!-- <td class="total_td"><span id="total_price"><%= @total %></span> 円</td> -->
       <td class="total_td" id="total_td"><%= @total %> 円</td>
     </tr>
+    <%= form_with(url: items_path, method: :patch, id: "update", local: true) do |f| %>
+      <%= f.submit :更新 %>
+    <% end %>
   </table>
 </div>
 
@@ -47,21 +46,17 @@
           <th class="index_th">単価</th>
           <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
-          <!-- <form action="/items" accept-charest="UTF-8" method="post" > -->
-          <%= form_with(url: items_path, method: :patch) do %>
-            <td class="index_number_td">
-              <input type="number" value="<%= item.number %>" name="item[number]"
-              id="item_number_2" class="counter<%= item.id %> amount"> 点
-            </td>
-            <th id="spinner_button">
-              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
-              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
-            </th>
-          <% end %>  
-          <!-- </form> -->
+          <td class="index_number_td">
+            <input type="number" value="<%= item.number %>" name="item[number]"
+            class="counter<%= item.id %> amount"> 点
+          </td>
+          <th id="spinner_button">
+            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
+            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
+          </th>
         </tr>
       <% end %>
-    <% end %>               
+    <% end %>
   </table>
 </div>
 <%= javascript_pack_tag 'shoppingindex.js' %>
