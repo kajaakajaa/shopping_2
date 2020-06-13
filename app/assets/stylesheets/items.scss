@@ -35,11 +35,13 @@ ul {
 }
 #total_tbl {
   width: 40%;
+  float: left;
 }
 // total
 
 // index
 #index_div {
+  clear: left;
   position: relative;
   top: 180px;
   left: 15%;
@@ -78,17 +80,19 @@ ul {
 // スピナーボタンを消す。
 
 
-#spinner_button input[type="button"]{
+#spinner_button input[type="button"], #update input[type="submit"],
+#send input[type="submit"] {
   cursor: pointer;
 }
 .amount {
   width: 50px;
   text-align: center;
 }
-
-// #update {
-
-// }
+#update {
+  position: relative;
+  left: 3%;
+  top: 5px;
+}
 
 // spinnerBUTTUN(+ -)
 
