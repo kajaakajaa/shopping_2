@@ -22,10 +22,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def update
     @item = Item.find(params[:id])
-    binding.pry
-    @item.update!(item_params_2)
+      if @item.update(update_params)
+        redeirect_to action: :index
+      end
   end
 
   def destroy
@@ -36,7 +41,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :value, :number)
   end
 
-  def item_params_2
+  def update_params
     params.require(:item).permit(:number)
   end
 end
