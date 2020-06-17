@@ -16,7 +16,7 @@ $(function(){
               // 必要な要素の取得
               var unit_prices = document.getElementsByClassName("unit_price"); // 単価。
               var amounts = document.getElementsByClassName("amount"); // 個数。
-              unit_prices = Array.from( unit_prices ) ; // 右辺: "unit_prices" の配列を取得し、左辺へ代入。
+              unit_prices = Array.from( unit_prices ); // 右辺: "unit_prices" の配列を取得し、左辺へ代入。
               // 必要な変数の初期化
               let total = 0;
               let count = 0;
@@ -26,7 +26,7 @@ $(function(){
                 count++  // 1 づつプラスしていく。
               });
               // 合計金額の更新
-              var total_td = document.getElementById("total_td")
+              var total_td = document.getElementById("total_td");
               total_td.innerText = total + " 円"; // total_td を total が上書きする(total_td内の文字列"円"が消える)ので 新たに"円"　を加える。
 
               // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
@@ -53,10 +53,18 @@ $(function(){
 
       //変動計算関数
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
-          var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。 <input> の counter値を取得してる。
+          // var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。 <input> の counter値を取得してる。
+          var btnspinners = document.getElementsByClassName("btnspinner");
+          btnspinners = Array.from(btnspinners);
+          let target = [];
+
+          btnspinners.forEach(function(btnspinner) {
+          target = btnspinner.dataset.target;
+          console.log(target);
+          });
+          target = $(target);
           var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
               num += arySpinnerCtrl['cal'];
-              console.log(target);
           if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
               target.val(500); // ※ target val() → ()に個数の値が入る。 target val(500) となる。 500を超える数値は全て "500" となる。
           }else if(0 > num){
@@ -64,5 +72,6 @@ $(function(){
           }else{
               target.val(num);
           }
+          
       }
   });
