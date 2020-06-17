@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
     @items.each do |item|
       @total += item.value * item.number 
     end
+    # @update = Item.find(params[:id])
   end
 
   def create
@@ -20,10 +21,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to action: :index
     end
-  end
-
-  def edit
-    @item = Item.find(params[:id])
   end
 
   def update
