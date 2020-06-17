@@ -14,25 +14,35 @@
 // -------------------------------------------------  --------------------------------------------------------
 // -------------------------------------------------  --------------------------------------------------------
 // -------------------------------------------------  --------------------------------------------------------
-// -------------------------------------------------  --------------------------------------------------------
-// ------------------------------------------------- 6() -----------------------------------------------------
+// ------------------------------------------------- 7(ok) --------------------------------------------------------
 
-$(function(){
-  var x = [];
+// $(function(){
+//   var kazu = $("#kajaa").data("yassa");
+//   console.log(kazu);
 
-  var samples = document.getElementsByClassName("sample");
-  samples = Array.from(samples);
+//   var hoge = document.getElementById("kajaa");
+//   yassa = hoge.dataset.yassa;
+//   console.log(kazu == yassa);
+// });
 
-  samples.forEach(function(sample){
-  var kazu = sample.dataset.ka
-    x["kajaa"] = kazu;
-    // console.log(x["kajaa"]);  // data-ka の値 kajaa が出力される。
-  });
+// ------------------------------------------------- 6(ok) -----------------------------------------------------
 
-  console.log($(".sample").val())  // valueの値。
-  var kazu = $(x["kajaa"]);  // kazu → class。
-    console.log(kazu.val()); // valueの値。
-});
+// $(function(){
+//   var x = [];
+
+//   var samples = document.getElementsByClassName("sample");
+//   samples = Array.from(samples);
+
+//   samples.forEach(function(sample){
+//   var kazu = sample.dataset.ka
+//     x["kajaa"] = kazu;
+//     // console.log(x["kajaa"]);  // data-ka の値 kajaa が出力される。
+//   });
+
+//   console.log($(".sample").val())  // valueの値。
+//   var kazu = $(x["kajaa"]);  // kazu → class。
+//     console.log(kazu.val()); // valueの値。
+// });
 // ------------------------------------------------- console.logのみ --------------------------------------------------------
 
 // // オブジェクト型
