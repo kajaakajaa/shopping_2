@@ -7,13 +7,6 @@ $(function(){
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
           arySpinnerCtrl['target'] = target;
-
-          var btnspinners = document.getElementsByClassName("btnspinner");
-          btnspinners = Array.from(btnspinners);
-          btnspinners = forEach(function(btnspinner){
-            console.log(btnspinner);
-          });
-
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
           //クリックは単一の処理に留める
@@ -59,18 +52,20 @@ $(function(){
       });
 
       //変動計算関数
-      var target = [];
+      let kajaa = [];
 
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
+
+        //  arySpinnerCtrl['target'] == "btnspinner.dataset.target";
+
           // var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。 <input> の counter値を取得してる。
-          console.log(arySpinnerCtrl['target']);
           var btnspinners = document.getElementsByClassName("btnspinner");
           btnspinners = Array.from(btnspinners);
           btnspinners.forEach(function(btnspinner) {
-          target = btnspinner.dataset.target;  // "target" → counter[id]。
+          kajaa = btnspinner.dataset.target;  // "target" → counter[id]。
           });
-          console.log(target);
-          var targets = $(target);
+          var targets = $(kajaa);
+          console.log(targets);
           var num = Number(targets.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
               num += arySpinnerCtrl['cal'];
           if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
