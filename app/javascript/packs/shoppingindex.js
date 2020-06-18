@@ -52,7 +52,6 @@ $(function(){
       });
 
       //変動計算関数
-      let kajaa = [];
 
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
 
@@ -60,12 +59,16 @@ $(function(){
 
           // var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。 <input> の counter値を取得してる。
           var btnspinners = document.getElementsByClassName("btnspinner");
+            // console.log(btnspinners);
           btnspinners = Array.from(btnspinners);
-          btnspinners.forEach(function(btnspinner) {
-          kajaa = btnspinner.dataset.target;  // "target" → counter[id]。
-          });
-          var targets = $(kajaa);
-          console.log(targets);
+            // console.log(btnspinners);
+
+          var target = [];
+          // btnspinners.forEach(function(btnspinner) {
+          // target = btnspinner.dataset.target;  // "target" → counter[id]。
+          // });
+          target = btnspinner.dataset.target;
+          var targets = $(target);
           var num = Number(targets.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
               num += arySpinnerCtrl['cal'];
           if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
