@@ -52,32 +52,26 @@ $(function(){
       });
 
       //変動計算関数
-
-      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
-
-        //  arySpinnerCtrl['target'] == "btnspinner.dataset.target";
-
-          // var target = $(arySpinnerCtrl['target']); // target = 各商品のidとそれらの個数のカウント処理。 <input> の counter値を取得してる。
-          var btnspinners = document.getElementsByClassName("btnspinner");
-            // console.log(btnspinners);
-          btnspinners = Array.from(btnspinners);
-            // console.log(btnspinners);
-
-          var target = [];
-          // btnspinners.forEach(function(btnspinner) {
-          // target = btnspinner.dataset.target;  // "target" → counter[id]。
-          // });
-          target = btnspinner.dataset.target;
-          var targets = $(target);
-          var num = Number(targets.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
-              num += arySpinnerCtrl['cal'];
-          if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
-              targets.val(500); // ※ target val() → ()に個数の値が入る。 target val(500) となる。 500を超える数値は全て "500" となる。
-          }else if(0 > num){
-              targets.val(0);
-          }else{
-              targets.val(num);
-          }
-          
+      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。  
+        // var target = $(arySpinnerCtrl['target']);  //  arySpinnerCtrl['target'] == "btnspinner.dataset.target"　　※ $(arySpinnerCtrl['target']) →
+        //   →→ $(this)要素が含まれる為(一番上の方で定義されている) 配列の各値に処理をかけれる。
+        var btnspinners = document.getElementsByClassName("btnspinner");
+            btnspinners = Array.from(btnspinners);
+        var target = [];
+            btnspinners.forEach(function(btnspinner) {
+            target = btnspinner.dataset.target;  // "target" → counter[id]。
+              target = $(target);
+        });
+        console.log($(".btnspinner").data('target'));  // これだと各キーに処理がかからない。4つキーがあってもその内の一つのみ。
+        
+        var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
+            num += arySpinnerCtrl['cal'];
+        if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
+            target.val(500); // ※ target val() → ()に個数の値が入る。 target val(500) となる。 500を超える数値は全て "500" となる。
+        }else if(0 > num){
+            target.val(0);
+        }else{
+            target.val(num);
+        }          
       }
   });
