@@ -6,6 +6,7 @@ $(function(){
       $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
+            console.log($(this));
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
@@ -59,6 +60,7 @@ $(function(){
             btnspinners = Array.from(btnspinners);
         var target = [];
             btnspinners.forEach(function(btnspinner) {
+              console.log(btnspinner);
             target = btnspinner.dataset.target;  // "target" → counter[id]。
               target = $(target);
         });
