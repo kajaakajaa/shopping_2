@@ -6,7 +6,6 @@ $(function(){
       $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
-            console.log($(this));
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
@@ -24,12 +23,11 @@ $(function(){
               // 全ての商品の合計金額を求める
               unit_prices.forEach(function(unit_price) { // rails の each do のループ処理みたいな物。 "unit_price" にid全部価格が入る。
                 total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
-                count++  // 1 づつプラスしていく。
+                count++  // 配列要素の合計を1個づつプラスしていく。
               });
               // 合計金額の更新
               var total_td = document.getElementById("total_td");
               total_td.innerText = total + " 円"; // total_td を total が上書きする(total_td内の文字列"円"が消える)ので 新たに"円"　を加える。
-
               // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
 
               // スピナーの初期化  
@@ -58,14 +56,12 @@ $(function(){
         //   →→ $(this)要素が含まれる為(一番上の方で定義されている) 配列の各値に処理をかけれる。
         var btnspinners = document.getElementsByClassName("btnspinner");
             btnspinners = Array.from(btnspinners);
-        var target = [];
+        var target = []; // 配列の値を受け取る準備をする(初期化の役目もある)。
             btnspinners.forEach(function(btnspinner) {
-              console.log(btnspinner);
-            target = btnspinner.dataset.target;  // "target" → counter[id]。
+              target = btnspinner.dataset.target;  // "target" → counter[id]。
               target = $(target);
         });
-        console.log($(".btnspinner").data('target'));  // これだと各キーに処理がかからない。4つキーがあってもその内の一つのみ。
-        
+        console.log(target);
         var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
             num += arySpinnerCtrl['cal'];
         if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
