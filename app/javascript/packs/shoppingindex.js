@@ -61,7 +61,7 @@ $(function(){
               target = btnspinner.dataset.target;  // "target" → counter[id]。
               target = $(target);
         });
-        console.log(target);
+              console.log(target);
         var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
             num += arySpinnerCtrl['cal'];
         if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
