@@ -51,8 +51,14 @@ $(function(){
       });
 
       //変動計算関数
-      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。  
-        var target = $(arySpinnerCtrl['target']);
+      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
+        var btnspinners = document.getElementsByClassName("btnspinner");
+            btnspinners = Array.from(btnspinners);
+        var target = []; // 配列の値を受け取る準備をする(初期化の役目もある)。
+            btnspinners.forEach(function(btnspinner) {
+              target = btnspinner.dataset.target;  // "target" → counter[id]。
+              target = $(target);
+        });
         var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
             num += arySpinnerCtrl['cal'];
         if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
