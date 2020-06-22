@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    @update = Item.find(params[:id])
       if @item.update(update_params)
         redeirect_to action: :index
       end
