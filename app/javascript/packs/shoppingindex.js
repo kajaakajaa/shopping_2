@@ -30,8 +30,7 @@ $(function(){
                   total_price.innerText = total; 
               // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
               var update = total_price.innerText;
-              console.log(update);
-                  // update = update;
+                  update = update
 
               // スピナーの初期化  
               arySpinnerCtrl = [];  // ← が 上記処理内容を一旦リセットする処理。(自動で増減され続けない様にする)
