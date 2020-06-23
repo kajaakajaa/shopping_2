@@ -45,6 +45,7 @@ $(function(){
           }, 500);
       });
       $("#upsend").on("touchstart click", function(){
+        
       });
 
       //長押し解除時 画面スクロールも解除に含む
