@@ -44,8 +44,8 @@ $(function(){
             }
           }, 500);
       });
-      // $("#upsend").on("touchstart click", function(){
-      // });
+      $("#upsend").on("touchstart click", function(){
+      });
 
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
