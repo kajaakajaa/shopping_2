@@ -2,6 +2,7 @@ $(function(){
   "use strict";
       var arySpinnerCtrl = [];
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
+      var update = [];
       //長押し押下時
       $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
@@ -29,8 +30,7 @@ $(function(){
               var total_price = document.getElementById("total_price");
                   total_price.innerText = total; 
               // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
-              var update = total_price.innerText;
-                  update = update
+                  update["uptotal"] = total;
 
               // スピナーの初期化  
               arySpinnerCtrl = [];  // ← が 上記処理内容を一旦リセットする処理。(自動で増減され続けない様にする)
@@ -44,6 +44,10 @@ $(function(){
             }
           }, 500);
       });
+      $("#upsend").on("touchstart click", function(){
+        
+      });
+
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
           if(arySpinnerCtrl['interval']){
@@ -70,7 +74,7 @@ $(function(){
         }else if(0 > num){
             target.val(0);
         }else{
-            target.val(num);
+            target.val(num); // target の val() に個数フォームの数値が格納される。
         }          
       }
   });
