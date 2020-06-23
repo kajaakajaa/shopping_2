@@ -80,7 +80,7 @@ ul {
 // スピナーボタンを消す。
 
 
-#spinner_button input[type="button"], #update input[type="submit"],
+#spinner_button input[type="button"], #update_form input[type="submit"],
 #send input[type="submit"] {
   cursor: pointer;
 }
@@ -88,7 +88,7 @@ ul {
   width: 50px;
   text-align: center;
 }
-#update {
+#update_form {
   position: relative;
   left: 3%;
   top: 5px;

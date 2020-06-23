@@ -31,8 +31,8 @@
       <td class="total_td" id="total_td"><span id="total_price"><%= @total %></span> 円</td>
     </tr>
   </table>
-  <%= form_with(model: @update, id: "update", local: true) do |f| %>
-    <%= f.submit :更新 %>
+  <%= form_with(model: @update, id: "update_form", local: true) do |f| %>
+    <%= f.submit :更新, id: "upsend", "data-uptotl": "#update" %>
   <% end %>
 </div>
 
