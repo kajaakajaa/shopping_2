@@ -2,7 +2,7 @@ $(function(){
   "use strict";
       var arySpinnerCtrl = [];
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
-      var update = [];
+      var update
       //長押し押下時
       $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
@@ -30,7 +30,6 @@ $(function(){
               var total_price = document.getElementById("total_price");
                   total_price.innerText = total; 
               // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
-                  update["uptotal"] = total;
 
               // スピナーの初期化  
               arySpinnerCtrl = [];  // ← が 上記処理内容を一旦リセットする処理。(自動で増減され続けない様にする)
@@ -44,10 +43,9 @@ $(function(){
             }
           }, 500);
       });
-      $("#upsend").on("touchstart click", function(){
-        
+      $(document).on("touchstart click", function(){
+        console.log(spinnerCal);
       });
-
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
           if(arySpinnerCtrl['interval']){
@@ -57,7 +55,7 @@ $(function(){
       });
 
       //変動計算関数
-      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。  
+      function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
         var target = $(arySpinnerCtrl['target']);  //  arySpinnerCtrl['target'] == "btnspinner.dataset.target"　　※ $(arySpinnerCtrl['target']) →
         //   →→ $(this)要素が含まれる為(一番上の方で定義されている) 配列の各値に処理をかけれる。
         var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
