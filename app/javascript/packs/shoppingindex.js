@@ -2,7 +2,7 @@ $(function(){
   "use strict";
       var arySpinnerCtrl = [];
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
-      var update
+
       //長押し押下時
       $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
@@ -27,9 +27,9 @@ $(function(){
                 count++  // 配列要素の合計を1個づつプラスしていく。
               });
               // 合計金額の更新
-              var total_price = document.getElementById("total_price");
-                  total_price.innerText = total; 
-              // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
+                var total_price = document.getElementById("total_price");
+                    total_price.innerText = total; 
+                    // ↑↑ 迄が "click" イベントが1回でも発動すると自動で "＋1" 又は "-1" づつ増減されていく処理内容になる。
 
               // スピナーの初期化  
               arySpinnerCtrl = [];  // ← が 上記処理内容を一旦リセットする処理。(自動で増減され続けない様にする)
@@ -43,15 +43,15 @@ $(function(){
             }
           }, 500);
       });
-      $(document).on("touchstart click", function(){
-        console.log(spinnerCal);
-      });
+      // $("#upsend").on("touchstart click", function(){
+      //   console.log();
+      // });
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
-          if(arySpinnerCtrl['interval']){
-            clearInterval(arySpinnerCtrl['interval']);
-            arySpinnerCtrl = [];
-          }
+        if(arySpinnerCtrl['interval']){
+          clearInterval(arySpinnerCtrl['interval']);
+          arySpinnerCtrl = [];
+        }
       });
 
       //変動計算関数
