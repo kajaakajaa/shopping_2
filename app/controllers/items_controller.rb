@@ -11,9 +11,8 @@ class ItemsController < ApplicationController
     # @total = Item.all.sum(:value)
     @total = 0 #(← 初期の数値設定が要る)
     @items.each do |item|
-      @total += item.value * item.number 
+      @total += item.value * item.number
     end
-    # @update = Item.find(params[:id])
   end
 
   def create
@@ -23,12 +22,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def update
-    @update = Item.find(params[:id])
-      if @item.update(update_params)
-        redeirect_to action: :index
-      end
-  end
+  # def update
+  #   @item = Item.find(params[:id])
+  #     if @item.update(update_params)
+  #       redeirect_to action: :index
+  #     end
+  # end
 
   def destroy
   end
