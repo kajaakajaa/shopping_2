@@ -27,13 +27,14 @@
   <table border="1", id="total_tbl">
     <tr>
       <th class="total_th">合計金額</th>
-      <td class="total_td"><span id="total_price"><%= @total %></span> 円</td>
+      <td class="total_td"><span id="total_price" ><%= @total %></span> 円</td>
     </tr>
   </table>
   <%= form_with(model: @item, id: "update_form", local: true) do |f| %>
-    <%#= f.hidden_field  %>
-    <%#= f.submit :更新, id: "upsend" %>
+    <%= f.hidden_field class: "upnumber" %>
+    <%= f.submit :更新, class: "update", "data-number": ".upnumber" %>
   <% end %>
+  <p>push</p>
 </div>
 
 <div id="index_div">
