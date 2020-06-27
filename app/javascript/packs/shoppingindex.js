@@ -17,15 +17,18 @@ $(function(){
               // 必要な要素の取得
               var unit_prices = document.getElementsByClassName("unit_price"); // 単価。
               var amounts = document.getElementsByClassName("amount"); // 個数。
+
               unit_prices = Array.from( unit_prices ); // 右辺: "unit_prices" の配列を取得し、左辺へ代入。
               // 必要な変数の初期化
               let total = 0;
-              let count = 0;
+              let count = 0; //リロードした状態を初期値として宣言。
+
               // 全ての商品の合計金額を求める
               unit_prices.forEach(function(unit_price) { // rails の each do のループ処理みたいな物。 "unit_price" にid全部価格が入る。
                 total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
                 count++  // 配列要素の合計を1個づつプラスしていく。
               });
+
               // 合計金額の更新
                 var total_price = document.getElementById("total_price");
                     total_price.innerText = total; 
@@ -43,9 +46,17 @@ $(function(){
             }
           }, 500);
       });
-      // $("#upsend").on("touchstart click", function(){
-      //   console.log();
-      // });
+      
+      $(".update").on("touchstart click", function(){
+          var update = $(this).data("number");
+          console.log(update);
+          var amounts = document.getElementsByClassName("amount");
+          amounts = Array.from(amounts);
+          amounts.forEach(function(amount){
+            update = amount.value;
+          });
+      });
+
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
         if(arySpinnerCtrl['interval']){
