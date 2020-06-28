@@ -32,9 +32,9 @@
   </table>
   <%= form_with(model: @item, id: "update_form", local: true) do |f| %>
     <%= f.hidden_field class: "upnumber" %>
-    <%= f.submit :更新, class: "update", "data-number": ".upnumber" %>
+    <%= f.submit :更新, class: "update" %>
   <% end %>
-  <p>push</p>
+  <input type="button" id="btn" data-amount=".amount" value="push">
 </div>
 
 <div id="index_div">
@@ -49,7 +49,7 @@
           <th class="index_th">個数</th>
             <td class="index_number_td">
               <input type="number" value="<%= item.number %>" name="item[number]"
-              class="counter<%= item.id %> amount"> 点
+              class="counter<%= item.id %> amount" data-update=".upnumber"> 点
             </td>
           <th id="spinner_button">
             <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>

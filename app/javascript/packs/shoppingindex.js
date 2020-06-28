@@ -47,13 +47,15 @@ $(function(){
           }, 500);
       });
       
-      $(".update").on("touchstart click", function(){
-          var update = $(this).data("number");
-          console.log(update);
+      $("#btn").on("touchstart click", function(){
           var amounts = document.getElementsByClassName("amount");
-          amounts = Array.from(amounts);
-          amounts.forEach(function(amount){
-            update = amount.value;
+          var update = $(".amount").data("update");
+              update = update.val();
+                console.log(update);
+              amounts = Array.from(amounts);
+              amounts.forEach(function(amount){
+          var eachnum = amount.value;
+              // update = eachnum;
           });
       });
 
