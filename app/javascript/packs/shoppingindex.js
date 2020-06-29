@@ -47,15 +47,16 @@ $(function(){
           }, 500);
       });
       
-      $("#btn").on("touchstart click", function(){
+      $("#push").on("touchstart click", function(){
           var amounts = document.getElementsByClassName("amount");
           var update = $(".amount").data("update");
-              update = update.val();
-                console.log(update);
+          var upnum = $(update);
+                console.log(upnum.val());
               amounts = Array.from(amounts);
               amounts.forEach(function(amount){
           var eachnum = amount.value;
-              // update = eachnum;
+              upnum = eachnum;
+              console.log(upnum.val());
           });
       });
 
