@@ -20,12 +20,11 @@
     <% end %>
 
     <%= f.submit :send %>
-    
   <% end  %>
 </div>
 
 <div id="total_div">
-  <table border="1", id="total_tbl">
+  <table border="" id="total_tbl">
     <tr>
       <th class="total_th">合計金額</th>
       <td class="total_td"><span id="total_price" ><%= @total %></span> 円</td>
@@ -33,14 +32,14 @@
   </table>
   
   <%= form_with(model: @item, id: "update_form", local: true) do |f| %>
-    <%= f.hidden_field :number, class: "upnum" %>
-    <%= f.submit :更新, class: "update" %>
+      <%= f.hidden_field class: "upnum" %>
+      <%= f.submit :更新, class: "update" %>
   <% end %>
   <!-- <input type="button" id="push" value="push"> -->
 </div>
 
 <div id="index_div">
-  <table border="", id="index_tbl">
+  <table border="" id="index_tbl">
     <% if @items.any? %>
       <% @items.each do |item| %>
         <tr>
@@ -50,7 +49,7 @@
             <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
           <th class="index_th">個数</th>
             <td class="index_number_td">
-              <input type="number" value="<%= item.number %><%#= item.id %>" name="item[number]"
+              <input type="number" value="<%= item.number %>" name="item[number]"
               class="counter<%= item.id %> amount" data-update=".upnum"> 点
             </td>
           <th id="spinner_button">
