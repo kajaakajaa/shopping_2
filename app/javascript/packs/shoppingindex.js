@@ -47,16 +47,15 @@ $(function(){
           }, 500);
       });
       
-      $("#push").on("touchstart click", function(){
+      $(".update").on("touchstart click", function(){
           var amounts = document.getElementsByClassName("amount");
-          var update = $(".amount").data("update");
+          var update = $(".amount").data("update");  //以下2行 → "upnumber(送信フォーム)" クラスの取得。
           var upnum = $(update);
-                console.log(upnum.val());
-              amounts = Array.from(amounts);
+              amounts = Array.from(amounts); // 1列目と 以下2行 → amount.value(各アイテムの個数) の取得。
               amounts.forEach(function(amount){
           var eachnum = amount.value;
-              upnum = eachnum;
-              console.log(upnum.val());
+              eachnum = $(eachnum);
+              upnum = upnum.val(eachnum); // 送信フォームの value に 個数 を代入。
           });
       });
 
@@ -71,7 +70,6 @@ $(function(){
       //変動計算関数
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
         var target = $(arySpinnerCtrl['target']);  //  arySpinnerCtrl['target'] == "btnspinner.dataset.target"　　※ $(arySpinnerCtrl['target']) →
-        //   →→ $(this)要素が含まれる為(一番上の方で定義されている) 配列の各値に処理をかけれる。
         var num = Number(target.val()); // 個数フォーム内の値(増減押す直前迄の)を num に代入。※ target の中に id も含まれる。→ num の初期値になる。
             num += arySpinnerCtrl['cal'];
         if(num > 500){ // "max" → 500、 "個数フォーム" が500を超えると(増減ボタン)
