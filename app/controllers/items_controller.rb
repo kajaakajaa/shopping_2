@@ -17,11 +17,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    # @item = Item.find_by_sql(["SELECT * FROM items WHERE id 
-    #   IN(SELECT MAX(id) FROM items GROUP BY name);"])
-  end
-
   def update
     @item = Item.find(params[:id])
       if @item.update(update_params)
