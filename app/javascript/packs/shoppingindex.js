@@ -47,18 +47,6 @@ $(function(){
           }, 500);
       });
       
-      // $(".update").on("touchstart click", function(){
-      //     var amounts = document.getElementsByClassName("amount");
-      //     var update = $(".amount").data("update");  //以下2行 → "upnumber(送信フォーム)" クラスの取得。
-      //     var upnum = $(update);
-      //         amounts = Array.from(amounts); // 1列目と 以下2行 → amount.value(各アイテムの個数) の取得。
-      //         amounts.forEach(function(amount){
-      //     var eachnum = amount.value;
-      //         eachnum = $(eachnum);
-      //         upnum = upnum.val(eachnum); // 送信フォームの value に 個数 を代入。
-      //     });
-      // });
-
       //長押し解除時 画面スクロールも解除に含む
       $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
         if(arySpinnerCtrl['interval']){

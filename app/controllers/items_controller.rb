@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
       if @item.update(update_params)
-        redeirect_to action: :index
+        redirect_to action: :index
       end
   end
 
