@@ -43,9 +43,9 @@
 <div id="index_div">
   <table border="" id="index_tbl">
     <% if @items.any? %>
-      <% @items.each do |item| %>
-        <form id="update" action="/items/2" accept-charset="UTF-8" method="post">
-          <input type="hidden" name="_method" value="patch" >
+      <form id="update" action="/items" accept-charset="UTF-8" method="post">
+        <input type="hidden" name="_method" value="patch" >
+          <% @items.each do |item| %>
             <tr>
               <th class="index_th">品名</th>
                 <td class="index_td"><%= item.name %></td>
@@ -61,9 +61,9 @@
                 <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
               </th>
             </tr>
-          <input type="submit" name="commit" value="更新" data-disable-with="send">
-        </form>
-      <% end %>
+          <% end %>
+        <input type="submit" name="commit" value="更新" data-disable-with="send">
+      </form>
     <% end %>
   </table>
 </div>
