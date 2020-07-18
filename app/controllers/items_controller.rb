@@ -12,16 +12,24 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to action: :index
     end
   end
 
+  # def update
+  #   @item = Item.find(2)
+  #     if @item.update(update_params)
+  #       redirect_to action: :index
+  #     end
+  # end
   def update
-    @item = Item.find(2)
-      if @item.update(update_params)
-        redirect_to action: :index
-      end
+    @items = Item.where(id: params[:items].keys)
+    @items.each do |item|
+      item.number = params[:items]["#{item.id}"].to_i
+      item.save!
+    end
+    redirect_to action: :index
   end
 
   def destroy
