@@ -40,7 +40,7 @@
   </form> -->
 </div>
 
-<div id="index_div">
+<!-- <div id="index_div">
   <table border="" id="index_tbl">
     <% if @items.any? %>
       <form id="update" action="/items" accept-charset="UTF-8" method="post">
@@ -54,6 +54,33 @@
               <th class="index_th">個数</th>
                 <td class="index_number_td">
                   <input type="number" value="<%= item.number %>" name="item[number]"
+                  class="counter<%= item.id %> amount"> 点
+                </td>
+              <th id="spinner_button">
+                <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
+                <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
+              </th>
+            </tr>
+          <% end %>
+        <input type="submit" name="commit" value="更新" data-disable-with="send">
+      </form>
+    <% end %>
+  </table>
+</div> -->
+<div id="index_div">
+  <table border="" id="index_tbl">
+    <% if @items.any? %>
+      <form id="update" action="/items" accept-charset="UTF-8" method="post">
+        <input type="hidden" name="_method" value="patch" >
+          <% @items.each do |item| %>
+            <tr>
+              <th class="index_th">品名</th>
+                <td class="index_td"><%= item.name %></td>
+              <th class="index_th">単価</th>
+                <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
+              <th class="index_th">個数</th>
+                <td class="index_number_td">
+                  <input type="number" value="<%= item.number %>" name="items[<%= item.id %>]"
                   class="counter<%= item.id %> amount"> 点
                 </td>
               <th id="spinner_button">
