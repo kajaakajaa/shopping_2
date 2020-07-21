@@ -11,8 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save!
+    @items = Item.new(item_params)
+    if @items.save!
       redirect_to action: :index
     end
   end
@@ -24,8 +24,8 @@ class ItemsController < ApplicationController
   #     end
   # end
   def update
-    @items = Item.where(id: params[:items].keys)
-    @items.each do |item|
+    @item = Item.where(id: params[:items].keys)
+    @item.each do |item|
       item.number = params[:items]["#{item.id}"].to_i
       item.save!
     end
@@ -38,10 +38,6 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :value, :number)
-  end
-
-  def update_params
-    params.require(:item).permit(:number)
   end
 end
 
