@@ -46,9 +46,6 @@ ul {
   top: 180px;
   left: 15%;
 }
-#index_tbl {
-  width: 50%;
-}
 .index_th {
   width: 10%;
 }
@@ -80,8 +77,7 @@ ul {
 // スピナーボタンを消す。
 
 
-#spinner_button input[type="button"], #update_form input[type="submit"],
-#send input[type="submit"] {
+input[type="button"],input[type="submit"]{
   cursor: pointer;
 }
 .amount {
