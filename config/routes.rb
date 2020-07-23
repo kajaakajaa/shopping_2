@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  
   root "items#index"
   get "/items/" => "items#index"
   post "/items/" => "items#create"
-  delete "/items/:id" => "items#destroy"
-  patch "/items" => "items#update"
+  delete "/items/:id" => "items#destroy", as: "delete"
+  patch "/items/" => "items#update"
   
   get "practice" => "items#practice"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
