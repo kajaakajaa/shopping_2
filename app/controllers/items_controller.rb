@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   #     end
   # end
   def update
-    @item = Item.where(id: params[:items].keys)
+    @item = Item.where(params[:items].keys)
     @item.each do |item|
       item.number = params[:items]["#{item.id}"].to_i
       item.save!
@@ -33,8 +33,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @items = Item.find(params[:id])
-    @items.destroy!
+    @items = Item.where(name: params[:name])
+    @items.destroy_all
     redirect_to action: :index
   end
 
