@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      item: "商品"
+    attributes:
+      item:
+        name: "名前"
+        value: "価格"   
+        number: "個数"
+  errors:
+    format: "%{attribute}%{message}"
+
+# ja:
+#   activemodel:
+#     # モデル名
+#     models:
+#       item: "商品名"
+#       attributes:
+#         # モデル毎の属性名
+#         user:
+#           name: "名前"
+#     # 共通の属性名
+#     attributes:
+#       gender: "性別"
+#   # バリデーションエラー
+#   errors:
+#     # テンプレート
+#     format: "%{attribute}%{message}"
+#     # エラー毎のメッセージ
+#     messages:
+#       blank: "を入力してください"
+   
