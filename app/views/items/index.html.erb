@@ -1,5 +1,5 @@
 <h2>shopping メモ</h2>
-
+<!-- 新規登録 -->
 <div class="form_div">
   <%= form_with(model: @item, id: "send", local: true) do |f| %>
     <%= f.label :name, :品名 %>
@@ -19,7 +19,6 @@
     <% if @item.errors.messages[:number].any? %>
       <span class="error"><%= @item.errors.messages[:number][0] %></span>
     <% end %>
-
     <%= f.submit :send %>
   <% end  %>
 </div>
@@ -31,16 +30,9 @@
       <td class="total_td"><span id="total_price" ><%= @total %></span> 円</td>
     </tr>
   </table>
-  
-  <!-- <form action="/items/2" accept-charset="UTF-8" method="post">
-    <% @items.each do |item| %>
-      <input type="hidden" name="_method" value="patch">
-      <input type="text" name="item[number]" value="<%= item.number %>" id="item_number">
-      <input type="submit" name="commit" value="send" data-disable-with="sendindg..">
-    <% end %>
-  </form> -->
 </div>
 
+<!-- 更新 -->
 <div id="index_div">
   <table border="">
     <% if @items.any? %>
