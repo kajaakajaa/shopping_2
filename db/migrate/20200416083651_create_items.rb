@@ -1,9 +1,9 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
-      t.string :name
-      t.integer :value
-      t.integer :number
+      t.string :name, null: false
+      t.integer :value, null: false
+      t.integer :number, null: false
 
       t.timestamps
     end
