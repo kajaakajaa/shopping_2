@@ -4,11 +4,12 @@ ja:
       item: "商品"
     attributes:
       item:
-        name: "さん、チィース！"
+        name: "名前"
         value: "価格"   
         number: "個数"
   errors:
     messages:
       blank: "空欄ですよ！"
+      invalid: "文字数が足りてんど"
 
    
