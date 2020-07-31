@@ -4,100 +4,102 @@
 
 h2 {
   text-align: center;
+  color: rgba(255, 0, 0, 0.925);
 }
-  
-.error {
-  font-size: 12px;
-  font-weight: bold;
-  color: tomato;
+
+#container {
+  position: relative;
 }
 
 .form_div {
   font-size: 20px;
-  position: relative;
-  top: 20px;
-  left: 20px;
   text-align: center;
 }
 
-ul {
-  font-size: 15px;
-  position: relative;
-  top: 100px;
-  color: rgb(26, 1, 255)
+#wrap {
+  top: 50px;
+  margin: 20px auto;
+  position: absolute;
 }
 
-// total
-#total_div {
-  position: relative;
-  top: 100px;
-  left: 10%;
-}
-.total_th {
-  width: 20%;
-}
-.total_td {
-  width: 80%;
-  text-align: center;
-  color: hsl(0, 100%, 50%);
-  font-size: 20px;
-}
-#total_tbl {
-  width: 40%;
-  float: left;
-}
-// total
+// ul {
+//   font-size: 15px;
+//   position: relative;
+//   top: 100px;
+//   color: rgb(26, 1, 255)
+// }
 
-// index
-#index_div {
-  clear: left;
-  position: relative;
-  top: 180px;
-  left: 15%;
-}
-.index_th {
-  width: 10%;
-}
-.index_td, .index_number_td {
-  text-align: center;
-  color: rgb(0, 21, 209);
-}
-.index_number_td, #spinner_button {
-  width: 80px;
-  flex-wrap: nowrap;
-}
-// index
+// // total
+// #total_div {
+//   position: relative;
+//   top: 100px;
+//   left: 10%;
+// }
+// .total_th {
+//   width: 20%;
+// }
+// .total_td {
+//   width: 80%;
+//   text-align: center;
+//   color: hsl(0, 100%, 50%);
+//   font-size: 20px;
+// }
+// #total_tbl {
+//   width: 40%;
+//   float: left;
+// }
+// // total
 
-// spinnerBUTTUN(+ -)
-.btnspinner{
-  -ms-user-select: none;
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
+// // index
+// #index_div {
+//   clear: left;
+//   position: relative;
+//   top: 180px;
+//   left: 15%;
+// }
+// .index_th {
+//   width: 10%;
+// }
+// .index_td, .index_number_td {
+//   text-align: center;
+//   color: rgb(0, 21, 209);
+// }
+// .index_number_td, #spinner_button {
+//   width: 80px;
+//   flex-wrap: nowrap;
+// }
+// // index
 
-// スピナーボタンを消す。
- input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-// スピナーボタンを消す。
+// // spinnerBUTTUN(+ -)
+// .btnspinner{
+//   -ms-user-select: none;
+//   -moz-user-select: -moz-none;
+//   -khtml-user-select: none;
+//   -webkit-user-select: none;
+//   user-select: none;
+// }
+
+// // スピナーボタンを消す。
+//  input[type="number"]::-webkit-outer-spin-button,
+//   input[type="number"]::-webkit-inner-spin-button {
+//     -webkit-appearance: none;
+//     margin: 0;
+// }
+// // スピナーボタンを消す。
 
 
-input[type="button"],input[type="submit"]{
-  cursor: pointer;
-}
-.amount {
-  width: 50px;
-  text-align: center;
-}
-#update_form {
-  position: relative;
-  left: 3%;
-  top: 5px;
-}
+// input[type="button"],input[type="submit"]{
+//   cursor: pointer;
+// }
+// .amount {
+//   width: 50px;
+//   text-align: center;
+// }
+// #update_form {
+//   position: relative;
+//   left: 3%;
+//   top: 5px;
+// }
 
 // spinnerBUTTUN(+ -)
 
