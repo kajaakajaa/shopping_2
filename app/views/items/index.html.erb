@@ -1,68 +1,65 @@
-<h2>shopping メモ</h2>
+<header>
+  <h2>shopping メモ</h2>
+</header>
 <!-- 新規登録 -->
-<div class="form_div">
-  <%= form_with(model: @item, id: "send", local: true) do |f| %>
-    <%= f.label :name, :品名 %>
-    <%= f.text_field :name %>
-    <% if @item.errors.messages[:name].any? %>
-      <span class="error"><%= @item.errors.messages[:name][0] %></span>
-    <% end %>
+<div id="container">
+  <div class="form_div">
+    <%= form_with(model: @item, id: "send", local: true) do |f| %>
+      <%= f.label :name, :品名 %>
+      <%= f.text_field :name %>
 
-    <%= f.label :value, :価格 %>
-    <%= f.text_field :value %>
-    <% if @item.errors.messages[:value].any? %>
-      <span class="error"><%= @item.errors.messages[:value][0] %></span>
-    <% end %>
+      <%= f.label :value, :価格 %>
+      <%= f.text_field :value %>
 
-    <%= f.label :number, :個数 %>
-    <%= f.text_field :number %>
-    <% if @item.errors.messages[:number].any? %>
-      <span class="error"><%= @item.errors.messages[:number][0] %></span>
+      <%= f.label :number, :個数 %>
+      <%= f.text_field :number %>
+      
+      <%= f.submit :send %>
     <% end %>
-    <%= f.submit :send %>
-  <% end %>
-</div>
+  </div>
+  <div id="wrap">
+    <div id="total_div">
+      <table border="" id="total_tbl">
+        <tr>
+          <th class="total_th">合計金額</th>
+          <td class="total_td"><span id="total_price" ><%= @total %></span> 円</td>
+        </tr>
+      </table>
+    </div>
 
-<div id="total_div">
-  <table border="" id="total_tbl">
-    <tr>
-      <th class="total_th">合計金額</th>
-      <td class="total_td"><span id="total_price" ><%= @total %></span> 円</td>
-    </tr>
-  </table>
-</div>
-
-<!-- 更新 -->
-<div id="index_div">
-  <table border="">
-    <% if @items.any? %>
-      <form id="update" action="/items" accept-charset="UTF-8" method="post">
-        <input type="hidden" name="_method" value="patch" >
-          <% @items.each do |item| %>
-            <tr>
-              <th class="index_th">品名</th>
-                <td class="index_td"><%= item.name %></td>
-              <th class="index_th">単価</th>
-                <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
-              <th class="index_th">個数</th>
-                <td class="index_number_td">
-                  <input type="number" value="<%= item.number %>" name="items[<%= item.id %>]"
-                  class="counter<%= item.id %> amount"> 点
-                </td>
-              <th id="spinner_button">
-                <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
-                <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
-              </th>
-              <th id="delete">
-                <%= link_to "[削除]", "items/update/#{item.name}", method: :delete, data: { confirm: "削除しますがよろしいですか？"} %>
-                <!-- <a href="items/update/<%= item.id %>" data-confirm="are you sure?" rel="nofollow" data-method="delete">[削除]</a> -->
-              </th>
-            </tr>
-          <% end %>
-        <input type="submit" name="commit" value="更新" data-disable-with="sending..">
-      </form>
-    <% end %>
-  </table>
+  <!-- 更新 -->
+    <div id="index_div">
+      <table border="">
+        <% if @items.any? %>
+          <form id="update" action="/items" accept-charset="UTF-8" method="post">
+            <input type="hidden" name="_method" value="patch" >
+              <% @items.each do |item| %>
+                <tr>
+                  <th class="index_th">品名</th>
+                    <td class="index_td"><%= item.name %></td>
+                  <th class="index_th">単価</th>
+                    <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
+                  <th class="index_th">個数</th>
+                    <td class="index_number_td">
+                      <input type="number" value="<%= item.number %>" name="items[<%= item.id %>]"
+                      class="counter<%= item.id %> amount"> 点
+                    </td>
+                  <th id="spinner_button">
+                    <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
+                    <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
+                  </th>
+                  <th id="delete">
+                    <%= link_to "[削除]", "items/update/#{item.name}", method: :delete, data: { confirm: "削除しますがよろしいですか？"} %>
+                    <!-- <a href="items/update/<%= item.id %>" data-confirm="are you sure?" rel="nofollow" data-method="delete">[削除]</a> -->
+                  </th>
+                </tr>
+              <% end %>
+            <input type="submit" name="commit" value="更新" data-disable-with="sending..">
+          </form>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
 
 <%= javascript_pack_tag 'shoppingindex.js' %> <!-- jsファイルに "$(function(){})" を使っているので、一番下に記述する必要性は特にない。 -->
