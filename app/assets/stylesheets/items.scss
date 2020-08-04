@@ -9,32 +9,25 @@ h2 {
 
 #container {
   position: relative;
+  background-color: lightblue;
+  height: 500px;
 }
 
-.form_div {
+#form {
   font-size: 20px;
   text-align: center;
+  margin: 20px 10%;
+  background-color: lightgreen;
 }
 
-#wrap {
-  top: 50px;
-  margin: 20px auto;
+#total {
+  width: 30%;
   position: absolute;
+  top: 100px;
+  margin: 20px 35%;
+  background-color: pink;
 }
 
-// ul {
-//   font-size: 15px;
-//   position: relative;
-//   top: 100px;
-//   color: rgb(26, 1, 255)
-// }
-
-// // total
-// #total_div {
-//   position: relative;
-//   top: 100px;
-//   left: 10%;
-// }
 // .total_th {
 //   width: 20%;
 // }
@@ -44,30 +37,27 @@ h2 {
 //   color: hsl(0, 100%, 50%);
 //   font-size: 20px;
 // }
-// #total_tbl {
-//   width: 40%;
-//   float: left;
-// }
-// // total
 
 // // index
-// #index_div {
-//   clear: left;
-//   position: relative;
-//   top: 180px;
-//   left: 15%;
+#index_div {
+  position: absolute;
+  top: 150px;
+  margin: 20px 20%;
+}
+// .index_th, .index_td {
+//   writing-mode: lr-tb;
 // }
-// .index_th {
-//   width: 10%;
-// }
+.index_th {
+  width: 10%;
+}
 // .index_td, .index_number_td {
 //   text-align: center;
 //   color: rgb(0, 21, 209);
 // }
-// .index_number_td, #spinner_button {
-//   width: 80px;
-//   flex-wrap: nowrap;
-// }
+.index_number_td, #spinner_button {
+  width: 80px;
+  flex-wrap: nowrap;
+}
 // // index
 
 // // spinnerBUTTUN(+ -)
