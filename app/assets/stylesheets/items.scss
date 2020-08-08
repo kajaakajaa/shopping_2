@@ -20,16 +20,31 @@ h1 {
   left: 50%;
   transform: translate(-50%, 0);
   color: white;
-  background-color: black;
+  background-color: rgb(223, 1, 1);
   border-radius: 55%;
 }
+
+@media screen and (max-width: 349px) {
+  h1 {
+    font-size: 30px;
+    width: 290px;
+    height: 50px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: white;
+    background-color: rgb(223, 1, 1);
+    border-radius: 55%;
+  }
+} 
 
 hr {
  width: 80%;
  height: 1px;
  border: none;
  position: absolute;
- top: 70px;
+ top: 80px;
  left: 50%;
  transform: translate(-50%, 0);
  background-color: black;
@@ -38,10 +53,11 @@ hr {
 #container {
   position: relative;
   top: 90px;
-  height: 500px;
+  height: 700px;
 }
 
 // 入力フォーム
+
 #form {
   font-size: 20px;
   font-weight: bold;
@@ -52,15 +68,62 @@ hr {
   white-space: nowrap;
 }
 
+@media screen and (min-width: 700px) and (max-width: 768px) {
+  #form {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 100px 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  #form {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 100px 0;
+    position: absolute;
+    top: -100px;
+    left: 25%;
+    white-space: pre-wrap;
+  }
+}
+
 // 合計額(ラベル) + 合計額
 #total {
-  // color: white;
   width: 30%;
   position: absolute;
-  top: 160px;
+  top: 200px;
   margin: 20px 35%;
   background-color: rgb(255, 149, 149);
   white-space: nowrap;
+}
+
+@media screen and (min-width: 350px) and (max-width: 699px) {
+  #total {
+    width: 30%;
+    position: absolute;
+    top: 135px;
+    left: 20%;
+    margin: 20px 35%;
+    background-color: rgb(255, 149, 149);
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  #total {
+    width: 30%;
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    margin: 20px 35%;
+    background-color: rgb(255, 149, 149);
+    white-space: normal;
+  }
 }
 
 // 合計額
@@ -70,33 +133,121 @@ hr {
   font-size: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  #total_td {
+    width: 80%;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  #total_td {
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  #total_th {
+    font-size: 14px;
+  }
+}
+
 // 登録一覧
 #index_tbl {
-  // color: white;
   font-size: 16px;
   position: absolute;
-  top: 260px;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, 0);
   background-color: rgb(255, 149, 149);
   white-space: nowrap;
 }
 
-// 個数入力
-.index_number_td > input[type="number"] {
+@media screen and (min-width: 700px) and (max-width: 768px) {
+  #index_tbl {
+    font-size: 14px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgb(255, 149, 149);
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 699px) {
+  #index_tbl {
+    font-size: 14px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgb(255, 149, 149);
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  #index_tbl {
+    font-size: 5px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgb(255, 149, 149);
+    white-space: nowrap;
+  }
+}
+
+// 個数(更新)入力
+.amount {
   font-size: 16px;
 }
 
-// 商品名 + 個数
+// 商品名 + 個数(更新)
 .index_td, .amount {
   text-align: center;
+}
+
+@media screen and (max-width: 699px) {
+  .index_td, .amount {
+    text-align: center;
+    width: 50px;
+    white-space: normal;
+  }
+}
+
+// ボタンスピナー + 個数(更新)
+
+@media screen and (max-width: 449px) {
+  .amount {
+    width: 20px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  .btnspinner {
+    font-size: 10px;
+  }
 }
 
 // 更新（送信）
 #updatesend {
   position: absolute;
-  top: 190px;
+  top: 230px;
   left: 66%;
+}
+
+@media screen and (max-width: 699px){
+  #updatesend {
+    position: absolute;
+    top: 205px;
+    left: 66%;
+  }
 }
 
 // 削除
