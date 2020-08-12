@@ -16,17 +16,19 @@ class ItemsController < ApplicationController
       redirect_to action: :index
   end
 
-  # def update
-  #   @item = Item.find(2)
-  #     if @item.update(update_params)
-  #       redirect_to action: :index
+  # def create
+  #     if  @item = @item.find{ |v,k| v.to_s.match(/\s|　+/)}
+  #         @item = @item[1]
+  #         @item 0 @item.gsub(/\s|　+/, "")
+  #           @item.save!
   #     end
   # end
+
   def update
     @item = Item.where(params[:items].keys)
     @item.each do |item|
       item.number = params[:items]["#{item.id}"].to_i
-      item.save!
+      item.save!(validate: false)
     end
     redirect_to action: :index
   end

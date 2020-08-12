@@ -4,10 +4,14 @@ ja:
       item: "商品"
     attributes:
       item:
-        name: "名前"
+        name: "品名"
         value: "価格"   
         number: "個数"
+    errors:
+      messages:
+        record_invalid: "入力エラー！ 詳細 => %{errors}"
   errors:
     messages:
-      blank: "が空欄になっています。"
-   
+      blank: "：空欄では送信出来ません。"
+      invalid: "：空白文字は使用出来ません。"
+      too_long: "：3文字以内で入力して下さい。"

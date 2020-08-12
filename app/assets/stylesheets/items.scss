@@ -207,7 +207,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (min-width: 400px) and (max-width: 499px) {
   #index_tbl {
     font-size: 5px;
     position: absolute;
@@ -219,32 +219,31 @@ hr {
   }
 }
 
-// 商品名・価格・個数
-@media screen and (max-width: 350px) {
-  .index_th {
+@media screen and (max-width: 399px) {
+  #index_tbl {
+    table-layout:fixed;
+    font-size: 5px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgb(255, 149, 149);
     white-space: normal;
   }
-}
-
-// 個数(更新)入力
-.amount {
-  font-size: 16px;
 }
 
 // 商品名 + 個数(更新)
 .index_td, .amount {
   text-align: center;
-  white-space: normal;
+  white-space: nowrap;
 }
 
-// @media screen and (max-width: 440px) {
-//   .index_item {
-//     white-space: normal;
-//   }
-// }
+// 個数(更新)
+.amount {
+  font-size: 16px;
+}
 
-// ボタンスピナー + 個数(更新)
-
+// 個数(更新)
 @media screen and (max-width: 600px) {
   .amount {
     width: 20px;
@@ -252,6 +251,7 @@ hr {
   }
 }
 
+// ボタンスピナー
 @media screen and (max-width: 500px) {
   .btnspinner {
     font-size: 10px;
@@ -272,6 +272,8 @@ hr {
     left: 66%;
   }
 }
+
+
 
 // 削除
 #delete > a {
