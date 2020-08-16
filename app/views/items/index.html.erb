@@ -42,12 +42,11 @@
                   class="counter<%= item.id %> amount"> 点
                 </td>
               <th id="spinner_button">
-                <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>">  <%# (上) "class="counter＜%= item.id %＞ を "data-target" で取得、 %>
-                <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>"> <%# それを "var target = arySpinnerCtrl['target'];" へ渡している。 %>
+                <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>"> 
+                <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>">
               </th>
               <th id="delete">
                 <%= link_to "[削除]", "items/update/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
-                <!-- <a href="items/update/<%= item.id %>" data-confirm="are you sure?" rel="nofollow" data-method="delete">[削除]</a> -->
               </th>
             </tr>
           <% end %>
@@ -57,5 +56,5 @@
   </table>
 </div>
 
-<%= javascript_pack_tag 'shoppingindex.js' %> <!-- jsファイルに "$(function(){})" を使っているので、一番下に記述する必要性は特にない。 -->
+<%= javascript_pack_tag 'shoppingindex.js' %>
 <%= javascript_pack_tag "update.js" %>

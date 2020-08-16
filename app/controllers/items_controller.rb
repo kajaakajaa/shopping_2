@@ -2,9 +2,8 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.find_by_sql(["SELECT * FROM items WHERE id 
-      IN(SELECT MAX(id) FROM items GROUP BY name);"]) # "name" カラムに group メソッド処理で絞り込み、
-        # かつidの最大値(idの大きい数字順)を取得する。ActiveRecord に変換したメソッドは不明。
-    @total = 0 #(← 初期の数値設定が要る)
+      IN(SELECT MAX(id) FROM items GROUP BY name);"])
+    @total = 0
     @items.each do |item|
       @total += item.value * item.number
     end
@@ -15,14 +14,6 @@ class ItemsController < ApplicationController
     @item.save!
       redirect_to action: :index
   end
-
-  # def create
-  #     if  @item = @item.find{ |v,k| v.to_s.match(/\s|　+/)}
-  #         @item = @item[1]
-  #         @item 0 @item.gsub(/\s|　+/, "")
-  #           @item.save!
-  #     end
-  # end
 
   def update
     @item = Item.where(params[:items].keys)
