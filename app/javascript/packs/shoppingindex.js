@@ -5,14 +5,14 @@ $(function(){
 
       //長押し押下時
       // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
-      $('.btnspinner').on("touchend click mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
+      $('.btnspinner').on("click touchstart mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
           //クリックは単一の処理に留める
-          if(e.type == 'click' || e.type == "touchend"){ // イベントが "mousedown" "click" の内 "click" の方だと下記の処理。(※ 1個づつ増減処理をしたい時)
+          if(e.type == "click"){ // イベントが "mousedown" "click" の内 "click" の方だと下記の処理。(※ 1個づつ増減処理をしたい時)
               // スピナーの値を更新
               spinnerCal();
               // 必要な要素の取得
@@ -49,7 +49,7 @@ $(function(){
       });
       
       //長押し解除時 画面スクロールも解除に含む
-      $(document).on('touchend mouseup scroll', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
+      $(document).on('touchend mouseup', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
         if(arySpinnerCtrl['interval']){
           clearInterval(arySpinnerCtrl['interval']);
           arySpinnerCtrl = [];
