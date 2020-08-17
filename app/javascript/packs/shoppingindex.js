@@ -4,14 +4,15 @@ $(function(){
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
 
       //長押し押下時
-      $('.btnspinner').on('touchstart mousedown click', function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
+      // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
+      $('.btnspinner').on("touchend click mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
           arySpinnerCtrl['target'] = target;
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
           //クリックは単一の処理に留める
-          if(e.type == 'click'){ // イベントが "mousedown" "click" の内 "click" の方だと下記の処理。(※ 1個づつ増減処理をしたい時)
+          if(e.type == 'click' || e.type == "touchend"){ // イベントが "mousedown" "click" の内 "click" の方だと下記の処理。(※ 1個づつ増減処理をしたい時)
               // スピナーの値を更新
               spinnerCal();
               // 必要な要素の取得
