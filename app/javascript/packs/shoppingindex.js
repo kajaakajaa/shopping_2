@@ -5,7 +5,7 @@ $(function(){
 
       //長押し押下時
       // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
-      $('.btnspinner').on("touchend click mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
+      $('.btnspinner').on("touchstart touchend click mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
           arySpinnerCtrl['target'] = target;
