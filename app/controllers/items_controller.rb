@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.where(params[:items].keys)
+    @item = Item.where(id: params[:items].keys)
     @item.each do |item|
       item.number = params[:items]["#{item.id}"].to_i
       item.save!(validate: false)
