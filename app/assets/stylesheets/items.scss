@@ -24,6 +24,22 @@ h1 {
   border-radius: 55%;
 }
 
+// ログイン・アウト
+#log {
+  position: absolute;
+  top: 50px;
+  right: 10%;
+}
+
+@media screen and (max-width: 880px) {
+  #log {
+    font-size: 12px;
+    position: absolute;
+    top: 50px;
+    right: 10%;
+  }
+}
+
 @media screen and (min-width: 350px) and (max-width: 600px) {
   h1 {
     font-size: 30px;
