@@ -12,7 +12,7 @@ $(function(){
           arySpinnerCtrl['timestamp'] = e.timeStamp;
           arySpinnerCtrl['cal'] = Number($(this).data('cal')); // "cal" で取得したデータを "整数化" する。
           //クリックは単一の処理に留める
-          if(e.type == "click"){ // イベントが "mousedown" "click" の内 "click" の方だと下記の処理。(※ 1個づつ増減処理をしたい時)
+          if(e.type == "click" || e.type == "mouseup"){ // イベントが "mousedown" "click" の内 "click" の方だと下記の処理。(※ 1個づつ増減処理をしたい時)
               // スピナーの値を更新
               spinnerCal();
               // 必要な要素の取得
