@@ -5,7 +5,7 @@ $(function(){
 
       //長押し押下時
       // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
-      $('.btnspinner').on("click touch mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
+      $('.btnspinner').on("click touchstart mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
         if(arySpinnerCtrl['interval']) return false;
           var target = $(this).data('target'); // index.html.erb "btnspinner" から "data-target" の値を受け取り "target" へ格納。
           arySpinnerCtrl['target'] = target;
@@ -49,7 +49,7 @@ $(function(){
       });
       
       //長押し解除時 画面スクロールも解除に含む
-      $(document).on('touchend mouseup', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
+      $(document).on('touchend mouseup', function(){ // 画面のどこだろうが、又は押しているボタンを離すと "長押し" が解除される。
         if(arySpinnerCtrl['interval']){
           clearInterval(arySpinnerCtrl['interval']);
           arySpinnerCtrl = [];
