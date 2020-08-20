@@ -49,7 +49,7 @@ $(function(){
       });
       
       //長押し解除時 画面スクロールも解除に含む
-      $(document).on('touchend mouseup', function(){ // 画面のどこだろうが スクロールするか、又は押しているボタンを離すと "長押し" が解除される。
+      $(document).on('touchend mouseup', function(){ // 画面のどこだろうが、又は押しているボタンを離すと "長押し" が解除される。
         if(arySpinnerCtrl['interval']){
           clearInterval(arySpinnerCtrl['interval']);
           arySpinnerCtrl = [];
