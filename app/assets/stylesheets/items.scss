@@ -307,3 +307,11 @@ hr {
 input[type="button"],input[type="submit"]{
   cursor: pointer;
 }
+
+
+// エラ〜メッセージ
+.error {
+  font-size: 12px;
+  font-weight: bold;
+  color: tomato;
+}
