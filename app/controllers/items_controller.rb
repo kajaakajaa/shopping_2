@@ -11,8 +11,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @items = Item.find_by_sql(["SELECT * FROM items WHERE id 
+    IN(SELECT MAX(id) FROM items GROUP BY name);"])
     if @item.save
-       redirect_to action: :index
+      redirect_to action: :index
     else
       render action: :index
     end
