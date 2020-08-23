@@ -12,6 +12,7 @@ ja:
         record_invalid: "入力エラー！ 詳細 => %{errors}"
   errors:
     messages:
-      blank: "：空欄では送信出来ません。"
-      invalid: "：空白文字は使用出来ません。"
-      too_long: "：15文字以内で入力して下さい。"
+      blank: "空欄では送信出来ません。"
+      invalid: "空白文字は使用出来ません。"
+      too_long: "15文字以内で入力して下さい。"
+
