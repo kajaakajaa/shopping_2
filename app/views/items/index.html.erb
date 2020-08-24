@@ -5,23 +5,29 @@
 
 <div id="container">
 <!-- 新規登録 -->
-  <%= form_with(model: @item, id: "form", local: true) do |f| %>
-    <%= f.label :name, :品名 %>
-    <%= f.text_field :name, placeholder: "空白はご遠慮下さい" %>
-    <% if @item.errors.messages[:name].any? %>
-      <span class="error"><%= @item.errors.messages[:name][0] %></span>
-    <% end %>
-    <%= f.label :value, :価格 %>
-    <%= f.text_field :value, placeholder: "半角数字で入力下さい", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-    <% if @item.errors.messages[:value].any? %>
-      <span class="error"><%= @item.errors.messages[:value][0] %></span>
-    <% end %>
-    <%= f.label :number, :個数 %>
-    <%= f.text_field :number, placeholder: "半角数字で入力下さい", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-    <% if @item.errors.messages[:number].any? %>
-      <span class="error"><%= @item.errors.messages[:number][0] %></span>
-    <% end %>
-    <%= f.submit :send %>
+<%= form_with(model: @item, id: "form", local: true) do |f| %>
+  <%= f.label :name, :品名 %>
+  <%= f.text_field :name, placeholder: "空白はご遠慮下さい" %>
+    <%
+=begin%>
+ <span class="error">空欄では送信出来ません</span> 
+<%
+=end%>
+  <%= f.label :value, :価格 %>
+  <%= f.text_field :value, placeholder: "半角数字で入力下さい", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+    <%
+=begin%>
+ <span class="error">空欄では送信出来ません</span> 
+<%
+=end%>
+  <%= f.label :number, :個数 %>
+  <%= f.text_field :number, placeholder: "半角数字で入力下さい", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+    <%
+=begin%>
+ <span class="error">空欄では送信出来ません</span> 
+<%
+=end%>
+  <%= f.submit :send %>
 <% end %>
 
 <!-- 合計金額  -->

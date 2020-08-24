@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-// .field_with_errors {
-//   display: inline;
-// }
 
 html {
   background-color: rgb(255, 217, 45);
@@ -315,6 +312,7 @@ input[type="button"],input[type="submit"]{
 
 // エラ〜メッセージ
 .error {
+  display: block;
   font-size: 12px;
   font-weight: bold;
   color: tomato;
