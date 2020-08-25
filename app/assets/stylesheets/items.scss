@@ -25,13 +25,6 @@ h1 {
   border-radius: 55%;
 }
 
-// ログイン・アウト
-#log {
-  position: absolute;
-  top: 50px;
-  right: 10%;
-}
-
 @media screen and (max-width: 880px) {
   #log {
     font-size: 12px;
@@ -93,13 +86,16 @@ hr {
 // 入力フォーム
 
 #form {
+  box-sizing: border-box;
   font-size: 20px;
   font-weight: bold;
-  margin: 100px 0;
+  margin: 20px 0;
+  width: 700px;
   position: absolute;
+  top: 20px;
   left: 50%;
   transform: translate(-50%, 0);
-  white-space: nowrap;
+  // white-space: nowrap;
 }
 
 @media screen and (min-width: 700px) and (max-width: 768px) {
@@ -110,7 +106,7 @@ hr {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    white-space: nowrap;
+    // white-space: nowrap;
   }
 }
 
@@ -124,6 +120,17 @@ hr {
     left: 25%;
     white-space: pre-wrap;
   }
+}
+
+// form内のP要素。
+.form_item, .form_value, .form_number {
+  display: inline-block;
+  height: 60px;
+}
+
+// form内の商品個別 p要素。
+.form_item {
+  position:absolute;
 }
 
 // 合計額(ラベル) + 合計額
@@ -310,9 +317,12 @@ input[type="button"],input[type="submit"]{
 }
 
 
-// エラ〜メッセージ
+// エラーメッセージ
 .error {
   display: block;
+  position: absolute;
+  top: 60px;
+  left: 10px;
   font-size: 12px;
   font-weight: bold;
   color: tomato;
