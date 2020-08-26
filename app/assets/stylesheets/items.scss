@@ -87,7 +87,7 @@ hr {
 
 #form {
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0 auto;
   height: 200px;
@@ -447,4 +447,7 @@ input[type="button"],input[type="submit"]{
 
 .placeholder::placeholder {
   text-align: center; 
+}
+.placeholder {
+  width: 150px;
 }
