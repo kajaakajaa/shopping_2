@@ -89,51 +89,156 @@ hr {
   box-sizing: border-box;
   font-size: 20px;
   font-weight: bold;
-  margin: 20px 0;
+  margin: 0 auto;
+  height: 200px;
   width: 700px;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  // white-space: nowrap;
+  position: relative;
 }
-
-@media screen and (min-width: 700px) and (max-width: 768px) {
+@media screen and (min-width: 801px) and (max-width: 950px) {
   #form {
+    box-sizing: border-box;
     font-size: 14px;
     font-weight: bold;
-    margin: 100px 0;
+    margin: 0 auto;
+    height: 200px;
+    width: 600px;
+    position: relative;
+  }
+}
+@media screen and (max-width: 800px) {
+  #form {
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 auto;
+    height: 210px;
+    width: 500px;
+    position: relative;
+  }
+}
+
+
+// form内の"品名" p要素。
+@media screen and (min-width: 951px){
+  #form_item {
+    position:absolute;
+    top: 60px;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 950px) {
+  #form_item {
+    position:absolute;
+    top: 70px;
+    height: 60px;
+  }
+}
+@media screen and (min-width: 671px) and (max-width: 800px) {
+  #form_item {
     position: absolute;
+    top: 30px;
+  }
+}
+@media screen and (max-width: 670px) {
+  #form_item {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+}
+
+
+// from内の"価格" p要素。
+@media screen and (min-width: 951px){
+  #form_value {
+    position: absolute;
+    top: 60px;
+    height: 60px;
+    left: 250px;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 950px) {
+  #form_value {
+    position: absolute;
+    top: 70px;
+    height: 60px;
+    left: 210px;
+  }
+}
+@media screen and (min-width: 671px) and (max-width: 800px) {
+  #form_value {
+    position: absolute;
+    top: 90px;
+  }
+}
+@media screen and (max-width: 670px) {
+  #form_value {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+  }
+}
+
+
+// // from内の"個数" p要素。
+@media screen and (min-width: 951px){
+  #form_number {
+    position: absolute;
+    top: 60px;
+    height: 60px;
+    left: 500px;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 950px) {
+  #form_number {
+    position: absolute;
+    top: 70px;
+    height: 60px;
+    right: 0;
+  }
+}
+@media screen and (min-width: 671px) and (max-width: 800px) {
+  #form_number {
+    position: absolute;
+    top: 150px;
+  }
+}
+@media screen and (max-width: 670px) {
+  #form_number {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+  }
+}
+
+
+@media screen and (min-width: 951px) {
+  #form_send {
+    position: absolute;
+    top: 20px;
     left: 50%;
     transform: translate(-50%, 0);
-    // white-space: nowrap;
   }
 }
-
-@media screen and (max-width: 699px) {
-  #form {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 100px 0;
+@media screen and (min-width: 801px) and (max-width: 950px) {
+  #form_send {
     position: absolute;
-    top: -90px;
-    left: 25%;
-    white-space: pre-wrap;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+@media screen and (max-width: 800px) {
+  #form_send {
+    position: absolute;
+    top: 30px;
+    right: 30%;
   }
 }
 
-// form内のP要素。
-.form_item, .form_value, .form_number {
-  display: inline-block;
-  height: 60px;
-}
-
-// form内の商品個別 p要素。
-.form_item {
-  position:absolute;
-}
 
 // 合計額(ラベル) + 合計額
+
 #total {
   width: 30%;
   position: absolute;
@@ -318,12 +423,28 @@ input[type="button"],input[type="submit"]{
 
 
 // エラーメッセージ
-.error {
+#error {
   display: block;
   position: absolute;
-  top: 60px;
+  top: 40px;
   left: 10px;
   font-size: 12px;
   font-weight: bold;
   color: tomato;
+}
+@media screen and (max-width: 950px) {
+  #error {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: tomato;
+  }
+}
+
+
+.placeholder::placeholder {
+  text-align: center; 
 }
