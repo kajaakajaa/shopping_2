@@ -1,41 +1,42 @@
 <header>
   <h1>shopping memo</h1>
+  <input type="text" id="search" placeholder="商品名を入力下さい" maxlength="15" minlength="1">
   <hr>
 </header>
 
 <div id="container">
-<!-- 新規登録 -->
-<%= form_with(model: @item, id: "form", local: true) do |f| %>
-  <p id="form_item">
-    <%= f.label :name, :品名 %>
-    <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
-    <% if @item.errors.messages[:name].any? %>
-      <span id="error"><%= @item.errors.messages[:name][0] %></span>
-    <% end %>
-  </p> 
+  <!-- 新規登録 -->
+  <%= form_with(model: @item, id: "form", local: true) do |f| %>
+    <p id="form_item">
+      <%= f.label :name, :品名 %>
+      <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
+      <% if @item.errors.messages[:name].any? %>
+        <span id="error"><%= @item.errors.messages[:name][0] %></span>
+      <% end %>
+    </p> 
 
-  <p id="form_value">
-    <%= f.label :value, :価格 %>
-    <%= f.text_field :value, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-    <% if @item.errors.messages[:value].any? %>  
-      <span id="error"><%= @item.errors.messages[:value][0] %></span>
-    <% end %>
-  </p>
+    <p id="form_value">
+      <%= f.label :value, :価格 %>
+      <%= f.text_field :value, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+      <% if @item.errors.messages[:value].any? %>  
+        <span id="error"><%= @item.errors.messages[:value][0] %></span>
+      <% end %>
+    </p>
 
-  <p id="form_number">
-    <%= f.label :number, :個数 %>
-    <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-    <% if @item.errors.messages[:number].any? %>
-      <span id="error"><%= @item.errors.messages[:number][0] %></span>
-    <% end %>
-  </p>
+    <p id="form_number">
+      <%= f.label :number, :個数 %>
+      <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+      <% if @item.errors.messages[:number].any? %>
+        <span id="error"><%= @item.errors.messages[:number][0] %></span>
+      <% end %>
+    </p>
 
-  <p id="form_send">
-    <%= f.submit :送信 %>
-  </p>
-<% end %> 
+    <p id="form_send">
+      <%= f.submit :送信 %>
+    </p>
+  <% end %> 
 
-<!-- 合計金額  -->
+  <!-- 合計金額  -->
   <table border="" id="total">
     <tr>
       <th id="total_th">合計金額</th>
@@ -43,7 +44,7 @@
     </tr>
   </table>
 
-<!-- 更新 -->
+  <!-- 更新 -->
   <table border="" id="index_tbl">
     <% if @items.any? %>
       <form id="update" action="/items" accept-charset="UTF-8" method="post">
@@ -76,5 +77,4 @@
 </div>
 
 <%= javascript_pack_tag 'shoppingindex.js' %>
-<%= javascript_pack_tag "shopping_search.js" %>
 <%= javascript_pack_tag "update.js" %>

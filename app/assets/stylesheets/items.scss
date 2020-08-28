@@ -445,9 +445,44 @@ input[type="button"],input[type="submit"]{
 }
 
 
-.placeholder::placeholder {
+// 商品名検索
+@media screen and (min-width: 901px) {
+  #search {
+    position: absolute;
+    top: 60px;
+    right: 10%;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 900px) {
+  #search {
+    font-size: 10px;
+    position: absolute;
+    top: 60px;
+    right: 10%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #search {
+    font-size: 10px;
+  }
+}
+
+
+.placeholder, #search::placeholder {
   text-align: center; 
 }
+
+// スマホ用に幅を設定
 .placeholder {
   width: 150px;
+}
+
+
+
+
+
+
+
+.highlight{
+  background-color:yellow;
 }
