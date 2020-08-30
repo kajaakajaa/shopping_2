@@ -24,16 +24,18 @@ class ItemsController < ApplicationController
     @item = Item.where(id: params[:items].keys)
     @item.each do |item|
       item.number = params[:items]["#{item.id}"].to_i
-      item.save!(validate: false)
+      item.save(validate: false)
     end
     redirect_to action: :index
   end
 
   def reset
-    @item = Item.where(number: params[:number])
+    @item = Item.where(number: params[:number].to_i)
+    @item.each do |item|
     binding.pry
-    @item = 0
-    # binding.pry
+      item.number = 0
+      item.save
+    end
   end
 
   def destroy
