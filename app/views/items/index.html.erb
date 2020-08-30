@@ -25,7 +25,7 @@
 
     <p id="form_number">
       <%= f.label :number, :個数 %>
-      <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+      <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')"oninput: "value = value.replace(/[^0-9]+/i, '') %>
       <% if @item.errors.messages[:number].any? %>
         <span id="error"><%= @item.errors.messages[:number][0] %></span>
       <% end %>
@@ -58,8 +58,8 @@
                 <td class="index_td unit_price" data-price="<%= item.value %>"><%= item.value %> 円</td>
               <th class="index_th">個数</th>
                 <td class="index_number_td">
-                  <input type="number" value="<%= item.number %>" name="items[<%= item.id %>]"
-                  class="counter<%= item.id %> amount"> 点
+                  <input type="text" value="<%= item.number %>" name="items[<%= item.id %>]"
+                  class="counter<%= item.id %> amount" oninput="value = value.replace(/[^0-9]+/i, '')"> 点
                 </td>
               <th id="spinner_button">
                 <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>"> 
@@ -69,14 +69,7 @@
                 <%= link_to "[削除]", "items/destroy/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
               </th>
               <th>
-                
- <%= link_to "[リセット]", "items/reset/#{item.number}", method: :post %> 
-
-                <%
-=begin%>
- <a id="reset" href="/items/reset/" name="item[<%= item.number %>]" data-method="post">[リセット]</a> 
-<%
-=end%>
+                <a id="reset" href="/items/reset/<%= item.number %>" data-method="post">[リセット]</a> 
               </th>
             </tr>
           <% end %>
