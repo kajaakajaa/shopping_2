@@ -29,6 +29,13 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
 
+  def reset
+    @item = Item.where(number: params[:number])
+    binding.pry
+    @item = 0
+    # binding.pry
+  end
+
   def destroy
     @items = Item.where(name: params[:name])
     @items.destroy_all

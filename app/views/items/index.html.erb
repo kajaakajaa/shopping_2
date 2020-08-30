@@ -66,7 +66,17 @@
                 <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>">
               </th>
               <th id="delete">
-                <%= link_to "[削除]", "items/update/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
+                <%= link_to "[削除]", "items/destroy/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
+              </th>
+              <th>
+                
+ <%= link_to "[リセット]", "items/reset/#{item.number}", method: :post %> 
+
+                <%
+=begin%>
+ <a id="reset" href="/items/reset/" name="item[<%= item.number %>]" data-method="post">[リセット]</a> 
+<%
+=end%>
               </th>
             </tr>
           <% end %>
