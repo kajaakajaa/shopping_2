@@ -25,7 +25,8 @@ $(function(){
               let count = 0; //リロードした状態を初期値として宣言。
 
               // 全ての商品の合計金額を求める
-              unit_prices.forEach(function(unit_price) { // rails の each do のループ処理みたいな物。 "unit_price" にid全部価格が入る。
+              unit_prices.forEach(unit_price => { // rails の each do のループ処理みたいな物。 "unit_price" にid全部価格が入る。
+              console.log(unit_prices)
                 total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
                 count++  // 配列要素の合計を1個づつプラスしていく。
               });
