@@ -25,7 +25,7 @@
 
     <p id="form_number">
       <%= f.label :number, :個数 %>
-      <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')"oninput: "value = value.replace(/[^0-9]+/i, '') %>
+      <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
       <% if @item.errors.messages[:number].any? %>
         <span id="error"><%= @item.errors.messages[:number][0] %></span>
       <% end %>
@@ -69,7 +69,7 @@
                 <%= link_to "[削除]", "items/destroy/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
               </th>
               <th>
-                <a id="reset" href="/items/reset/<%= item.number %>" data-method="post">[リセット]</a> 
+                <a id="reset" href="/items/reset/<%= item.id %>" data-method="post">[リセット]</a> 
               </th>
             </tr>
           <% end %>
