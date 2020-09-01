@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @item = Item.new
-    @items = Item.find_by_sql(["SELECT * FROM items WHERE id 
-      IN(SELECT MAX(id) FROM items GROUP BY name);"])
+    @items = Item.all.order(created_at: :desc)
     @total = 0
     @items.each do |item|
       @total += item.value * item.number
@@ -11,8 +10,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @items = Item.find_by_sql(["SELECT * FROM items WHERE id 
-    IN(SELECT MAX(id) FROM items GROUP BY name);"])
+    @items = Item.all.order(created_at: :desc)
     if @item.save
       redirect_to action: :index
     else

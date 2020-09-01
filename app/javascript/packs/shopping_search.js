@@ -3,10 +3,6 @@ const yougo_parts = document.getElementsByClassName('sample_part');
 const input = document.getElementById('sample_word');
 
 
-
-// var elements = document.getElementsByClassName('className');
-// var requiredElement = elements[0];
-
 input.addEventListener('input',()=>{
   reset();
   const s_word = input.value;
