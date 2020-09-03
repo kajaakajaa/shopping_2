@@ -69,4 +69,15 @@ $(function(){
             target.val(num); // target の val() に個数フォームの数値が格納される。
         }          
       }
+
+      //リセット
+      var reset = document.getElementById("reset");
+      reset.addEventListener("click", () =>{
+        reset.classList.add("aft_reset");
+        // var b_cont = reset.innerText;
+        // if(b_cont == "[ 未 ]") {
+        //   b_cont = "[ 済 ]";
+        //   reset.classList.add("aft_reset");
+        // }
+      });
   });
