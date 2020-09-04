@@ -69,7 +69,7 @@
                 <%= link_to "[削除]", "items/destroy/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
               </th>
               <th>
-                <a id="reset" href="/items/reset/<%= item.id %>" data-method="post">[ 未 ]</a> 
+                <a class="reset" >[ 未 ]</a> 
               </th>
             </tr>
           <% end %>

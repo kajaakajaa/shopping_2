@@ -71,13 +71,14 @@ $(function(){
       }
 
       //リセット
-      var reset = document.getElementById("reset");
-      reset.addEventListener("click", () =>{
-        reset.classList.add("aft_reset");
-        // var b_cont = reset.innerText;
-        // if(b_cont == "[ 未 ]") {
-        //   b_cont = "[ 済 ]";
-        //   reset.classList.add("aft_reset");
-        // }
+      var resets = document.getElementsByClassName("reset");
+        resets = Array.from(resets);
+        resets.forEach(reset => {
+          reset.addEventListener("click", () =>{
+          reset.style.color = "darkblue";
+          if(reset.innerText == "[ 未 ]") {
+            reset.innerText = "[ 済 ]";
+          }
+        });
       });
   });
