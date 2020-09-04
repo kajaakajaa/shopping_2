@@ -27,12 +27,11 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
 
-  def reset
-    @item = Item.find(params[:id])
-    @item.number = 0
-    @item.save
-      redirect_to action: :index
-  end
+  # def reset
+  #   @item = Item.find(params[:id])
+  #   @item.number = 0
+  #     # redirect_to action: :index
+  # end
 
   def destroy
     @items = Item.where(name: params[:name])
