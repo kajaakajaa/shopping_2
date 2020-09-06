@@ -66,10 +66,10 @@
                 <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>">
               </th>
               <th id="delete">
-                <%= link_to "[削除]", "items/destroy/#{item.name}", method: :delete, data: { confirm: "削除するで？"} %>
+                <%= link_to "[削除]", "items/destroy/#{item.name}", method: :delete, data: { confirm: "%{attribute}削除するで？"} %>
               </th>
               <th>
-                <a class="reset" >[ 未 ]</a> 
+                <a class="reset" data-rstnum=".counter<%= item.id %>" >[ 未 ]</a> 
               </th>
             </tr>
           <% end %>
