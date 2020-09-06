@@ -74,11 +74,15 @@ $(function(){
       var resets = document.getElementsByClassName("reset");
         resets = Array.from(resets);
         resets.forEach(reset => {
+          var rstnum = reset.dataset.rstnum;
           reset.addEventListener("click", () =>{
-          reset.style.color = "darkblue";
-          if(reset.innerText == "[ 未 ]") {
-            reset.innerText = "[ 済 ]";
-          }
+            reset.classList.toggle("aft_rst");
+            if(reset.innerText == "[ 未 ]"){
+              reset.innerText = "[ 済 ]";
+            }else if(reset.innerText == "[ 済 ]"){
+              reset.innerText = "[ 未 ]";
+              return $(rstnum).val();
+            };
         });
       });
   });
