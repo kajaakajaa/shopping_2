@@ -74,22 +74,16 @@ $(function(){
       var resets = document.getElementsByClassName("reset");
       resets = Array.from(resets);
       resets.forEach(reset => {
-      var rstnum = reset.dataset.rstnum;
         reset.addEventListener("click", () =>{
           reset.classList.toggle("aft_rst");
-          if(reset.innerText == "[ 未 ]"){
-            reset.innerText = "[ 済 ]";
-          }else if(reset.innerText == "[ 済 ]"){
-            reset.innerText = "[ 未 ]";
+          if(reset.value == " 未 "){
+            reset.value = " 済 ";
+
+          }else if(reset.value == " 済 "){
+            reset.value = " 未 ";
           };
-          console.log($(rstnum).val());
         });
       });
-      var aft_rsts = [...document.getElementsByClassName("aft_rst")];
-        aft_rsts = Array.from(aft_rsts);
-        aft_rsts.forEach(aft_rst =>{
-          console.log(aft_rst);
-        });
 
 
   });

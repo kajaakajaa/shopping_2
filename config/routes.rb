@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/items/" => "items#index"
   post "/items/" => "items#create"
   delete "/items/destroy/:name" => "items#destroy", as: "delete"
-  patch "/items/" => "items#update"
+  patch "/items/update" => "items#update"
   post "/items/reset/:id" => "items#reset", as: "reset"
   
   get "practice" => "items#practice"

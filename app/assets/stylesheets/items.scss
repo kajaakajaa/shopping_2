@@ -374,6 +374,7 @@ hr {
 // 個数(更新)
 .amount {
   font-size: 16px;
+  width: 70px;
 }
 
 // 個数(更新)
@@ -484,10 +485,12 @@ input[type="button"],input[type="submit"]{
 
 .reset {
   color: rgb(221, 0, 92);
+  font-weight: bold;
 }
 
 .aft_rst {
   color: darkblue;
+  font-weight: bold;
 }
 
 
