@@ -1,5 +1,5 @@
 // $(function(){
-//   const conainer = document.getElementById('sample_area');
+//   const container = document.getElementById('sample_area');
 //   // const div_parts = document.getElementsByClassName('sample_part');
 //   const input = document.getElementById('#sample_word');
 
@@ -12,7 +12,7 @@
 //     if(s_word==''){return}
 //     const regexp = new RegExp(`(?<=>)[^<>]*?(${s_word})[^<>]*?(?=<)`,'gi');
 //     const regexp2 = new RegExp(s_word,'gi');
-//     conainer.innerHTML = conainer.innerHTML.replace(regexp,function(){
+//     container.innerHTML = container.innerHTML.replace(regexp,function(){
 //         return arguments[0].replace(regexp2,`<a class="highlight" id="jump">${s_word}</a>`);
 //     });
 
@@ -31,7 +31,7 @@
 // //   if(s_word==''){return}
 // //   const regexp = new RegExp(`(?<=>)[^<>]*?(${s_word})[^<>]*?(?=<)`,'gi');
 // //   const regexp2 = new RegExp(s_word,'gi');
-// //   conainer.innerHTML = conainer.innerHTML.replace(regexp,function(){
+// //   container.innerHTML = container.innerHTML.replace(regexp,function(){
 // //       return arguments[0].replace(regexp2,`<a class="highlight" id="jump">${s_word}</a>`);
 // //   });
 // //   // [...div_parts].forEach(part=>{
