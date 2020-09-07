@@ -47,7 +47,7 @@
   <!-- 登録一覧、更新。 -->
   <table border="" id="index_tbl">
     <% if @items.any? %>
-      <form id="update" action="/items" accept-charset="UTF-8" method="post">
+      <form id="update" action="/items/update" accept-charset="UTF-8" method="post">
         <input type="hidden" name="_method" value="patch" >
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
           <% @items.each do |item| %>
@@ -69,7 +69,7 @@
                 <a href="items/destroy/<%= item.name %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
               </th>
               <th>
-                <a class="reset" data-rstnum=".counter<%= item.id %>">[ 未 ]</a> 
+                <input type="button" class="reset" name="reset[<%= item.id %>]" value=" 未 " onclick="location.href='https://techacademy.jp/magazine/'">
               </th>
             </tr>
           <% end %>

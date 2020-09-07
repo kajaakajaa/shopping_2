@@ -21,10 +21,13 @@ class ItemsController < ApplicationController
   def update
     @item = Item.where(id: params[:items].keys)
     @item.each do |item|
+      binding.pry
       item.number = params[:items]["#{item.id}"].to_i
       item.save
     end
     redirect_to action: :index
+
+    @reset = Item.where(id: params[:id])
   end
 
   # def reset
