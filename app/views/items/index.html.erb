@@ -44,6 +44,8 @@
     </tr>
   </table>
 
+  <form action="items/test">
+
   <!-- 登録一覧、更新。 -->
   <table border="" id="index_tbl">
     <% if @items.any? %>
@@ -69,10 +71,7 @@
                 <a href="items/destroy/<%= item.name %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
               </th>
               <th>
-                <form action="items/reset" method="post">
-                  <input type="hidden" name="reset[<%= item.id %>]">
-                  <input type="submit" class="reset" name="reset" value=" 未 ">
-                </form>
+                <a href="items/reset/<%= item.id %>" class="reset" data-method="post">[ 未 ]</a>
               </th>
             </tr>
           <% end %>

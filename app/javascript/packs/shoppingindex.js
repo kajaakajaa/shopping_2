@@ -76,11 +76,10 @@ $(function(){
       resets.forEach(reset => {
         reset.addEventListener("click", () =>{
           reset.classList.toggle("aft_rst");
-          if(reset.value == " 未 "){
-            reset.value = " 済 ";
-
-          }else if(reset.value == " 済 "){
-            reset.value = " 未 ";
+          if(reset.innerText == "[ 未 ]"){
+            reset.innerText = "[ 済 ]";
+          }else if(reset.innerText == "[ 済 ]"){
+            reset.innerText = "[ 未 ]";
           };
         });
       });
