@@ -26,20 +26,21 @@ class ItemsController < ApplicationController
         item.save
       end
       redirect_to action: :index
+    elsif params[:reset] == " 済 "
+      @reset = Item.where(id: params[:items].keys)
+      # binding.pry
     end
   end
 
-  def test
-    @item = Item.find(params[:id])
-    binding.pry
-  end
+  # def test
+  #   @items = Item.where(id: params[:test].keys)
+  # end
   
-  def reset
-      @item = Item.find(params[:id])
-      binding.pry
-      @item.number = 0
-      # redirect_to action: :index
-  end
+  # def reset
+  #     @item = Item.find(params[:id])
+  #     @item.number = 0
+  #       binding.pry
+  # end
 
   def destroy
     @items = Item.where(name: params[:name])
