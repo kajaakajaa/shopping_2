@@ -44,7 +44,13 @@
     </tr>
   </table>
 
-  <form action="items/test">
+  <form action="/items/test/" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+    <% @items.each do |item| %>
+      <input type="hidden" name="test[<%= item.id %>]">
+    <% end %>
+    <input type="submit" name="commit" value="テスト">
+  </form>
 
   <!-- 登録一覧、更新。 -->
   <table border="" id="index_tbl">
@@ -71,7 +77,12 @@
                 <a href="items/destroy/<%= item.name %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
               </th>
               <th>
-                <a href="items/reset/<%= item.id %>" class="reset" data-method="post">[ 未 ]</a>
+                <%
+=begin%>
+ <a href="items/reset/<%= item.id %>" class="reset" data-method="post">[ 未 ]</a> 
+<%
+=end%>
+                <input type="submit" class="reset" name="reset" value=" 未 ">
               </th>
             </tr>
           <% end %>
