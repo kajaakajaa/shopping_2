@@ -28,9 +28,14 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
+
+  def test
+    @item = Item.find(params[:id])
+    binding.pry
+  end
   
   def reset
-      @item = Item.where(id: params[:reset])
+      @item = Item.find(params[:id])
       binding.pry
       @item.number = 0
       # redirect_to action: :index
