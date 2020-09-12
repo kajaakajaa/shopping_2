@@ -28,8 +28,6 @@ class ItemsController < ApplicationController
       end
       redirect_to action: :index
     elsif params[:reset] == " 済 "
-      
-      # binding.pry
     end
   end
 
