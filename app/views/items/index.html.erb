@@ -81,12 +81,8 @@
                 <a href="items/destroy/<%= item.name %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
               </th>
               <th>
-                <%
-=begin%>
- <a href="items/reset/<%= item.id %>" class="reset" data-method="post">[ 未 ]</a> 
-<%
-=end%>
-                <input type="submit" class="reset" name="reset" value=" 未 ">
+                <input type="hidden" class="srst<%= item.id %>" name="rstto[][<%= item.id %>]" value="<%= item.number %>">
+                <input type="submit" class="reset" name="reset" value=" 未 " data-from=".srst<%= item.id %>">
               </th>
             </tr>
           <% end %>
