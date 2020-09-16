@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     elsif params[:reset] == " 済 "
       @reset = Item.where(id: params[:rstto])
+      binding.pry
     end
   end
 
