@@ -19,17 +19,16 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if params[:commit] == '更新'
+    # if params[:commit] == '更新'
       @item = Item.where(id: params[:items].keys)
       @item.each do |item|
         item.number = params[:items]["#{item.id}"].to_i
         item.save
       end
-      redirect_to action: :index
-    elsif params[:reset] == " 済 "
-      @reset = Item.where(id: params[:rstto])
-      binding.pry
-    end
+      # redirect_to action: :index
+    # elsif params[:reset] == " 済 "
+      # @reset = Item.where(id: params[:rstto].keys)
+    # end
   end
 
   # def test
