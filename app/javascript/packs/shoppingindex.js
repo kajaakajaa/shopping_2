@@ -71,12 +71,13 @@ $(function(){
       }
 
       //リセット
+      var updatesend = document.getElementById("updatesend");
       var resets = document.getElementsByClassName("reset");
-      resets = Array.from(resets);
-      resets.forEach(reset => {
-        var from = reset.dataset.from;
+        resets = Array.from(resets);
+        resets.forEach(reset => {
+        // var from = reset.dataset.from;
         reset.addEventListener("click", () =>{
-          console.log($(from).val());
+          // console.log($(from).val());
           reset.classList.toggle("aft_rst");
           if(reset.value == " 未 "){
             reset.value = " 済 ";
@@ -84,8 +85,13 @@ $(function(){
             reset.value = " 未 ";
           };
         });
+        updatesend.addEventListener("click", () => {
+          var from = reset.dataset.from;
+          if(reset.value == " 済 "){
+            $(from).val() = 0;
+          };
+        });
       });
-          
 
 
 
