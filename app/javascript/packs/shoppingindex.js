@@ -74,7 +74,9 @@ $(function(){
       var resets = document.getElementsByClassName("reset");
       resets = Array.from(resets);
       resets.forEach(reset => {
+        var from = reset.dataset.from;
         reset.addEventListener("click", () =>{
+          console.log($(from).val());
           reset.classList.toggle("aft_rst");
           if(reset.value == " 未 "){
             reset.value = " 済 ";
