@@ -68,29 +68,37 @@ $(function(){
         }else{
             target.val(num); // target の val() に個数フォームの数値が格納される。
         }          
-      }
+      };
+
 
       //リセット
       var updatesend = document.getElementById("updatesend");
       var resets = document.getElementsByClassName("reset");
         resets = Array.from(resets);
         resets.forEach(reset => {
-        // var from = reset.dataset.from;
-        reset.addEventListener("click", () =>{
-          // console.log($(from).val());
-          reset.classList.toggle("aft_rst");
-          if(reset.value == " 未 "){
-            reset.value = " 済 ";
-          }else if(reset.value == " 済 "){
-            reset.value = " 未 ";
-          };
-        });
-        updatesend.addEventListener("click", () => {
           var from = reset.dataset.from;
-          if(reset.value == " 済 "){
-            $(from).val() = 0;
-          };
-        });
+          var rstnum = $(from).val();
+            reset.addEventListener("click", () =>{
+              reset.classList.toggle("aft_rst");
+              if(reset.value == " 未 "){
+                reset.value = " 済 ";
+              }else if(reset.value !== " 未 "){
+                reset.value = " 未 ";
+            };
+          });
+
+          updatesend.addEventListener("click", () => {
+              if(reset.value == " 済 " && rstnum > 0){
+                $(from).val(0);
+              }else if(reset.value == " 済 " && rstnum > 0){
+                reset.value == " 未 ";
+            };
+          });
+
+            if(rstnum == 0){
+              reset.classList.toggle("aft_rst");
+              reset.value = " 済 ";
+            }
       });
 
 

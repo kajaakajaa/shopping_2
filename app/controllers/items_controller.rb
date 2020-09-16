@@ -19,27 +19,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # if params[:commit] == '更新'
-      @item = Item.where(id: params[:items].keys)
-      @item.each do |item|
-        item.number = params[:items]["#{item.id}"].to_i
-        item.save
-      end
-      # redirect_to action: :index
-    # elsif params[:reset] == " 済 "
-      # @reset = Item.where(id: params[:rstto].keys)
-    # end
+    @item = Item.where(id: params[:items].keys)
+    @item.each do |item|
+      item.number = params[:items]["#{item.id}"].to_i
+      item.save
+    end
+    redirect_to action: :index
   end
-
-  # def test
-  #   @items = Item.where(id: params[:test].keys)
-  # end
-  
-  # def reset
-  #     @item = Item.find(params[:id])
-  #     @item.number = 0
-  #       binding.pry
-  # end
 
   def destroy
     @items = Item.where(name: params[:name])
