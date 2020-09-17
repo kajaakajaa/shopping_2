@@ -2,7 +2,6 @@ $(function(){
   "use strict";
       var arySpinnerCtrl = [];
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
-
       //長押し押下時
       // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
       $('.btnspinner').on("click touchstart mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
@@ -71,7 +70,7 @@ $(function(){
       };
 
 
-      //リセット
+      //リセット機能
       var updatesend = document.getElementById("updatesend");
       var resets = document.getElementsByClassName("reset");
         resets = Array.from(resets);
@@ -98,8 +97,23 @@ $(function(){
             if(rstnum == 0){
               reset.classList.toggle("aft_rst");
               reset.value = " 済 ";
+              $(from).toggleClass("aft_counter");
             }
-      });
+        });
+
+        // daiso
+        // var daiso = document.getElementsByClassName("daiso");
+        //     console.log(daiso);
+        //     console.log(daiso.dataset.col);
+        // //     daisos = Array.from(daisos);
+        // //     daisos.forEach(daiso => {
+        // //       daiso.addEventListener("click", () =>{
+        // //         var ch_col = daiso.dataset.ch_col;
+        // //             if(ch_col == nil){
+        // //               $(daiso).toggle("aft_daiso");
+        // //             };
+        // //       });
+        // //     });
 
 
 

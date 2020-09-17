@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_054442) do
     t.string "name", null: false
     t.integer "value", null: false
     t.integer "number", null: false
+    t.string "daiso"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
