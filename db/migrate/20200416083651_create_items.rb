@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.integer :value, null: false
       t.integer :number, null: false
+      t.string :daiso
 
       t.timestamps
     end
