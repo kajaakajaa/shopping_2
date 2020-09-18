@@ -102,18 +102,21 @@ $(function(){
         });
 
         // daiso
-        // var daiso = document.getElementsByClassName("daiso");
-        //     console.log(daiso);
-        //     console.log(daiso.dataset.col);
-        // //     daisos = Array.from(daisos);
-        // //     daisos.forEach(daiso => {
-        // //       daiso.addEventListener("click", () =>{
-        // //         var ch_col = daiso.dataset.ch_col;
-        // //             if(ch_col == nil){
-        // //               $(daiso).toggle("aft_daiso");
-        // //             };
-        // //       });
-        // //     });
+        var daiso_s = document.getElementsByClassName("daiso");
+            daiso_s = Array.from(daiso_s);
+            daiso_s.forEach(daiso =>{
+              // console.log(daiso);
+              console.log(daiso.dataset.dsname);
+              var name = daiso.dataset.dsname;
+                  daiso.addEventListener("click", ()=>{
+                    daiso.classList.toggle("aft_daiso");
+                  });
+
+                    // if(name == name){
+                    //   daiso.classList.toggle("aft_daiso");
+                    // };
+            });
+
 
 
 
