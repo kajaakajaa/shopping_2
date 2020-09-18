@@ -58,9 +58,8 @@
             <tr>
               <th class="index_th">品名</th>
                 <td class="index_td index_item">
-                  <a href="/items/daiso/<%= item.name %>" ref="nofollow" class="ds_colo" 
-                  data-method="post">
-                    <div class="daiso<%= item.id %>" data-col="<%= item.daiso %>"><%= item.name %></div>
+                  <a href="/items/daiso/<%= item.name %>" ref="nofollow" class="daiso" data-dsname="<%= item.daiso%>"
+                    data-method="post"><%= item.name %>                  
                   </a>
                 </td>
               <th class="index_th">単価</th>
