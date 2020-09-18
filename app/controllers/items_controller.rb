@@ -27,18 +27,18 @@ class ItemsController < ApplicationController
     redirect_to action: :index
   end
 
-  def daiso
-    @name = Item.where(name: params[:name])
-      @name.each do |name|
-        if name.daiso == nil
-           name.daiso = name.name.to_s
-           name.save
-        elsif name.daiso == name.name
-           name.update(daiso: nil)
-        end
-      end
-      redirect_to action: :index
-  end
+  # def daiso
+  #   @name = Item.where(name: params[:name])
+  #     @name.each do |name|
+  #       if name.daiso == nil
+  #          name.daiso = name.name.to_s
+  #          name.save
+  #       elsif name.daiso == name.name
+  #          name.update(daiso: nil)
+  #       end
+  #     end
+  #     redirect_to action: :index
+  # end
 
   def destroy
     @items = Item.where(name: params[:name])
