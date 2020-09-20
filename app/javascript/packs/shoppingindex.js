@@ -105,16 +105,15 @@ $(function(){
         var daiso_s = document.getElementsByClassName("daiso");
             daiso_s = Array.from(daiso_s);
             daiso_s.forEach(daiso =>{
-              // console.log(daiso);
-              console.log(daiso.dataset.dsname);
               var name = daiso.dataset.dsname;
-                  daiso.addEventListener("click", ()=>{
-                    daiso.classList.toggle("aft_daiso");
-                  });
+                  // daiso.addEventListener("click", ()=>{
+                    if(name == name){
+                      console.log(name);
+                      daiso.classList.toggle("aft_daiso");
+                    }
+                  // });
 
-                    // if(name == name){
-                    //   daiso.classList.toggle("aft_daiso");
-                    // };
+
             });
 
 
