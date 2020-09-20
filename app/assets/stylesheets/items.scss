@@ -10,6 +10,20 @@ html {
 header {
   position: relative;
   top: 20px;
+  height: 85px;
+}
+
+#spr {
+  display: inline;
+  position: relative;
+  top: 60px;
+  left: 10%;
+}
+
+#spr_col {
+  color: black;
+  font-weight: bold;
+  background-color: lightblue;
 }
 
 body {
@@ -83,7 +97,7 @@ hr {
 
 #container {
   position: relative;
-  top: 90px;
+  top: 40px;
   height: 700px;
 }
 
@@ -506,20 +520,15 @@ input[type="button"],input[type="submit"]{
 }
 
 
+.daiso {
+  color: black;
+}
+
+
 .aft_daiso {
-  // color: black;
-  // -webkit-text-stroke: 10px　red;
+  color: black;
+  font-weight: bold;
+  background-color: lightblue;
 }
 
 
-
-
-
-
-
-
-
-
-.highlight{
-  background-color:yellow;
-}

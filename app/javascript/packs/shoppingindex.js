@@ -106,14 +106,9 @@ $(function(){
             daiso_s = Array.from(daiso_s);
             daiso_s.forEach(daiso =>{
               var name = daiso.dataset.dsname;
-                  // daiso.addEventListener("click", ()=>{
-                    if(name == name){
-                      console.log(name);
-                      daiso.classList.toggle("aft_daiso");
-                    }
-                  // });
-
-
+                if(name){
+                  daiso.classList.toggle("aft_daiso");
+                }
             });
 
 
