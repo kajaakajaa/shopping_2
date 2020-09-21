@@ -39,21 +39,21 @@ $(function(){
               return false;
           }
                   //長押し時の処理
-          setTimeout(function(){ // ※ setTimeoutメソッドで定義してるのは "500"mm秒(0.5秒)後のカウント開始予約のみ。
-            //インターバル未実行中 + 長押しのイベントタイムスタンプ一致時に計算処理
-            if(!arySpinnerCtrl['interval'] && arySpinnerCtrl['timestamp'] == e.timeStamp){ // 長押しされてなくてかつ、arySpinnerCtrl['timestamp'] が e.timeStamp なら、下記定義。
-              arySpinnerCtrl['interval'] = setInterval(spinnerCal, spin_speed);  // "interval" を定義する。← 処理が実行後は !arySpinnerCtrl['interval'](インターバル未実行)に反する為、
-            }
-          }, 500);
+          // setTimeout(function(){ // ※ setTimeoutメソッドで定義してるのは "500"mm秒(0.5秒)後のカウント開始予約のみ。
+          //   //インターバル未実行中 + 長押しのイベントタイムスタンプ一致時に計算処理
+          //   if(!arySpinnerCtrl['interval'] && arySpinnerCtrl['timestamp'] == e.timeStamp){ // 長押しされてなくてかつ、arySpinnerCtrl['timestamp'] が e.timeStamp なら、下記定義。
+          //     arySpinnerCtrl['interval'] = setInterval(spinnerCal, spin_speed);  // "interval" を定義する。← 処理が実行後は !arySpinnerCtrl['interval'](インターバル未実行)に反する為、
+          //   }
+          // }, 500);
       });
       
       //長押し解除時 画面スクロールも解除に含む
-      $(document).on('touchend mouseup', function(){ // 画面のどこだろうが、又は押しているボタンを離すと "長押し" が解除される。
-        if(arySpinnerCtrl['interval']){
-          clearInterval(arySpinnerCtrl['interval']);
-          arySpinnerCtrl = [];
-        }
-      });
+      // $(document).on('touchend mouseup', function(){ // 画面のどこだろうが、又は押しているボタンを離すと "長押し" が解除される。
+      //   if(arySpinnerCtrl['interval']){
+      //     clearInterval(arySpinnerCtrl['interval']);
+      //     arySpinnerCtrl = [];
+      //   }
+      // });
 
       //変動計算関数
       function spinnerCal(){ // クリックで単一増減の定義 (最小値・最大値 迄定義) したメソッド。
@@ -101,7 +101,7 @@ $(function(){
             }
         });
 
-        // daiso
+        // "daiso" 表示機能
         var daiso_s = document.getElementsByClassName("daiso");
             daiso_s = Array.from(daiso_s);
             daiso_s.forEach(daiso =>{
