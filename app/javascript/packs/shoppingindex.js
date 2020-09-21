@@ -106,6 +106,7 @@ $(function(){
             daiso_s = Array.from(daiso_s);
             daiso_s.forEach(daiso =>{
               var name = daiso.dataset.dsname;
+                console.log(name);
                 if(name){
                   daiso.classList.toggle("aft_daiso");
                 }
