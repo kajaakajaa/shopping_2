@@ -35,9 +35,7 @@ class ItemsController < ApplicationController
            name.save
            redirect_to action: :index
         elsif name.daiso == name.name
-          #  name.update(daiso: nil)
-          name.daiso = nil
-          name.save
+           name.update(daiso: nil)
           redirect_to action: :index
         end
       end

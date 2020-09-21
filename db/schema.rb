@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_054442) do
+ActiveRecord::Schema.define(version: 2020_09_21_073803) do
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
     t.integer "value", null: false
     t.integer "number", null: false
-    t.string "daiso"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "daiso"
   end
 
   create_table "users", force: :cascade do |t|
