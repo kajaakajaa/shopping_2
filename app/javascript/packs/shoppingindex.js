@@ -2,6 +2,7 @@ $(function(){
   "use strict";
       var arySpinnerCtrl = [];
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
+      var amounts = document.getElementsByClassName("amount"); // 個数。
       //長押し押下時
       // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
       $('.btnspinner').on("click touchstart mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
@@ -16,7 +17,6 @@ $(function(){
               spinnerCal();
               // 必要な要素の取得
               var unit_prices = document.getElementsByClassName("unit_price"); // 単価。
-              var amounts = document.getElementsByClassName("amount"); // 個数。
 
               unit_prices = Array.from( unit_prices ); // 右辺: "unit_prices" の配列を取得し、左辺へ代入。
               // 必要な変数の初期化
@@ -85,7 +85,7 @@ $(function(){
                 reset.value = " 未 ";
             };
           });
-
+          // 条件分岐
           updatesend.addEventListener("click", () => {
               if(reset.value == " 済 " && rstnum > 0){
                 $(from).val(0);
@@ -99,6 +99,21 @@ $(function(){
               reset.value = " 済 ";
               $(from).toggleClass("aft_counter");
             }
+
+
+                  // お会計機能
+            // var total_price = document.getElementById("total_price");
+            // var bill_sp = document.getElementById("bill_sp");
+            //     // console.log(bill.innerText);
+            //       reset.addEventListener("click", () => {
+            //         if(reset.value == "済" && rstnum > 0){
+
+            //       }
+            //     });
+
+            
+            // function bill(){ parseInt(total_price.innerText) - 
+            // };
         });
 
         // "daiso" 表示機能
@@ -111,7 +126,7 @@ $(function(){
                   daiso.classList.toggle("aft_daiso");
                 }
             });
-
+            
 
 
 
