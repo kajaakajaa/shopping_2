@@ -3,6 +3,7 @@ $(function(){
       var arySpinnerCtrl = [];
       var spin_speed = 20; // 長押し時の数値の変動スピード → 左は0.02秒
       var amounts = document.getElementsByClassName("amount"); // 個数。
+          amounts = Array.from(amounts);
       //長押し押下時
       // var clickEventType = (( window.ontouchstart!==null ) ? 'click mousedown':'touchend mousedown');
       $('.btnspinner').on("click touchstart mousedown", function(e){  // "mousedown" は長押し用、 "click" は1個づつ用。
@@ -26,9 +27,9 @@ $(function(){
               // 全ての商品の合計金額を求める
               unit_prices.forEach(unit_price => { // rails の each do のループ処理みたいな物。 "unit_price" にid全部価格が入る。
                 total += parseInt(unit_price.dataset.price) * parseInt(amounts[count].value); // 単価 * 個数 を total へ加える。
+                // console.log(unit_price);
                 count++  // 配列要素の合計を1個づつプラスしていく。
               });
-
               // 合計金額の更新
                 var total_price = document.getElementById("total_price");
                     total_price.innerText = total; 
@@ -73,6 +74,7 @@ $(function(){
       //リセット機能
       var updatesend = document.getElementById("updatesend");
       var resets = document.getElementsByClassName("reset");
+      let bill_total = 0;
         resets = Array.from(resets);
         resets.forEach(reset => {
           var from = reset.dataset.from;
@@ -102,18 +104,23 @@ $(function(){
 
 
                   // お会計機能
-            // var total_price = document.getElementById("total_price");
-            // var bill_sp = document.getElementById("bill_sp");
-            //     // console.log(bill.innerText);
-            //       reset.addEventListener("click", () => {
-            //         if(reset.value == "済" && rstnum > 0){
 
-            //       }
-            //     });
+            var total_price = document.getElementById("total_price");
+            var bill_sp = document.getElementById("bill_sp");
+            var bill_val = reset.dataset.bill_val;
+              //   reset.addEventListener("click", bill => {
+              //     if(reset.value == "済" && rstnum > 0){
+              //       bill_sp.innerText = bill();
+              //   }
+              // });
+                bill_total += parseInt(bill_val) * parseInt(rstnum);
+                console.log(bill_total);
 
-            
-            // function bill(){ parseInt(total_price.innerText) - 
-            // };
+            function bill(){
+              parseInt(total_price.innerText) - parseInt(bill_total);
+            };
+            // conosole.log(bill());
+
         });
 
         // "daiso" 表示機能
@@ -128,6 +135,6 @@ $(function(){
             });
             
 
+            
 
-
-  });
+});
