@@ -120,7 +120,6 @@ $(function(){
               parseInt(total_price.innerText) - parseInt(bill_total);
             };
             // conosole.log(bill());
-
         });
 
         // "daiso" 表示機能
