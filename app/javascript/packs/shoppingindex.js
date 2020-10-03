@@ -74,6 +74,8 @@ $(function(){
       //リセット機能
       var updatesend = document.getElementById("updatesend");
       var resets = document.getElementsByClassName("reset");
+      var total_price = document.getElementById("total_price");
+          total_price = total_price.innerText;
       let bill_total = 0;
         resets = Array.from(resets);
         resets.forEach(reset => {
@@ -103,24 +105,23 @@ $(function(){
             }
 
 
-                  // お会計機能
-
-            var total_price = document.getElementById("total_price");
+            // お会計機能
             var bill_sp = document.getElementById("bill_sp");
             var bill_val = reset.dataset.bill_val;
-              //   reset.addEventListener("click", bill => {
+              //   reset.addEventListener("click", bill =>{
               //     if(reset.value == "済" && rstnum > 0){
               //       bill_sp.innerText = bill();
               //   }
               // });
-                bill_total += parseInt(bill_val) * parseInt(rstnum);
-                console.log(bill_total);
-
-            function bill(){
-              parseInt(total_price.innerText) - parseInt(bill_total);
-            };
-            // conosole.log(bill());
+                bill_total += parseInt(bill_val) * parseInt(rstnum); //reset より取得した 単価 * 個数
+              //   console.log(bill_total);
         });
+
+            var bill = function(){
+              let pay = 0;
+              return pay += parseInt(total_price) - parseInt(bill_total);
+            }
+        
 
         // "daiso" 表示機能
         var daiso_s = document.getElementsByClassName("daiso");
