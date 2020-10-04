@@ -102,7 +102,6 @@ hr {
 }
 
 // 入力フォーム
-
 #form {
   box-sizing: border-box;
   font-size: 20px;
@@ -539,6 +538,24 @@ input[type="button"],input[type="submit"]{
   color: blue;
   font-size: 17px;
   -webkit-text-stroke: 0.3px black;
+}
+
+
+#bill_tbl {
+  position: fixed;
+  font-weight: bold;
+  right: 15%;
+  top: 450px;
+  background-color: rgb(255, 149, 149);
+}
+@media screen and (max-width: 900px){
+  #bill_tbl {
+    position: absolute;
+    font-weight: bold;
+    right: 15%;
+    top: 450px;
+    background-color: rgb(255, 149, 149);
+  }
 }
 
 
