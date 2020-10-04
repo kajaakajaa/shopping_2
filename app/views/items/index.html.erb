@@ -39,8 +39,11 @@
   <!-- 合計金額  -->
   <table border="" id="total">
     <tr>
-      <th id="total_th">合計金額</th>
+      <th id="total_th">登録金額</th>
       <td id="total_td"><span id="total_price" ><%= @total %></span> 円</td>
+    </tr>
+    <tr>
+      <th id="bill_td" colspan="2">お会計は <span id="bill_sp">0</span> 円です。</th>
     </tr>
   </table>
 
@@ -84,7 +87,6 @@
     <% end %>
   </table>
 </div>
-<p class="bill_p">お会計は <span id="bill_sp">0</span> 円です。</p>
 
 <%= javascript_pack_tag 'shoppingindex.js' %>
 <%= javascript_pack_tag "update.js" %>
