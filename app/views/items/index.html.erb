@@ -42,11 +42,12 @@
       <th id="total_th">登録金額</th>
       <td id="total_td"><span id="total_price" ><%= @total %></span> 円</td>
     </tr>
+  </table>
+  <table id="bill_tbl" border="">
     <tr>
-      <th id="bill_td" colspan="2">お会計は <span id="bill_sp">0</span> 円です。</th>
+      <th id="bill_th">会計<br><span id="bill_sp">0</span><br>円です</th>
     </tr>
   </table>
-
   <!-- 登録一覧、更新。 -->
   <table border="" id="index_tbl">
     <% if @items.any? %>
