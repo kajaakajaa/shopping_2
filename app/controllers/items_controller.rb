@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+
   def index
     @item = Item.new
-    @items = Item.all.order(created_at: :desc)
+    @items = Item.desc_order
     @total = 0
     @items.each do |item|
       @total += item.value * item.number
@@ -10,7 +11,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @items = Item.all.order(created_at: :desc)
+    @items = Item.desc_order
     if @item.save
       redirect_to action: :index
     else
@@ -28,22 +29,23 @@ class ItemsController < ApplicationController
   end
 
   def daiso
-    @name = Item.where(name: params[:name])
-      @name.each do |name|
-        if name.daiso == nil
-           name.daiso = name.name.to_s
-           name.save
-           redirect_to action: :index
-        elsif name.daiso == name.name
-           name.update(daiso: nil)
-          redirect_to action: :index
-        end
-      end
+    @detail = Item.detail(params[:name])
+    @detail.reverse_name
+    # @detail.each do |detail|
+    #   if detail.daiso == nil
+    #     detail.daiso = detail.name.to_s
+    #     detail.save
+    #       redirect_to action: :index
+    #   elsif detail.daiso == detail.name
+    #       detail.update(daiso: nil)
+    #     redirect_to action: :index
+    #   end
+    # end
   end
 
   def destroy
-    @items = Item.where(name: params[:name])
-    @items.destroy_all
+    @detail = Item.detail(params[:name])
+    @detail.destroy_all
     redirect_to action: :index
   end
 
@@ -51,5 +53,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :value, :number)
   end
+
 end
 
