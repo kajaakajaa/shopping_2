@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   def daiso
     @detail = Item.detail(params[:name])
-    @detail.reverse_name
+    Item.reve(@detail)
     # @detail.each do |detail|
     #   if detail.daiso == nil
     #     detail.daiso = detail.name.to_s

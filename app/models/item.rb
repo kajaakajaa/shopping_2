@@ -5,14 +5,10 @@ class Item < ApplicationRecord
 
   scope :desc_order, -> { all.order(created_at: :desc) }
   scope :detail, ->name { where(name: name) }
-
-  # def self.detail(name)
-  #   self.where(name: name)
-  #   binding.pry
-  # end
-  
-  def self.reverse_name
-    self.each do |detail|
+ 
+  def self.reve(details)
+    details.each do |detail|
+      binding.pry
       if detail.daiso == nil
         detail.daiso = detail.name.to_s
         detail.save
