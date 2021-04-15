@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :details, only: %i[daiso destroy]
 
   def index
     @item = Item.new
@@ -29,13 +30,20 @@ class ItemsController < ApplicationController
   end
 
   def daiso
-    @detail = Item.detail(params[:name])
-    Item.reve(@detail)
+    daiso_content = Item.reve_name(@detail)
+    case daiso_content
+    when nil, daiso_content
+      redirect_to action: :index
+    end
+
+    # daiso_content == nil || daiso_content != nil
+    #   redirect_to action: :index
+
     # @detail.each do |detail|
     #   if detail.daiso == nil
     #     detail.daiso = detail.name.to_s
     #     detail.save
-    #       redirect_to action: :index
+    #       redirect_to "/"
     #   elsif detail.daiso == detail.name
     #       detail.update(daiso: nil)
     #     redirect_to action: :index
@@ -44,7 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @detail = Item.detail(params[:name])
+    # @detail = Item.detail(params[:name])
     @detail.destroy_all
     redirect_to action: :index
   end
@@ -52,6 +60,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :value, :number)
+  end
+
+  def details
+    @detail = Item.detail(params[:name])
   end
 
 end

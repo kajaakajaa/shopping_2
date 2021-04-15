@@ -5,17 +5,29 @@ class Item < ApplicationRecord
 
   scope :desc_order, -> { all.order(created_at: :desc) }
   scope :detail, ->name { where(name: name) }
+
+  # def self.reve_name(details)
+  #   details.each do |detail|
+  #     case detail.daiso
+  #     when nil
+  #       detail.daiso = detail.name.to_s
+  #       detail.save
+  #     when detail.name
+  #       detail.update(daiso: nil)
+  #     end
+  #   end
+  # end
+
+
+  
  
-  def self.reve(details)
+  def self.reve_name(details)
     details.each do |detail|
-      binding.pry
       if detail.daiso == nil
         detail.daiso = detail.name.to_s
         detail.save
-          redirect_to action: :index
       elsif detail.daiso == detail.name
-          detail.update(daiso: nil)
-        redirect_to action: :index
+        detail.update(daiso: nil)
       end
     end
   end
