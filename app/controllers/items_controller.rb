@@ -30,29 +30,11 @@ class ItemsController < ApplicationController
   end
 
   def daiso
-    daiso_content = Item.reve_name(@detail)
-    case daiso_content
-    when nil, daiso_content
-      redirect_to action: :index
-    end
-
-    # daiso_content == nil || daiso_content != nil
-    #   redirect_to action: :index
-
-    # @detail.each do |detail|
-    #   if detail.daiso == nil
-    #     detail.daiso = detail.name.to_s
-    #     detail.save
-    #       redirect_to "/"
-    #   elsif detail.daiso == detail.name
-    #       detail.update(daiso: nil)
-    #     redirect_to action: :index
-    #   end
-    # end
+    Item.rev_name(@detail)
+    redirect_to action: :index
   end
 
   def destroy
-    # @detail = Item.detail(params[:name])
     @detail.destroy_all
     redirect_to action: :index
   end

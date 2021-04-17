@@ -6,29 +6,16 @@ class Item < ApplicationRecord
   scope :desc_order, -> { all.order(created_at: :desc) }
   scope :detail, ->name { where(name: name) }
 
-  # def self.reve_name(details)
-  #   details.each do |detail|
-  #     case detail.daiso
-  #     when nil
-  #       detail.daiso = detail.name.to_s
-  #       detail.save
-  #     when detail.name
-  #       detail.update(daiso: nil)
-  #     end
-  #   end
-  # end
-
-
-  
- 
-  def self.reve_name(details)
+  def self.rev_name(details)
     details.each do |detail|
-      if detail.daiso == nil
+      case detail.daiso
+      when nil
         detail.daiso = detail.name.to_s
         detail.save
-      elsif detail.daiso == detail.name
+      when detail.name
         detail.update(daiso: nil)
       end
     end
   end
+  
 end
