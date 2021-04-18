@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
-gem "devise"
 gem "jquery-rails"
 group :development, :test do
   gem 'hirb'         # モデルの出力結果を表形式で表示するGem
