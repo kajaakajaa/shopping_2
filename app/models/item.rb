@@ -4,18 +4,28 @@ class Item < ApplicationRecord
   validates :number, presence: true, format: { with: /\A[^A-Za-z]+/i, message: '"数字" をご入力下さい'}
 
   scope :desc_order, -> { all.order(created_at: :desc) }
-  scope :detail, ->name { where(name: name) }
+  scope :detail, ->name { find_by(name: name) }
 
-  def self.rev_name(details)
-    details.each do |detail|
-      case detail.daiso
-      when nil
-        detail.daiso = detail.name.to_s
-        detail.save
-      when detail.name
-        detail.update(daiso: nil)
-      end
+  def rev_name
+    case self.daiso
+    when nil
+    self.daiso = self.name.to_s
+      self.save
+    when self.name
+      self.update(daiso: nil)
     end
   end
+
+  # def self.rev_name(details)
+  #   details.each do |detail|
+  #     case detail.daiso
+  #     when nil
+  #       detail.daiso = detail.name.to_s
+  #       detail.save
+  #     when detail.name
+  #       detail.update(daiso: nil)
+  #     end
+  #   end
+  # end
   
 end

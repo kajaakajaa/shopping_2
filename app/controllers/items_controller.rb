@@ -31,12 +31,12 @@ class ItemsController < ApplicationController
   end
 
   def daiso
-    Item.rev_name(@detail)
+    @detail.rev_name
     redirect_to action: :index
   end
 
   def destroy
-    @detail.destroy_all
+    @detail.destroy
     redirect_to action: :index
   end
 
