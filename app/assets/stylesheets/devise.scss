@@ -1,0 +1,28 @@
+.field, .actions {
+    margin-bottom: 10px;
+}
+
+#user_email, #user_password,
+#user_password_confirmation {
+    width: 200px;
+}
+
+.login_component {
+    text-align: center;
+}
+
+.style_devise {
+    display: flex;
+    height: 1020px;
+    justify-content: center;
+    align-items: center;
+
+    &__wrapper {
+        width: 400px;
+        height: 600px;
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+}

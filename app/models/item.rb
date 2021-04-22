@@ -15,17 +15,5 @@ class Item < ApplicationRecord
       self.update(daiso: nil)
     end
   end
-
-  # def self.rev_name(details)
-  #   details.each do |detail|
-  #     case detail.daiso
-  #     when nil
-  #       detail.daiso = detail.name.to_s
-  #       detail.save
-  #     when detail.name
-  #       detail.update(daiso: nil)
-  #     end
-  #   end
-  # end
   
 end
