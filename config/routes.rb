@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    sessions: "users/sessions"
-  }
+  root "items#index"
+  devise_for :users
   devise_scope :user do
     get "users/sign_out" => "users/sessions#destroy"
 
   end
 
-  root "items#index"
   get "/items/" => "items#index"
   post "/items/" => "items#create"
   delete "/items/destroy/:name" => "items#destroy", as: "delete"

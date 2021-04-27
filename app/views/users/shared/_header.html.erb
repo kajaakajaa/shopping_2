@@ -1,7 +1,12 @@
-<header>
-  <h1>shopping memo</h1>
-  <% if controller_name == "items" %>
-    <p id="spr"><span id="spr_col">この文字色</span> → "daiso" 商品</p>
-  <% end %>
-  <hr>
+<header class="header">
+  <div class="header__bar">
+    <h1 class="header__bar__title-logo">shopping memo</h1>
+    <% if user_signed_in? %>
+    <p class="header__bar__daiso-item"><span class="spr_col">この文字色</span> → "daiso" 商品</p>
+    <p class="header__bar__logout">
+      <%= link_to "ログアウト", "users/sign_out" %>
+    </p>
+    <% end %>
+    <hr class="header__bar__hr">
+  </div>
 </header>
