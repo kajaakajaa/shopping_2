@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @items = Item.desc_order
     if @item.save
       redirect_to action: :index
     else
@@ -42,7 +41,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :value, :number)
+    params.require(:item).permit(:name, :value, :number).merge(user_id: current_user.id)
   end
 
   def details

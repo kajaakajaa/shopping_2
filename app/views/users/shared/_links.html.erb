@@ -12,6 +12,6 @@
   <% end %>
 
   <%- if controller_name == "sessions" %>
-    <%= link_to "アカウント削除", user_registration_path, method: :delete, confirm: "あ" %>
+    <%= link_to "アカウント削除", user_registration_path(resource_name), method: :delete, data: { confirm: "あ"} %>
   <% end %>
 </div>
