@@ -1,7 +1,7 @@
 ja:
   devise:
     confirmations:
-      confirmed: 'アカウントを登録しました。'
+      confirmed: "アカウント登録完了です、ログイン出来る様になりました" #'アカウントを登録しました。'
       send_instructions: 'アカウントの有効化について数分以内にメールでご連絡します。'
       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"
     failure:
