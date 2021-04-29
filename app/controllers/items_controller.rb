@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
     @items.each do |item|
       @total += item.value * item.number
     end
+
+    @user = User.all
   end
 
   def create
