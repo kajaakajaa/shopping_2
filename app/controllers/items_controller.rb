@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class ItemsController < UsersController
   before_action :authenticate_user!
   before_action :details, only: %i[daiso destroy]
 
@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
     @items.each do |item|
       @total += item.value * item.number
     end
-
-    @user = User.all
+    
+    public_method(:index).super_method.call
   end
 
   def create

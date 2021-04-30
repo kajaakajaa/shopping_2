@@ -37,10 +37,16 @@ html {
       left: 0;
       bottom: 0;
     }
-    
+
     &__logout {
-      position: absolute;
       right: 0;
+    }
+    &__user-delete {
+      right: 10%;
+    }
+    
+    &__logout, &__user-delete {
+      position: absolute;
       bottom: 0;
       font-weight: bold;
 

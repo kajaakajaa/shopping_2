@@ -1,15 +1,15 @@
 <div class="style_devise">
   <div class="style_devise__wrapper">
-    <h2 class="login_component">パスワードの再設定</h2>
+    <h2 class="links_component">パスワードの再設定</h2>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
-      <div class="field login_component">
+      <div class="field links_component">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="actions login_component">
+      <div class="actions links_component">
         <%= f.submit "再設定の案内を送信" %>
       </div>
     <% end %>
