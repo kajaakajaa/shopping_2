@@ -4,6 +4,9 @@
     <title>Shopping2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <%# モバイル表示用 %>	
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>  <%# ←マニュフェストファイルの指定 →application.css(マニュフェストファイル) %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  <%# ←マニュフェストファイルの指定 application.js(マニュフェストファイル) %>

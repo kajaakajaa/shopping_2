@@ -3,7 +3,12 @@
     padding: 0;
 }
 
+html {
+    background-color: rgb(255, 217, 45);
+}
+
 .notifications {
+    top: 0;
     right: 0;
     left: 0;
     position: fixed;
