@@ -1,150 +1,98 @@
-html {
-  background-color: rgb(255, 217, 45);
-}
-
-.header {
-  top: 0;
-  right: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-  height: 95px;
-  display: flex;
-  justify-content: center;
-  background-color: rgb(255, 217, 45);
-  z-index: 1;
-
-  &__bar {
-    position: relative;
-    width: 80%;
-    height: 95px;
-    display: flex;
-    justify-content: center;
-    
-    &__title-logo {
-      position: absolute;
-      top: 35px;
-      width: 320px;
-      height: 50px;
-      color: white;
-      text-align: center;
-      background-color: rgb(223, 1, 1);
-      border-radius: 55%;
-    }
-
-    &__daiso-item {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
-
-    &__logout {
-      right: 0;
-    }
-    &__user-delete {
-      right: 10%;
-    }
-    
-    &__logout, &__user-delete {
-      position: absolute;
-      bottom: 0;
-      font-weight: bold;
-
-      & > a {
-        color: black;
-        text-decoration: none;
-      }
-      & > a:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &__hr {
-      width: 100%;
-      height: 1px;
-      border: none;
-      position: absolute;
-      top: 95px;
-      background-color: black;
-    }
-  }
-}
-
-
-
-
-
-
-.spr_col {
-  font-weight: bold;
-  background-color: lightblue;
-}
-
-@media screen and (max-width: 849px){
-  .spr_col {
-    font-size: 12px;
-    color: black;
-    font-weight: bold;
-    background-color: lightblue;
-  }
-}
-
-@media screen and (max-width: 880px) {
-  #log {
-    font-size: 12px;
-    position: absolute;
-    top: 50px;
-    right: 10%;
-  }
-}
-
-@media screen and (min-width: 350px) and (max-width: 600px) {
-  h1 {
-    font-size: 30px;
-    width: 290px;
-    height: 45px;
-    position: absolute;
-    top: 5px;
-    text-align: center;
-    left: 50%;
-    transform: translate(-50%, 0);
-    color: white;
-    background-color: rgb(223, 1, 1);
-    border-radius: 55%;
-  }
-}
-
-@media screen and (max-width: 349px) {
-  h1 {
-    font-size: 20px;
-    width: 190px;
-    height: 35px;
-    position: absolute;
-    top: 20px;
-    text-align: center;
-    left: 50%;
-    transform: translate(-50%, 0);
-    color: white;
-    background-color: rgb(223, 1, 1);
-    border-radius: 55%;
-  }
-} 
-
-#container {
+.container {
   position: relative;
   margin-top: 120px;
+
+  &__form {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+
+    &__tag {
+      width: 80%;
+      display: flex;
+      justify-content: space-evenly;
+
+      &__item, &__value, &__number {
+        display: inline-block;
+  
+        & > input {
+          width: 200px;
+        }
+      }
+  
+      &__send {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+
+  &__total_wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__tbl {
+      width: 50%;
+      background-color: rgb(255, 149, 149);
+
+      &__total_td {
+        width: 70%;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+
+    &__updatesend {
+      position: absolute;
+      top: 5px;
+      right: 20%;
+    }
+    @media screen and (max-width: 1190px) {
+      &__updatesend {
+        position: static;
+      }
+    }
+  }
+
+  &__index {
+    width: 100%;
+    margin-top: 100px;
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: center;
+
+    &__index_tbl {
+      font-size: 16px;
+      background-color: rgb(255, 149, 149);
+    }
+
+    &__bill_tbl {
+      position: fixed;
+      right: 20%;
+      font-weight: bold;
+      background-color: rgb(255, 149, 149);
+    }
+
+    @media screen and (max-width: 1190px) {
+      &__bill_tbl {
+        position: static;
+        font-size: 10px;
+        font-weight: bold;
+        background-color: rgb(255, 149, 149);
+      }
+    }
+  }
 }
 
 // 入力フォーム
-#form {
-  box-sizing: border-box;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 auto;
-  height: 200px;
-  width: 700px;
-  position: relative;
-}
 @media screen and (min-width: 801px) and (max-width: 950px) {
   #form {
     box-sizing: border-box;
@@ -290,14 +238,6 @@ html {
 
 // 合計額(ラベル) + 合計額
 
-#total {
-  width: 60%;
-  position: absolute;
-  margin: 30px 20%;
-  background-color: rgb(255, 149, 149);
-  white-space: nowrap;
-}
-
 @media screen and (min-width: 350px) and (max-width: 699px) {
   #total {
     width: 30%;
@@ -323,25 +263,17 @@ html {
 }
 
 
-#ttl_up {
-  // background-color: purple;
-  position: absolute;
-  width: 770px;
-  height: 100px;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
+
+
+
+
+
+
 
 
 // 登録金額
-#total_td {
-  width: 70%;
-  text-align: center;
-  font-size: 20px;
-}
-
 @media screen and (max-width: 768px) {
-  #total_td {
+  .total_td {
     width: 70%;
     text-align: center;
     font-size: 16px;
@@ -349,7 +281,7 @@ html {
 }
 
 @media screen and (max-width: 349px) {
-  #total_td {
+  .total_td {
     width: 70%;
     text-align: center;
     font-size: 14px;
@@ -357,21 +289,21 @@ html {
 }
 
 @media screen and (max-width: 349px) {
-  #total_th {
+  .total_th {
     font-size: 14px;
   }
 }
 
 // 登録一覧
-#index_tbl {
-  position: absolute;
-  top: 20px;
-  left: 20%;
-  transform: translate(-20%, 0);
-  font-size: 16px;
-  background-color: rgb(255, 149, 149);
-  white-space: nowrap;
-}
+// #index_tbl {
+//   position: absolute;
+//   top: 20px;
+//   left: 20%;
+//   transform: translate(-20%, 0);
+//   font-size: 16px;
+//   background-color: rgb(255, 149, 149);
+//   white-space: nowrap;
+// }
 
 @media screen and (max-width: 879px) {
   #index_tbl {
@@ -425,11 +357,6 @@ html {
 }
 
 // 更新（送信）
-#updatesend {
-  position: absolute;
-  top: 40px;
-  right: 10%;
-}
 
 @media screen and (max-width: 699px){
   #updatesend {
@@ -564,25 +491,6 @@ input[type="button"],input[type="submit"]{
   -webkit-text-stroke: 0.3px black;
 }
 
-
-#bill_tbl {
-  font-weight: bold;
-  background-color: rgb(255, 149, 149);
-  position:fixed;
-  left: auto;
-  top: 500px;
-  margin:0 0 0 730px;
-}
-@media screen and (max-width: 879px){
-  #bill_tbl {
-    font-weight: bold;
-    background-color: rgb(255, 149, 149);
-    position: fixed;
-    right: 15%;
-    top: 500px;
-    white-space: nowrap;
-  }
-}
 @media screen and (max-width: 739px){
   #bill_tbl {
     font-weight: bold;

@@ -1,48 +1,49 @@
-<div id="container">
+<div class="container">
   <!-- 新規登録 -->
-  <%= form_with(model: @item, id: "form", local: true) do |f| %>
-    <p id="form_item">
-      <%= f.label :name, :品名 %>
-      <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
-      <% if @item.errors.messages[:name].any? %>
-        <span id="error"><%= @item.errors.messages[:name][0] %></span>
-      <% end %>
-    </p> 
+  <div class="container__form">
+    <%= form_with(model: @item, class: "container__form__tag", local: true) do |f| %>
+      <p class="container__form__tag__item">
+        <%= f.label :name, :品名 %>
+        <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
+        <% if @item.errors.messages[:name].any? %>
+          <span id="error"><%= @item.errors.messages[:name][0] %></span>
+        <% end %>
+      </p> 
 
-    <p id="form_value">
-      <%= f.label :value, :価格 %>
-      <%= f.text_field :value, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-      <% if @item.errors.messages[:value].any? %>  
-        <span id="error"><%= @item.errors.messages[:value][0] %></span>
-      <% end %>
-    </p>
+      <p class="container__form__tag__value">
+        <%= f.label :value, :価格 %>
+        <%= f.text_field :value, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+        <% if @item.errors.messages[:value].any? %>  
+          <span id="error"><%= @item.errors.messages[:value][0] %></span>
+        <% end %>
+      </p>
 
-    <p id="form_number">
-      <%= f.label :number, :個数 %>
-      <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-      <% if @item.errors.messages[:number].any? %>
-        <span id="error"><%= @item.errors.messages[:number][0] %></span>
-      <% end %>
-    </p>
+      <p class="container__form__tag__number">
+        <%= f.label :number, :個数 %>
+        <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
+        <% if @item.errors.messages[:number].any? %>
+          <span id="error"><%= @item.errors.messages[:number][0] %></span>
+        <% end %>
+      </p>
 
-    <p id="form_send">
-      <%= f.submit :送信 %>
-    </p>
-  <% end %>
-
+      <p class="container__form__tag__send">
+        <%= f.submit :送信 %>
+      </p>
+    <% end %>
+  </div>
   <!-- 合計金額  -->
-  <div id="ttl_up">
-    <table border="" id="total">
+  <div class="container__total_wrap">
+    <table border="" class="container__total_wrap__tbl">
       <tr>
-        <th id="total_th">精算予定</th>
-        <td id="total_td"><span id="total_price" ><%= @total %></span> 円</td>
+        <th class="container__total_wrap__tbl__total_th">精算予定</th>
+        <td class="container__total_wrap__tbl__total_td"><span id="total_price" ><%= @total %></span> 円</td>
       </tr>
     </table>
-    <input type="submit" id="updatesend" name="commit" value="更新" form="update">
+    <input type="submit" class="container__total_wrap__updatesend" id="updatesend" name="commit" value="更新" form="update">
   </div>
-  <div id="form_wp">
+  <div class="container__index">
     <!-- 登録一覧、更新。 -->
-    <table border="" id="index_tbl">
+    <table border="" class="container__index__index_tbl">
       <% if @items.any? %>
         <form id="update" action="users/items/" accept-charset="UTF-8" method="post">
           <input type="hidden" name="_method" value="patch" >
@@ -50,12 +51,10 @@
           <% @items.each do |item| %>
             <tr>
               <th class="index_th">品名</th>
-                <td class="index_td index_item">
-
+                <td class="index_td">
                   <a href="users/items/daiso/<%= item.name %>" ref="nofollow" class="daiso" data-dsname="<%= item.daiso%>"
                     data-method="post"><%= item.name %>                  
                   </a>
-
                 </td>
               <th class="index_th">単価</th>
                 <td class="index_td unit_price" data-price="<%= item.value %>"> <%= item.value %> 円</td>
@@ -79,11 +78,11 @@
         </form>
       <% end %>
     </table>
-    <table id="bill_tbl" border="">
+    <table class="container__index__bill_tbl" border="">
       <tr>
         <th id="bill_th">会計<br><span id="bill_sp">0</span><br>円です</th>
       </tr>
-    </table>
+    </table> 
   </div>
 </div>
 
