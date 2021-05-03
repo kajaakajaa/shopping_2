@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  margin-top: 120px;
+  margin-top: 95px;
 
   &__form {
     width: 100%;
@@ -330,9 +330,11 @@
 
 
 // 商品名 + 個数(更新)
-.index_td, .amount {
-  text-align: center;
-  white-space: nowrap;
+@media screen and (min-width: 412px){
+  .index_td, .amount {
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 // 個数(更新)
@@ -358,13 +360,6 @@
 
 // 更新（送信）
 
-@media screen and (max-width: 699px){
-  #updatesend {
-    position: absolute;
-    top: 215px;
-    left: 66%;
-  }
-}
 
 
 
