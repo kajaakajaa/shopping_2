@@ -1,7 +1,7 @@
 <div class="container">
   <!-- 新規登録 -->
   <div class="container__form">
-    <%= form_with(model: @item, class: "container__form__tag", local: true) do |f| %>
+    <%= form_with(model: @item, id: "formnew", class: "container__form__tag", local: true) do |f| %>
       <p class="container__form__tag__item">
         <%= f.label :name, :品名 %>
         <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
@@ -25,11 +25,10 @@
           <span id="error"><%= @item.errors.messages[:number][0] %></span>
         <% end %>
       </p>
-
-      <p class="container__form__tag__send">
-        <%= f.submit :送信 %>
-      </p>
     <% end %>
+    <p class="container__form__send">
+      <input type="submit" value="品登録" form="formnew" name="commit" data-disable-with="送信中" >
+    </p>
   </div>
   <!-- 合計金額  -->
   <div class="container__total_wrap">
@@ -50,15 +49,15 @@
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
           <% @items.each do |item| %>
             <tr>
-              <th class="index_th">品名</th>
+              <th class="container__index__index_tbl__index_th">品名</th>
                 <td class="index_td">
                   <a href="users/items/daiso/<%= item.name %>" ref="nofollow" class="daiso" data-dsname="<%= item.daiso%>"
                     data-method="post"><%= item.name %>                  
                   </a>
                 </td>
-              <th class="index_th">単価</th>
-                <td class="index_td unit_price" data-price="<%= item.value %>"> <%= item.value %> 円</td>
-              <th class="index_th">個数</th>
+              <th class="container__index__index_tbl__index_th">単価</th>
+                <td class="index_td_price unit_price" data-price="<%= item.value %>"> <%= item.value %> 円</td>
+              <th class="container__index__index_tbl__index_th">個数</th>
                 <td class="index_number_td">
                   <input type="text" value="<%= item.number %>" name="items[<%= item.id %>]"
                   class="counter<%= item.id %> amount" oninput="value = value.replace(/[^0-9]+/i, '')"> 点
@@ -80,9 +79,10 @@
     </table>
     <table class="container__index__bill_tbl" border="">
       <tr>
-        <th id="bill_th">会計<br><span id="bill_sp">0</span><br>円です</th>
+        <th id="container__index__bill_tbl__bill_th">会計<br><span id="bill_sp">0</span><br>円です</th>
       </tr>
-    </table> 
+    </table>  
+
   </div>
 </div>
 
