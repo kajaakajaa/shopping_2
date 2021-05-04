@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     get "users/sign_out" => "users/sessions#destroy"
   end
 
-  # resources "users", only: %i[destroy]
-  delete "/users/sign_out" => "users/sessions#destroy"
-  delete "/user" => "users#destroy"
+  resources "users", only: %i[destroy]
   scope "/users" do
     resources :items, only: %i[index create]
     patch "/items/" => "items#update"

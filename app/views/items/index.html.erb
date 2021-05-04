@@ -42,7 +42,7 @@
   </div>
   <div class="container__index">
     <!-- 登録一覧、更新。 -->
-    <table border="1" class="container__index__index_tbl">
+    <table border="0" class="container__index__index_tbl">
       <% if @items.any? %>
         <form id="update" action="users/items/" accept-charset="UTF-8" method="post">
           <input type="hidden" name="_method" value="patch" >

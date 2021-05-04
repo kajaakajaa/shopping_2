@@ -5,14 +5,11 @@
         <p class="header__bar__daiso-item"><span class="spr_col">この文字色</span>: "daiso" 商品</p>
         <div class="header__bar__acount">
           <p class="header__bar__acount__logout">
-            <%#= link_to "ログアウト", "users/sign_out", data: { confirm: "ログアウトで宜しいですか？" } %>
-            <a href="/users/sign_out" data-confirm="ログアウトで宜しいですか？">ログアウト</a>
+            <%= link_to "ログアウト", "users/sign_out", data: { confirm: "ログアウトで宜しいですか？" } %>
           </p>
           <% @user.each do |user| %>
             <p class="header__bar__acount__user-delete">
-              <%#= link_to "アカウント削除", user_path(user.id), method: :delete, data: { confirm: "アカウントを削除しますか？" } %>
-              <a href="/users/<% user.id %>" data-method="delete" rel="nofollow" data-confirm="アカウントを削除しますか？"></a>
-              <a data-confirm="アカウントを削除しますか？" rel="nofollow" data-method="delete" href="/users/1">アカウント削除</a>
+              <%= link_to "アカウント削除", user_path(user.id), method: :delete, data: { confirm: "アカウントを削除しますか？" } %>
             </p>
           <% end %>
         </div>
