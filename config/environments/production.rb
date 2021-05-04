@@ -91,7 +91,7 @@ Rails.application.configure do
 
 
    #mailer setting
-  config.action_mailer.default_url_options = { host: "https://kajaashopping.herokuapp.com/users/items" }
+  config.action_mailer.default_url_options = { host: "https://kajaashopping.herokuapp.com" }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
