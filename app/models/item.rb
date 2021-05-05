@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   validates :number, presence: true, format: { with: /\A[^A-Za-z]+/i, message: '"数字" をご入力下さい'}
 
   scope :desc_order, -> { order(created_at: :desc) }
-  scope :detail, ->name { where(name: name) }
+  scope :detail, ->name { find_by(name: name) }
 
   def rev_name
     case self.daiso
