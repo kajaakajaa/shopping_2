@@ -4,13 +4,14 @@ class ItemsController < UsersController
 
   def index
     @item = Item.new
-    @items = Item.desc_order
+
+    self.item_show
+    @items.desc_order
+
     @total = 0
     @items.each do |item|
       @total += item.value * item.number
     end
-    
-    public_method(:index).super_method.call
   end
 
   def create
@@ -37,7 +38,7 @@ class ItemsController < UsersController
   end
 
   def destroy
-    @detail.destroy
+    self.details.destroy_all
     redirect_to action: :index
   end
 
@@ -48,6 +49,10 @@ class ItemsController < UsersController
 
   def details
     @detail = Item.detail(params[:name])
+  end
+
+  def item_show 
+    @items = Item.where(user_id: current_user.id)
   end
 
 end
