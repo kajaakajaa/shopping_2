@@ -7,11 +7,9 @@
           <p class="header__bar__acount__logout">
             <%= link_to "ログアウト", "users/sign_out", data: { confirm: "ログアウトで宜しいですか？" } %>
           </p>
-          <% @user.each do |user| %>
-            <p class="header__bar__acount__user-delete">
-              <%= link_to "アカウント削除", user_path(user.id), method: :delete, data: { confirm: "アカウントを削除しますか？" } %>
-            </p>
-          <% end %>
+          <p class="header__bar__acount__user-delete">
+            <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, data: { confirm: "アカウントを削除しますか？" } %>
+          </p>
         </div>
     <% end %>
     <hr class="header__bar__hr">
