@@ -6,7 +6,6 @@ class ItemsController < UsersController
     @item = Item.new
 
     self.item_show
-    @items.desc_order
 
     @total = 0
     @items.each do |item|
@@ -52,7 +51,7 @@ class ItemsController < UsersController
   end
 
   def item_show 
-    @items = Item.where(user_id: current_user.id)
+    @items = Item.where(user_id: current_user.id).desc_order
   end
 
 end
