@@ -42,9 +42,9 @@
   </div>
   <div class="container__index">
     <!-- 登録一覧、更新。 -->
-    <table border="1" class="container__index__index_tbl">
-      <% if @items.any? %>
-        <form id="update" action="users/items/" accept-charset="UTF-8" method="post">
+    <% if @items.any? %>
+      <form id="update" action="users/items/" accept-charset="UTF-8" method="post">
+        <table border="" class="container__index__index_tbl">
           <input type="hidden" name="_method" value="patch" >
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
           <% @items.each do |item| %>
@@ -74,15 +74,14 @@
               </th>
             </tr>
           <% end %>
-        </form>
-      <% end %>
-    </table>
+        </table>
+      </form>
+    <% end %>
     <table class="container__index__bill_tbl" border="">
       <tr>
         <th id="container__index__bill_tbl__bill_th">会計<br><span id="bill_sp">0</span><br>円です</th>
       </tr>
-    </table>  
-
+    </table>
   </div>
 </div>
 
