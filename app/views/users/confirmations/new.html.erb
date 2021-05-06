@@ -1,16 +1,16 @@
 <div class="style_devise">
   <div class="style_devise__wrapper">
-    <h2>確認メールを再送信致します</h2>
+    <h2 class="links_component">確認メールを再送信致します</h2>
 
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
-      <div class="field">
+      <div class="field links_component">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
       </div>
 
-      <div class="actions">
+      <div class="actions links_component">
         <%= f.submit "確認メールを再送信" %>
       </div>
     <% end %>

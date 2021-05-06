@@ -14,13 +14,13 @@
       <div class="field links_component">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(最低 <%= @minimum_password_length %> 文字)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
       <div class="field links_component">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation, "Password 再確認"%><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
