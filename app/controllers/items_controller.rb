@@ -37,7 +37,7 @@ class ItemsController < UsersController
   end
 
   def destroy
-    self.details.destroy_all
+    @detail.destroy
     redirect_to action: :index
   end
 

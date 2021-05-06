@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 2021_04_27_135447) do
     t.string "daiso"
     t.integer "user_id", null: false
     t.index ["name", "user_id"], name: "index_items_on_name_and_user_id", unique: true
-    t.index ["user_id"], name: "index_items_on_user_id"
-    t.index ["value", "number"], name: "index_items_on_value_and_number"
   end
 
   create_table "users", force: :cascade do |t|
