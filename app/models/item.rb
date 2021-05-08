@@ -10,18 +10,6 @@ class Item < ApplicationRecord
     return self.find_by(:name => name, :user_id => current_user.id)
   end
 
-
-  #インスタンスメソッド
-  # def rev_name(current_user)
-  #   if self.user_id == current_user.id && self.daiso == nil
-  #     self.daiso = self.name.to_s
-  #     self.save
-  #   elsif self.user_id == current_user.id && self.daiso != nil
-  #     self.update(daiso: nil)
-  #   end
-  # end
-
-  #クラスメソッド
   def self.rev_name(current_user, detail)
     if detail.user_id == current_user.id && detail.daiso == nil
       detail.daiso = detail.name.to_s
