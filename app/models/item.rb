@@ -5,15 +5,29 @@ class Item < ApplicationRecord
   validates :number, presence: true, format: { with: /\A[^A-Za-z]+/i, message: '"数字" をご入力下さい'}
 
   scope :desc_order, -> { order(created_at: :desc) }
-  scope :detail, ->name { find_by(name: name) }
 
-  def rev_name
-    case self.daiso
-    when nil
-    self.daiso = self.name.to_s
-      self.save
-    when self.name
-      self.update(daiso: nil)
+  def self.detail(name, user_id, current_user)
+    return self.find_by(:name => name, :user_id => current_user.id)
+  end
+
+
+  #インスタンスメソッド
+  # def rev_name(current_user)
+  #   if self.user_id == current_user.id && self.daiso == nil
+  #     self.daiso = self.name.to_s
+  #     self.save
+  #   elsif self.user_id == current_user.id && self.daiso != nil
+  #     self.update(daiso: nil)
+  #   end
+  # end
+
+  #クラスメソッド
+  def self.rev_name(current_user, detail)
+    if detail.user_id == current_user.id && detail.daiso == nil
+      detail.daiso = detail.name.to_s
+      detail.save
+    elsif detail.user_id == current_user.id && detail.daiso != nil
+      detail.update(daiso: nil)
     end
   end
   

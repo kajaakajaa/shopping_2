@@ -32,7 +32,12 @@ class ItemsController < UsersController
   end
 
   def daiso
-    @detail.rev_name
+    @detail.rev_name(current_user)
+    redirect_to action: :index
+  end
+
+  def daiso
+    Item.rev_name(current_user, @detail)
     redirect_to action: :index
   end
 
@@ -41,13 +46,13 @@ class ItemsController < UsersController
     redirect_to action: :index
   end
 
-  private
+  private  # Item.find_by(mmm)  params.require(:items).permit(:name, :user_id)
   def item_params
     params.require(:item).permit(:name, :value, :number).merge(user_id: current_user.id)
   end
 
   def details
-    @detail = Item.detail(params[:name])
+    @detail = Item.detail(params[:name],params[:user_id],current_user)
   end
 
   def item_show 
