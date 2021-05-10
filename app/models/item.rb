@@ -6,9 +6,9 @@ class Item < ApplicationRecord
 
   scope :desc_order, -> { order(created_at: :desc) }
 
-  def self.detail(name, user_id, current_user)
-    return self.find_by(:name => name, :user_id => current_user.id)
-  end
+  # def self.detail(name, user_id, current_user)
+  #   return self.find_by(:name => name, :user_id => current_user.id)
+  # end
 
   def self.rev_name(current_user, detail)
     if detail.user_id == current_user.id && detail.daiso == nil

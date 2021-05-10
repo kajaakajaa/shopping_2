@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   end
 
   resources "users", only: %i[destroy]
-  scope "/users" do
-    resources :items, only: %i[index create]
-    patch "/items/" => "items#update"
-    delete "/items/destroy/:name" => "items#destroy", as: "delete"
-    post "/items/daiso/:name" => "items#daiso", as: "daiso"
-  end
-
+  # scope "/users" do
+    resources :items, only: %i[index create update destroy] do
+      member do
+        patch :daiso
+      end
+    end
+    # patch "/items/" => "items#update"
+    # delete "/items/destroy/:name" => "items#destroy", as: "delete"
+    # post "/items/daiso/:name" => "items#daiso", as: "daiso"
+# end
 end

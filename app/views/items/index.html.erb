@@ -42,7 +42,7 @@
   </div>
   <div class="container__index">
     <!-- 登録一覧、更新。 -->
-    <% if @items.any? %>
+    <% if @items.present? %>
       <form id="update" action="users/items/" accept-charset="UTF-8" method="post">
         <table border="" class="container__index__index_tbl">
           <input type="hidden" name="_method" value="patch" >
@@ -51,7 +51,7 @@
             <tr>
               <th class="container__index__index_tbl__index_th">品名</th>
                 <td class="index_td">
-                  <a href="users/items/daiso/<%= item.name %>" ref="nofollow" class="daiso" data-dsname="<%= item.daiso%>"
+                  <a href="items/<%= item.id %>/daiso" ref="nofollow" data-method="patch" class="daiso" data-dsname="<%= item.daiso%>"
                     data-method="post"><%= item.name %>
                   </a>
                 </td>
@@ -67,7 +67,7 @@
                 <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>">
               </th>
               <th id="delete">
-                <a href="users/items/destroy/<%= item.name %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
+                <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
               </th>
               <th>
                 <input type="button" class="reset" name="reset" value=" 未 " data-from=".counter<%= item.id %>" data-bill_val="<%= item.value %>">

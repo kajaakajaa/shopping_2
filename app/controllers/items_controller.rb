@@ -1,11 +1,11 @@
 class ItemsController < UsersController
   before_action :authenticate_user!
-  before_action :details, only: %i[daiso destroy]
+  # before_action :details, only: %i[daiso destroy]
 
   def index
     @item = Item.new
-
-    self.item_show
+    @items = Item.where(user_id: current_user.id).desc_order
+    # self.item_show
 
     @total = 0
     @items.each do |item|
@@ -31,17 +31,20 @@ class ItemsController < UsersController
     redirect_to action: :index
   end
 
-  def daiso
-    @detail.rev_name(current_user)
-    redirect_to action: :index
-  end
+  # def daiso
+  #   @detail.rev_name(current_user)
+  #   redirect_to action: :index
+  # end
 
   def daiso
+    # @detail = Item.detail(params[:name],params[:user_id],current_user)
+    @detail = current_user.items.find_by(id: params[:id])
     Item.rev_name(current_user, @detail)
     redirect_to action: :index
   end
 
   def destroy
+    @detail = current_user.items.find_by(id: params[:id])
     @detail.destroy
     redirect_to action: :index
   end
@@ -51,13 +54,15 @@ class ItemsController < UsersController
     params.require(:item).permit(:name, :value, :number).merge(user_id: current_user.id)
   end
 
-  def details
-    @detail = Item.detail(params[:name],params[:user_id],current_user)
-  end
+  # def details
+  #   # @detail = Item.detail(params[:name],params[:user_id],current_user)
+  #   # @detail = Item.detail(params[:id],params[:user_id],current_user)
+  #   @detail = current_user.items.find_by(id: params[:id])
+  # end
 
-  def item_show 
-    @items = Item.where(user_id: current_user.id).desc_order
-  end
+  # def item_show 
+  #   @items = Item.where(user_id: current_user.id).desc_order
+  # end
 
 end
 
