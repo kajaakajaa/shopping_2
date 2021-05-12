@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   resources "users", only: %i[destroy]
   # scope "/users" do
     resources :items, only: %i[index create update destroy] do
-      member do
-        patch :daiso
-      end
+      # member do
+        patch :daiso, on: :member
+      # end
     end
     # patch "/items/" => "items#update"
     # delete "/items/destroy/:name" => "items#destroy", as: "delete"

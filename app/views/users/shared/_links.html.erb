@@ -11,7 +11,7 @@
     <%= link_to "パスワードをお忘れですか?", new_password_path(resource_name) %><br />
   <% end %>
 
-  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%- if user_signed_in? && devise_mapping.confirmable? && controller_name != 'confirmations' %>
     <%= link_to "本登録設定メールの再送信", new_confirmation_path(resource_name) %><br />
   <% end %>
 </div>
