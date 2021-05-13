@@ -43,31 +43,28 @@
   <div class="container__index">
     <!-- 登録一覧、更新。 -->
     <% if @items.present? %>
-      <form id="update" action="users/items/" accept-charset="UTF-8" method="post">
+      <%# <form id="update" action="users/items/" accept-charset="UTF-8" method="post"> %>
+      <%= form_with( url: "/items/:id", method: :patch, id: :update, local: true) do |f| %>
         <table border="" class="container__index__index_tbl">
-          <input type="hidden" name="_method" value="patch" >
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
           <% @items.each do |item| %>
             <tr>
               <th class="container__index__index_tbl__index_th">品名</th>
                 <td class="index_td">
-                  <a href="items/<%= item.id %>/daiso" ref="nofollow" data-method="patch" class="daiso" data-dsname="<%= item.daiso%>"
-                    data-method="post"><%= item.name %>
-                  </a>
+                  <%= link_to "#{item.name}", "/items/#{item.id}/daiso", method: :patch, class: :daiso, data: { dsname: "#{item.daiso}" } %>
                 </td>
               <th class="container__index__index_tbl__index_th">単価</th>
                 <td class="index_td_price unit_price" data-price="<%= item.value %>"> <%= item.value %> 円</td>
               <th class="container__index__index_tbl__index_th">個数</th>
                 <td class="index_number_td">
-                  <input type="text" value="<%= item.number %>" name="items[<%= item.id %>]"
-                  class="counter<%= item.id %> amount" oninput="value = value.replace(/[^0-9]+/i, '')"> 点
+                  <%= f.text_field "items[#{item.id}]", value: "#{item.number}", class: "counter#{item.id} amount",
+                    oninput: "value = value.replace(/[^0-9]+/i, '')" %> 点<br>
                 </td>
               <th id="spinner_button">
                 <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter<%= item.id %>"> 
                 <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter<%= item.id %>">
               </th>
               <th id="delete">
-                <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" data-confirm='"<%= item.name %>" 削除するで？'>[削除]</a> 
+                <%= link_to "[削除]", "/items/#{item.id}", method: :delete, data: { confirm: "'#{item.name}' 削除しても宜しいですか？" } %>
               </th>
               <th>
                 <input type="button" class="reset" name="reset" value=" 未 " data-from=".counter<%= item.id %>" data-bill_val="<%= item.value %>">
@@ -75,7 +72,7 @@
             </tr>
           <% end %>
         </table>
-      </form>
+      <% end %>
     <% end %>
     <table class="container__index__bill_tbl" border="">
       <tr>
