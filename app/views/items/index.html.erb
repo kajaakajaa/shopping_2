@@ -5,25 +5,22 @@
       <p class="container__form__tag__item">
         <%= f.label :name, :品名 %>
         <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
-        <% if @item.errors.messages[:name].any? %>
-          <span id="error"><%= @item.errors.messages[:name][0] %></span>
-        <% end %>
+        <!-- カスタムエラーテンプレート↓ -->
+        <%= render partial: "layouts/errors_messages", locals: { message: :name } %>
       </p> 
 
       <p class="container__form__tag__value">
         <%= f.label :value, :価格 %>
         <%= f.text_field :value, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-        <% if @item.errors.messages[:value].any? %>  
-          <span id="error"><%= @item.errors.messages[:value][0] %></span>
-        <% end %>
+        <!-- カスタムエラーテンプレート↓ -->
+        <%= render partial: "layouts/errors_messages", locals: { message: :value } %>
       </p>
 
       <p class="container__form__tag__number">
         <%= f.label :number, :個数 %>
         <%= f.text_field :number, placeholder: "半角数字で入力下さい", class: "placeholder", oninput: "value = value.replace(/[^0-9]+/i, '')" %>
-        <% if @item.errors.messages[:number].any? %>
-          <span id="error"><%= @item.errors.messages[:number][0] %></span>
-        <% end %>
+        <!-- カスタムエラーテンプレート↓ -->
+        <%= render partial: "layouts/errors_messages", locals: { message: :number } %>
       </p>
     <% end %>
     <p class="container__form__send">

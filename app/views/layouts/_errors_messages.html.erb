@@ -1,0 +1,3 @@
+<% if @item.errors.messages[message].any? %>
+  <span id="error"><%= @item.errors.messages[message][0] %></span>
+<% end %>
