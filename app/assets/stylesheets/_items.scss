@@ -384,9 +384,6 @@ input[type="button"],input[type="submit"]{
 // エラーメッセージ
 #error {
   display: block;
-  position: absolute;
-  top: 40px;
-  left: 10px;
   font-size: 12px;
   font-weight: bold;
   color: tomato;

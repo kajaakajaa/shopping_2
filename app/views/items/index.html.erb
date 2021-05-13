@@ -43,7 +43,6 @@
   <div class="container__index">
     <!-- 登録一覧、更新。 -->
     <% if @items.present? %>
-      <%# <form id="update" action="users/items/" accept-charset="UTF-8" method="post"> %>
       <%= form_with( url: "/items/:id", method: :patch, id: :update, local: true) do |f| %>
         <table border="" class="container__index__index_tbl">
           <% @items.each do |item| %>
