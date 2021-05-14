@@ -7,7 +7,7 @@
         <%= f.text_field :name, placeholder: "空白はご遠慮下さい", class: "placeholder" %>
         <!-- カスタムエラーテンプレート↓ -->
         <%= render partial: "layouts/errors_messages", locals: { element: :item, message: :name } %>
-      </p> 
+      </p>
 
       <p class="container__form__tag__value container__form__tag__element">
         <%= f.label :value, :価格 %>

@@ -1,12 +1,12 @@
 class ItemsController < UsersController
   before_action :authenticate_user!
   before_action :detail, only: %i[daiso destroy]
-  #content_formの処理呼び出し。↓
+  #form_contentの処理呼び出し。↓
   include IndexForm
 
   def index
     @item = Item.new
-    content_form
+    form_content
   end
 
   def create
@@ -14,7 +14,7 @@ class ItemsController < UsersController
     if @item.save
       redirect_to action: :index
     else
-      content_form
+      form_content
       render "index"
     end
   end

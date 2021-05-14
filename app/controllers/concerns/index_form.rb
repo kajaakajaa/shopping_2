@@ -2,7 +2,7 @@ module IndexForm
     extend ActiveSupport::Concern
     
     included do
-        def content_form
+        def form_content
             @items = Item.where(user_id: current_user.id).desc_order
 
             @total = 0
