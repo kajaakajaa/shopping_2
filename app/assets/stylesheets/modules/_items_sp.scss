@@ -18,6 +18,16 @@
           width: 80%;
           display: flex;
           justify-content: space-evenly;
+
+          &__element {
+
+            &__error {
+              display: block;
+              font-size: 7px;
+              font-weight: bold;
+              color: tomato;
+            }          
+          }
     
           &__item, &__value, &__number {
             display: inline-block;

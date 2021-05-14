@@ -16,6 +16,16 @@
       display: flex;
       justify-content: space-evenly;
 
+      &__element {
+        
+        &__error {
+          display: block;
+          font-size: 12px;
+          font-weight: bold;
+          color: tomato;
+        }
+      }
+
       &__item, &__value, &__number {
         display: inline-block;
   
@@ -382,18 +392,8 @@ input[type="button"],input[type="submit"]{
 
 
 // エラーメッセージ
-#error {
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  color: tomato;
-}
 @media screen and (max-width: 950px) {
-  #error {
-    display: block;
-    position: absolute;
-    top: 30px;
-    left: 10px;
+  .container__form__tag__element__error {
     font-size: 12px;
     font-weight: bold;
     color: tomato;
