@@ -1,3 +1,67 @@
+    // 商品名 + 個数(更新)
+    .index_td, .amount {
+      text-align: center;
+      white-space: nowrap;
+    }
+  
+    // 個数(更新)
+    .amount {
+      font-size: 16px;
+      width: 70px;
+    }
+  
+    // マウスポインターの変更
+    input[type="button"],input[type="submit"]{
+      cursor: pointer;
+    }
+  
+    // 削除
+    #delete > a {
+      color: black;
+    }
+  
+    // リセット
+  .reset, .amount {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: darkblue;
+  }
+  
+  .aft_rst {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+  }
+  
+  
+  .aft_counter {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+  
+  
+  .daiso, .aft_daiso {
+    color: black;
+    font-weight: bold;
+  }
+  
+  
+  .aft_daiso {
+    background-color: lightblue;
+  }
+  
+  
+  // お会計
+  #bill_sp {
+    color: blue;
+    font-size: 17px;
+    -webkit-text-stroke: 0.3px black;
+  }
+
+  // container
 .container {
   position: relative;
   margin-top: 95px;
@@ -31,6 +95,7 @@
   
         & > input {
           width: 200px;
+          text-align: center;
         }
       }
   
@@ -65,11 +130,6 @@
       top: 5px;
       right: 20%;
     }
-    @media screen and (max-width: 1190px) {
-      &__updatesend {
-        position: static;
-      }
-    }
   }
 
   &__index {
@@ -82,427 +142,25 @@
     &__index_tbl {
       font-size: 16px;
       background-color: rgb(255, 149, 149);
+
+      &__index_th {
+
+        &__value {
+          text-align: center;
+        }
+      }
     }
 
     &__bill_tbl {
       position: fixed;
-      right: 20%;
+      right: 15%;
       font-weight: bold;
       background-color: rgb(255, 149, 149);
     }
-
-    @media screen and (max-width: 1190px) {
+    @media screen and (max-width: 1049px) {
       &__bill_tbl {
-        position: static;
-        font-size: 10px;
-        font-weight: bold;
-        background-color: rgb(255, 149, 149);
+        right: 10%;
       }
     }
   }
 }
-
-// 入力フォーム
-@media screen and (min-width: 801px) and (max-width: 950px) {
-  #form {
-    box-sizing: border-box;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0 auto;
-    height: 200px;
-    width: 600px;
-    position: relative;
-  }
-}
-@media screen and (max-width: 800px) {
-  #form {
-    box-sizing: border-box;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 0 auto;
-    height: 210px;
-    width: 500px;
-    position: relative;
-  }
-}
-
-
-// form内の"品名" p要素。
-@media screen and (min-width: 951px){
-  #form_item {
-    position:absolute;
-    top: 60px;
-    height: 60px;
-  }
-}
-@media screen and (min-width: 801px) and (max-width: 950px) {
-  #form_item {
-    position:absolute;
-    top: 70px;
-    height: 60px;
-  }
-}
-@media screen and (min-width: 671px) and (max-width: 800px) {
-  #form_item {
-    position: absolute;
-    top: 30px;
-  }
-}
-@media screen and (max-width: 670px) {
-  #form_item {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-  }
-}
-
-
-// from内の"価格" p要素。
-@media screen and (min-width: 951px){
-  #form_value {
-    position: absolute;
-    top: 60px;
-    height: 60px;
-    left: 250px;
-  }
-}
-@media screen and (min-width: 801px) and (max-width: 950px) {
-  #form_value {
-    position: absolute;
-    top: 70px;
-    height: 60px;
-    left: 210px;
-  }
-}
-@media screen and (min-width: 671px) and (max-width: 800px) {
-  #form_value {
-    position: absolute;
-    top: 90px;
-  }
-}
-@media screen and (max-width: 670px) {
-  #form_value {
-    position: absolute;
-    top: 90px;
-    left: 30px;
-  }
-}
-
-
-// // from内の"個数" p要素。
-@media screen and (min-width: 951px){
-  #form_number {
-    position: absolute;
-    top: 60px;
-    height: 60px;
-    right: 0;
-  }
-}
-@media screen and (min-width: 801px) and (max-width: 950px) {
-  #form_number {
-    position: absolute;
-    top: 70px;
-    height: 60px;
-    right: 0;
-  }
-}
-@media screen and (min-width: 671px) and (max-width: 800px) {
-  #form_number {
-    position: absolute;
-    top: 150px;
-  }
-}
-@media screen and (max-width: 670px) {
-  #form_number {
-    position: absolute;
-    top: 150px;
-    left: 30px;
-  }
-}
-
-
-@media screen and (min-width: 951px) {
-  #form_send {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-}
-@media screen and (min-width: 801px) and (max-width: 950px) {
-  #form_send {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-}
-@media screen and (max-width: 800px) {
-  #form_send {
-    position: absolute;
-    top: 30px;
-    right: 30%;
-  }
-}
-
-
-// 合計額(ラベル) + 合計額
-
-@media screen and (min-width: 350px) and (max-width: 699px) {
-  #total {
-    width: 30%;
-    position: absolute;
-    top: 135px;
-    left: 20%;
-    margin: 20px 35%;
-    background-color: rgb(255, 149, 149);
-    white-space: nowrap;
-  }
-}
-
-@media screen and (max-width: 349px) {
-  #total {
-    width: 30%;
-    position: absolute;
-    top: 85px;
-    left: 30%;
-    margin: 20px 35%;
-    background-color: rgb(255, 149, 149);
-    white-space: normal;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-// 登録金額
-@media screen and (max-width: 768px) {
-  .total_td {
-    width: 70%;
-    text-align: center;
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 349px) {
-  .total_td {
-    width: 70%;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 349px) {
-  .total_th {
-    font-size: 14px;
-  }
-}
-
-// 登録一覧
-// #index_tbl {
-//   position: absolute;
-//   top: 20px;
-//   left: 20%;
-//   transform: translate(-20%, 0);
-//   font-size: 16px;
-//   background-color: rgb(255, 149, 149);
-//   white-space: nowrap;
-// }
-
-@media screen and (max-width: 879px) {
-  #index_tbl {
-    position: absolute;
-    top: 20px;
-    left: 20%;
-    transform: translate(-20% 0);
-    font-size: 12px;  
-    background-color: rgb(255, 149, 149);
-    white-space: nowrap;
-  }
-}
-@media screen and (max-width: 799px) {
-  #index_tbl {
-    position: absolute;
-    top: 20px;
-    left: 20%;
-    transform: translate(-20% 0);
-    font-size: 10px;  
-    background-color: rgb(255, 149, 149);
-    white-space: nowrap;
-  }
-}
-
-
-// 商品名 + 個数(更新)
-@media screen and (min-width: 412px){
-  .index_td, .amount {
-    text-align: center;
-    white-space: nowrap;
-  }
-}
-
-// 個数(更新)
-.amount {
-  font-size: 16px;
-  width: 70px;
-}
-
-// 個数(更新)
-@media screen and (max-width: 879px) {
-  .amount {
-    font-size: 10px;
-    width: 40px;
-  }
-}
-
-// ボタンスピナー
-@media screen and (max-width: 500px) {
-  .btnspinner {
-    font-size: 10px;
-  }
-}
-
-// 更新（送信）
-
-
-
-
-// 削除
-#delete > a {
-  color: black;
-}
-
-// input(text-type) のスピナーボタンを消す。
- input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-// マウスポインターの変更
-input[type="button"],input[type="submit"]{
-  cursor: pointer;
-}
-
-
-// エラーメッセージ
-@media screen and (max-width: 950px) {
-  .container__form__tag__element__error {
-    font-size: 12px;
-    font-weight: bold;
-    color: tomato;
-  }
-}
-
-
-// 商品名検索
-@media screen and (min-width: 901px) {
-  #search {
-    position: absolute;
-    top: 60px;
-    right: 10%;
-  }
-}
-@media screen and (min-width: 701px) and (max-width: 900px) {
-  #search {
-    font-size: 10px;
-    position: absolute;
-    top: 60px;
-    right: 10%;
-  }
-}
-@media screen and (max-width: 700px) {
-  #search {
-    font-size: 10px;
-  }
-}
-
-
-.placeholder, #search::placeholder {
-  text-align: center; 
-}
-
-// スマホ用に幅を設定
-.placeholder {
-  width: 150px;
-}
-
-
-// リセット
-.reset, .amount {
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  background-color: darkblue;
-}
-
-@media screen and (max-width: 879px) {
-  .reset {
-    font-size: 10px;
-  }
-}
-
-
-.aft_rst {
-  color: red;
-  font-weight: bold;
-  cursor: pointer;
-  background-color: white;
-}
-
-
-.aft_counter {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
-
-
-.daiso {
-  color: black;
-  font-weight: bold;
-}
-
-
-.aft_daiso {
-  color: black;
-  font-weight: bold;
-  background-color: lightblue;
-}
-
-
-// お会計
-#bill_sp {
-  color: blue;
-  font-size: 17px;
-  -webkit-text-stroke: 0.3px black;
-}
-
-@media screen and (max-width: 739px){
-  #bill_tbl {
-    font-weight: bold;
-    background-color: rgb(255, 149, 149);
-    position: fixed;
-    right: 15%;
-    top: 500px;
-  }
-}
-
-
-// #form_wp {
-//   // background-color: lightblue;
-//   position: absolute;
-//   height: 1000px;
-//   width: 800px;
-//   top: 310px;
-//   margin: auto;
-//   right: 0;
-//   left: 0;
-// }
-
