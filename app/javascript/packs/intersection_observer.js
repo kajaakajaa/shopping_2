@@ -6,6 +6,8 @@
 
         // 交差監視対象要素の取得。
         const total_tbl = document.querySelector(".container__total_wrap__tbl");
+        // 更新ボタン移動先/移動前
+        // const bill_tbl = document.querySelector(".container__index__bill_tbl");
         const updateBtn = document.querySelector(".container__total_wrap__updatesend");
 
         const options = {
@@ -19,9 +21,10 @@
         function callback(entries, obsever) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
-                    updateBtn.classList.toggle("mvUpdateBtn");
+                    // updateBtn.classList.remove(updateBtn);
+                    updateBtn.classList.add("mvUpdateBtn");
                 }else{
-                    updateBtn.classList.toggle("mvUpdateBtn");
+                    updateBtn.classList.remove("mvUpdateBtn");
                 }
             });
         }
