@@ -21,7 +21,6 @@
         function callback(entries, obsever) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
-                    // updateBtn.classList.remove(updateBtn);
                     updateBtn.classList.add("mvUpdateBtn");
                 }else{
                     updateBtn.classList.remove("mvUpdateBtn");
