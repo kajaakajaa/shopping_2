@@ -7,8 +7,10 @@
         // 交差監視対象要素の取得。
         const total_tbl = document.querySelector(".container__total_wrap__tbl");
         // 更新ボタン移動先/移動前
-        // const bill_tbl = document.querySelector(".container__index__bill_tbl");
-        const updateBtn = document.querySelector(".container__total_wrap__updatesend");
+        const total_wrap = document.querySelector(".container__total_wrap");
+        const aft_mvUp = document.querySelector(".aft_mvUp");
+        const bill_div = document.querySelector(".container__index__bill_div");
+        // const updateBtn = document.querySelector(".container__total_wrap__updatesend");
 
         const options = {
             root: null,
@@ -21,22 +23,21 @@
         function callback(entries, obsever) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
+                    // console.log(!entry.isIntersecting);
                     // updateBtn.classList.add("mvUpdateBtn");
-                    $(updateBtn).css({
-                      "position": "fixed",
-                      "left": "20px",
-                      "top": "77%",
-                      "background-color": "red",
-                      "color": "black",
-                      "font-weight": "bold",
-                      "font-size": "16px",
-                      "width": "55px",
-                      "height": "33px",
-                      "border": "solid 1px",
-                      "border-radius": "5px"
-                    });
-                // }else{
-                //     updateBtn.classList.remove("mvUpdateBtn");
+                    total_wrap.classList.remove("container__total_wrap__updatesend");
+                    console.log(total_wrap.classList);
+                    aft_mvUp.insertAdjacentHTML("afterbegin", `
+                        <input type="submit" class="aft_mvUp__btn"
+                            id="updatesend" name="commit" value="更新" form="update">
+                    `);
+                }else{
+                    aft_mvUp.classList.remove("aft_mvUp__btn");
+                    console.log(aft_mvUp.classList);
+                    total_wrap.insertAdjacentHTML("beforeend", `
+                        <input type="submit" class="container__total_wrap__updatesend"
+                            id="updatesend" name="commit" value="更新" form="update">
+                    `);
                 }
             });
         }

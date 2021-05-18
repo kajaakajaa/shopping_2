@@ -80,19 +80,6 @@
           top: 0;
           right: 15%;
         }
-        // .mvUpdateBtn {
-        //   position: fixed;
-        //   left: 20px;
-        //   top: 77%;
-        //   background-color: red;
-        //   color: black;
-        //   font-weight: bold;
-        //   font-size: 16px;
-        //   width: 55px;
-        //   height: 33px;
-        //   border: solid 1px;
-        //   border-radius: 5px;
-        // }
       }
     
       &__index {
@@ -136,17 +123,38 @@
             font-size: 10px;
           }
         }
-    
-        &__bill_tbl {
+
+        &__bill_div {
           position: fixed;
           left: 5%;
           bottom: 5%;
-          background-color: black;
-          color: white;
-          font-weight: bold;
+          height: 70px;
 
-          #bill_sp {
+          .aft_mvUp {
+
+            &__btn {
+              position: absolute;
+              left: 0;
+              top: -50px;
+              height: 40px;
+              background-color: red;
+              color: black;
+              font-weight: bold;
+              font-size: 16px;
+              width: 55px;
+              border: solid 1px;
+              border-radius: 5px;
+            }
+          }
+
+          &__tbl {
+            background-color: black;
             color: white;
+            font-weight: bold;
+
+            #bill_sp {
+              color: white;
+            }
           }
         }
       }

@@ -150,21 +150,24 @@
         }
       }
     }
-    @media screen and (min-width: 1050px) {
-      &__bill_tbl {
-        position: fixed;
-        right: 15%;
-        font-weight: bold;
-        background-color: rgb(255, 149, 149);
+    &__bill_div {
+      
+      @media screen and (min-width: 1050px) {
+        &__tbl {
+          position: fixed;
+          right: 15%;
+          font-weight: bold;
+          background-color: rgb(255, 149, 149);
+        }
       }
+      @media screen and (min-width: 412px) and (max-width: 1049px) {
+        &__tbl {
+          position: fixed;
+          right: 10%;
+          font-weight: bold;
+          background-color: rgb(255, 149, 149);
+        }
     }
-    @media screen and (min-width: 412px) and (max-width: 1049px) {
-      &__bill_tbl {
-        position: fixed;
-        right: 10%;
-        font-weight: bold;
-        background-color: rgb(255, 149, 149);
-      }
     }
   }
 }
