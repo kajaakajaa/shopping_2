@@ -21,9 +21,22 @@
         function callback(entries, obsever) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
-                    updateBtn.classList.add("mvUpdateBtn");
-                }else{
-                    updateBtn.classList.remove("mvUpdateBtn");
+                    // updateBtn.classList.add("mvUpdateBtn");
+                    $(updateBtn).css({
+                      "position": "fixed",
+                      "left": "20px",
+                      "top": "77%",
+                      "background-color": "red",
+                      "color": "black",
+                      "font-weight": "bold",
+                      "font-size": "16px",
+                      "width": "55px",
+                      "height": "33px",
+                      "border": "solid 1px",
+                      "border-radius": "5px"
+                    });
+                // }else{
+                //     updateBtn.classList.remove("mvUpdateBtn");
                 }
             });
         }
