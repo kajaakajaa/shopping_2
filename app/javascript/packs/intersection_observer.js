@@ -19,9 +19,9 @@
         function callback(entries, obsever) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
-                    updateBtn.classList.add("mvUpdateBtn");
+                    updateBtn.classList.toggle("mvUpdateBtn");
                 }else{
-                    updateBtn.classList.remove("mvUpdateBtn");
+                    updateBtn.classList.toggle("mvUpdateBtn");
                 }
             });
         }
