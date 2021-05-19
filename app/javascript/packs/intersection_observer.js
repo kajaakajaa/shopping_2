@@ -7,7 +7,7 @@
         // 交差監視対象要素の取得。
         const total_tbl = document.querySelector(".container__total_wrap__tbl");
         // 更新ボタンの移動(表示/非表示)
-        const mvUpd_btn = document.querySelector(".container__index__bill_div__aft_mvUpd__btn");
+        const mvUpd_btn = document.querySelector(".container__index__bill_div__aft_mvUpBtn");
         const updateBtn = document.querySelector(".container__total_wrap__updatesend");
 
         const options = {
