@@ -10,7 +10,7 @@
         const total_wrap = document.querySelector(".container__total_wrap");
         const aft_mvUp = document.querySelector(".aft_mvUp");
         const bill_div = document.querySelector(".container__index__bill_div");
-        // const updateBtn = document.querySelector(".container__total_wrap__updatesend");
+        const updateBtn = document.querySelector(".container__total_wrap__updatesend");
 
         const options = {
             root: null,
@@ -25,19 +25,20 @@
                 if (!entry.isIntersecting) {
                     // console.log(!entry.isIntersecting);
                     // updateBtn.classList.add("mvUpdateBtn");
-                    total_wrap.classList.remove("container__total_wrap__updatesend");
+                    $(updateBtn).prependTo(aft_mvUp);
                     console.log(total_wrap.classList);
-                    aft_mvUp.insertAdjacentHTML("afterbegin", `
-                        <input type="submit" class="aft_mvUp__btn"
-                            id="updatesend" name="commit" value="更新" form="update">
-                    `);
-                }else{
-                    aft_mvUp.classList.remove("aft_mvUp__btn");
-                    console.log(aft_mvUp.classList);
-                    total_wrap.insertAdjacentHTML("beforeend", `
-                        <input type="submit" class="container__total_wrap__updatesend"
-                            id="updatesend" name="commit" value="更新" form="update">
-                    `);
+                    updateBtn.classList.toggle(".aft_mvUp__btn")
+                    // aft_mvUp.insertAdjacentHTML("afterbegin", `
+                    //     <input type="submit" class="aft_mvUp__btn"
+                    //         id="updatesend" name="commit" value="更新" form="update">
+                    // `);
+                // }else{
+                //     aft_mvUp.classList.remove("aft_mvUp__btn");
+                //     console.log(aft_mvUp.classList);
+                //     total_wrap.insertAdjacentHTML("beforeend", `
+                //         <input type="submit" class="container__total_wrap__updatesend"
+                //             id="updatesend" name="commit" value="更新" form="update">
+                //     `);
                 }
             });
         }
