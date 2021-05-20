@@ -72,51 +72,54 @@ $(function(){
 
 
       //リセット機能
-      var updatesend = document.getElementById("updatesend");
-      var resets = document.getElementsByClassName("reset");
       let bill_total = 0;
+      var updatesends = document.getElementsByClassName("updatesend");
+      var resets = document.getElementsByClassName("reset");
+        updatesends = Array.from(updatesends);
         resets = Array.from(resets);
         resets.forEach(reset => {
           var from = reset.dataset.from;
           var rstnum = $(from).val();
-            reset.addEventListener("click", () =>{
-              reset.classList.toggle("aft_rst");
-              if(reset.value == " 未 "){
-                reset.value = " 済 ";
-              }else if(reset.value !== " 未 "){
-                reset.value = " 未 ";
+          reset.addEventListener("click", () =>{
+            reset.classList.toggle("aft_rst");
+            if(reset.value == " 未 "){
+              reset.value = " 済 ";
+            }else if(reset.value !== " 未 "){
+              reset.value = " 未 ";
             };
           });
           // 条件分岐
-          updatesend.addEventListener("click", () => {
-              if(reset.value == " 済 " && rstnum > 0){
-                $(from).val(0);
-              }else if(reset.value == " 済 " && rstnum > 0){
-                reset.value == " 未 ";
-            };
+          updatesends.forEach(updatesend => {
+            updatesend.addEventListener("click", () => {
+                if(reset.value == " 済 " && rstnum > 0){
+                  $(from).val(0);
+                }else if(reset.value == " 済 " && rstnum > 0){
+                  reset.value == " 未 ";
+              };
+            });
           });
 
-            if(rstnum == 0){
-              reset.classList.toggle("aft_rst");
-              reset.value = " 済 ";
-              $(from).toggleClass("aft_counter");
-            }
+          if(rstnum == 0){
+            reset.classList.toggle("aft_rst");
+            reset.value = " 済 ";
+            $(from).toggleClass("aft_counter");
+          }
 
 
             // お会計機能
-            var bill_sp = document.getElementById("bill_sp");
-            var bill_val = reset.dataset.bill_val;
-                reset.addEventListener("click", () =>{
-                  if(reset.value == " 済 " && rstnum > 0){
-                    bill_total += parseInt(bill_val) * parseInt(rstnum); //reset より取得した 単価 * 個数
-                    console.log(bill_total);
-                    bill_sp.innerText = bill_total;
-                  }else if(reset.value == " 未 "){
-                    bill_total -= parseInt(bill_val) * parseInt(rstnum);
-                    console.log(bill_total);
-                    bill_sp.innerText = bill_total;
-                  }
-              });
+          var bill_sp = document.getElementById("bill_sp");
+          var bill_val = reset.dataset.bill_val;
+              reset.addEventListener("click", () =>{
+                if(reset.value == " 済 " && rstnum > 0){
+                  bill_total += parseInt(bill_val) * parseInt(rstnum); //reset より取得した 単価 * 個数
+                  console.log(bill_total);
+                  bill_sp.innerText = bill_total;
+                }else if(reset.value == " 未 "){
+                  bill_total -= parseInt(bill_val) * parseInt(rstnum);
+                  console.log(bill_total);
+                  bill_sp.innerText = bill_total;
+                }
+            });
         });
 
         // "daiso" 表示機能
