@@ -135,7 +135,7 @@
             left: 0;
             top: -50px;
             height: 40px;
-            background-color: red;
+            background-color: rgba(255,0,0,0.7);
             color: black;
             font-weight: bold;
             font-size: 16px;
@@ -144,14 +144,10 @@
             border-radius: 5px;
           }
 
-          &__tbl {
-            background-color: black;
-            color: white;
+          &__tbl, #bill_sp {
+            background-color: rgba(0,0,0,0.7);
             font-weight: bold;
-
-            #bill_sp {
-              color: white;
-            }
+            color: white;
           }
         }
       }
