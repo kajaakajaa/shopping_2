@@ -21,11 +21,11 @@
         function callback(entries, obsever) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    updateBtn.style.visibility = "visible";
-                    mvUpd_btn.style.visibility = "hidden";
+                    updateBtn.style.display = "inline";
+                    mvUpd_btn.style.display = "none";
                 }else{
-                    updateBtn.style.visibility = "hidden";
-                    mvUpd_btn.style.visibility = "visible";
+                    updateBtn.style.display = "none";
+                    mvUpd_btn.style.display = "inline";
                 }
             });
         }
