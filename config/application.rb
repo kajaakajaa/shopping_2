@@ -20,3 +20,12 @@ module Shopping2
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end
+
+config.generators do |g|
+
+  # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化
+  g.factory_bot false
+
+  # ファクトリファイルの置き場を変更
+  # g.factory_bot dir: 'custom/dir/for/factories'
+end
