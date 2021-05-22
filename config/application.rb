@@ -21,11 +21,11 @@ module Shopping2
   end
 end
 
-config.generators do |g|
+# config.generators do |g|
 
-  # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化
-  g.factory_bot false
+#   # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化
+#   g.factory_bot false
 
-  # ファクトリファイルの置き場を変更
-  # g.factory_bot dir: 'custom/dir/for/factories'
-end
+#   # ファクトリファイルの置き場を変更
+#   # g.factory_bot dir: 'custom/dir/for/factories'
+# end
