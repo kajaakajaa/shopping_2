@@ -6,7 +6,14 @@
 html {
     background-color: rgb(255, 217, 45);
 }
-
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 .notifications {
     top: 0;
     right: 0;
@@ -15,7 +22,8 @@ html {
     color: white;
     text-align: center;
     background-color: black;
-    z-index: 2
+    z-index: 2;
+    animation: fadeOut 1s 3.5s forwards;
 }
 
 .timedout {
