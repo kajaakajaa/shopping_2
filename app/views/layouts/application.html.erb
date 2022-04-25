@@ -10,6 +10,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>  <%# ←マニュフェストファイルの指定 →application.css(マニュフェストファイル) %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  <%# ←マニュフェストファイルの指定 application.js(マニュフェストファイル) %>
+      <!-- favicon -->
+    <link rel="icon" href="/app/assets/images/favicon.ico">
+      <!-- windows version別 -->
+    <link rel=”icon” type=”image/vnd.microsoft.icon” href="/app/assets/images/favicon.ico">
+    <link rel=”shortcut icon” href=”/app/assets/images/favicon.ico>
+      <!-- iphone -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/app/assets/images/apple-touch-icon.png">
+      <!-- android -->
+    <link rel="icon" type="image/png" href="/app/assets/images/android-touch-icon.png" sizes="192x192">
+    <!-- css -->
   </head>
 
   <body>
